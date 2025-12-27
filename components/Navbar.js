@@ -3,6 +3,7 @@ import React, { useState, useRef, useEffect } from "react";
 import Link from "next/link";
 import { Menu, X } from "lucide-react";
 import gsap from "gsap";
+import { Github } from 'lucide-react';
 
 const Navbar = () => {
   const [open, setOpen] = useState(false);
@@ -31,20 +32,33 @@ const Navbar = () => {
         </Link>
 
         {/* Desktop Menu */}
-        <ul className="hidden md:flex gap-10 text-white">
-          <li className="hover:text-blue-500 transition-all duration-200 text-[18px]">
+        <ul className="hidden md:flex gap-8 text-white">
+          <li className="hover:text-blue-500 transition-all duration-200 text-[17px]">
             <Link href="/roadmaps">Explore Roadmaps</Link>
           </li>
-          <li className="hover:text-blue-500 transition-all duration-200 text-[18px]">
+          <li className="hover:text-blue-500 transition-all duration-200 text-[17px]">
             <Link href="/notes">Download Notes</Link>
           </li>
-          <li className="hover:text-blue-500 transition-all duration-200 text-[18px]">
+          <li className="hover:text-blue-500 transition-all duration-200 text-[17px]">
             <Link href="/skills">Most Popular Skills</Link>
           </li>
-          <li className="hover:text-blue-500 transition-all duration-200 text-[18px]">
-            <Link href="/" target="_blank">Visit our website MathsBuddy</Link>
+          <li className="hover:text-blue-500 transition-all duration-200 text-[17px]">
+            <Link href="https://maths-buddy-six.vercel.app/" target="_blank">Visit our website MathsBuddy</Link>
+          </li>
+          <li className="hover:text-blue-500 transition-all duration-200  text-[17px]">
+            <Link href="https://sanidhy-portfolio.vercel.app/" target="_blank">Portfolio</Link>
+          </li>
+          <li className="hover:text-blue-500 transition-all list-none items-center gap-3 flex  duration-200 ">
+            <Link href='https://github.com/SanidhyaGupta-10/' target="_blank">
+              <span><Github /></span>
+            </Link>
+            <Link href='https://github.com/SanidhyaGupta-10/' target="_blank">
+              <span>Github</span>
+            </Link>
           </li>
         </ul>
+      
+        
 
         {/* Mobile Menu Button */}
         <button
@@ -58,9 +72,8 @@ const Navbar = () => {
       {/* Mobile Menu */}
       <div
         ref={mobileMenuRef}
-        className={`md:hidden absolute top-full left-0 w-full bg-black/90 backdrop-blur-md border-t border-white/10 overflow-hidden ${
-          open ? "block" : "hidden"
-        }`}
+        className={`md:hidden absolute top-full left-0 w-full bg-black/90 backdrop-blur-md border-t border-white/10 overflow-hidden ${open ? "block" : "hidden"
+          }`}
       >
         <ul className="flex flex-col gap-4 p-4 text-white">
           <li className="hover:text-blue-500 transition-all duration-200">
@@ -74,6 +87,17 @@ const Navbar = () => {
           </li>
           <li className="hover:text-blue-500 transition-all duration-200">
             <Link href="/" target="_blank">Visit our website MathsBuddy</Link>
+          </li>
+            <li className="hover:text-blue-500 transition-all duration-200  text-[17px]">
+            <Link href="https://sanidhy-portfolio.vercel.app/" target="_blank">Portfolio</Link>
+          </li>
+          <li className="hover:text-blue-500 transition-all list-none items-center gap-3 flex  duration-200 ">
+            <Link href='https://github.com/SanidhyaGupta-10/' target="_blank">
+              <span><Github /></span>
+            </Link>
+            <Link href='https://github.com/SanidhyaGupta-10/' target="_blank">
+              <span>Github</span>
+            </Link>
           </li>
         </ul>
       </div>

@@ -165,7 +165,7 @@ export default function ContactPage() {
           Contact <span className="text-blue-400">SyntaxPrime</span>
         </h1>
 
-        <p className="text-gray-300 max-w-xl mb-20 text-[18px] leading-relaxed">
+        <p className="text-gray-300 max-w-xl mb-10 text-[18px] leading-relaxed">
           We'd love to hear from you. Whether you have a question, project idea,
           or want to collaborate, feel free to reach out using the form below.
         </p>

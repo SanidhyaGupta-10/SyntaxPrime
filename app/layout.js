@@ -11,6 +11,7 @@ export default function RootLayout({ children }) {
   return (
     <html lang="en">
       <body
+        
         style={{
           fontFamily: "'Courier New', Courier, monospace",
           position: "relative",
