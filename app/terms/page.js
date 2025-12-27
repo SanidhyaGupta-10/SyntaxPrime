@@ -81,7 +81,7 @@ function Particles() {
 ------------------------------------------------------------- */
 function CameraRig({ animateTo }) {
   const { camera } = useThree();
-  const target = new THREE.Vector3(0, 0, 0);
+  const target = useMemo(() => new THREE.Vector3(0, 0, 0), []);
 
   useEffect(() => {
     camera.position.set(0, 0, 6);
