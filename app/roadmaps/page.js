@@ -43,7 +43,7 @@ gsap.registerPlugin(ScrollTrigger);
 function FloatingParticles() {
   const count = 2000;
 
-  const positions = useMemo(() => {
+  const [positions] = useState(() => {
     const arr = [];
     for (let i = 0; i < count; i++) {
       arr.push((Math.random() - 0.5) * 40);
@@ -51,7 +51,7 @@ function FloatingParticles() {
       arr.push((Math.random() - 0.5) * 40);
     }
     return new Float32Array(arr);
-  }, []);
+  });
 
   return (
     <Points positions={positions} stride={3}>

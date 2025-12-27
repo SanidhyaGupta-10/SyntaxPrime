@@ -42,7 +42,7 @@ function Particles() {
   const pointsRef = useRef();
   const count = 600;
 
-  const positions = useMemo(() => {
+  const [positions] = useState(() => {
     const arr = new Float32Array(count * 3);
     for (let i = 0; i < count; i++) {
       const r = 6 * Math.random();
@@ -53,7 +53,7 @@ function Particles() {
       arr[i * 3 + 2] = r * Math.cos(phi);
     }
     return arr;
-  }, []);
+  });
 
   useFrame((state) => {
     if (pointsRef.current) {
@@ -85,7 +85,7 @@ function CameraRig({ animateTo }) {
 
   useEffect(() => {
     camera.position.set(0, 0, 6);
-  }, []);
+  }, [camera]);
 
   useEffect(() => {
     if (!animateTo) return;
@@ -98,7 +98,7 @@ function CameraRig({ animateTo }) {
       ease: "power3.out",
       onUpdate: () => camera.lookAt(target),
     });
-  }, [animateTo]);
+  }, [animateTo, camera, target]);
 
   return null;
 }

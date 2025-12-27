@@ -1,6 +1,7 @@
 "use client";
 import React, { useState, useRef, useEffect } from "react";
 import Link from "next/link";
+import Image from "next/image";
 import { Menu, X } from "lucide-react";
 import gsap from "gsap";
 import { Github } from 'lucide-react';
@@ -27,7 +28,7 @@ const Navbar = () => {
       <div className="max-w-7xl mx-auto flex justify-between items-center p-4 md:p-6">
         {/* Logo */}
         <Link href="/" className="flex items-center gap-2">
-          <img src="/favicon.ico" alt="logo" className="w-12 h-12" />
+          <Image src="/favicon.ico" alt="logo" width={48} height={48} className="w-12 h-12" />
           <span className="text-white font-bold text-xl"></span>
         </Link>
 

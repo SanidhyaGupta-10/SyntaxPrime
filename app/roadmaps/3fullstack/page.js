@@ -21,7 +21,7 @@ gsap.registerPlugin(ScrollTrigger);
    ============================================================ */
 function HeavyParticles({ count = 1200, speed = 0.2 }) {
   const ref = useRef();
-  const points = useMemo(() => {
+  const [points] = useState(() => {
     const positions = new Float32Array(count * 3);
     const sizes = new Float32Array(count);
     for (let i = 0; i < count; i++) {
@@ -34,7 +34,7 @@ function HeavyParticles({ count = 1200, speed = 0.2 }) {
       sizes[i] = 1 + Math.random() * 3;
     }
     return { positions, sizes };
-  }, [count]);
+  });
 
   useFrame((state) => {
     if (!ref.current) return;

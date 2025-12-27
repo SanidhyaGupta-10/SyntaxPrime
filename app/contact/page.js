@@ -1,7 +1,7 @@
 "use client";
 import { Canvas } from "@react-three/fiber";
 import { OrbitControls } from "@react-three/drei";
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useRef, useState, useMemo } from "react";
 import gsap from "gsap";
 
 // 3D Animated Sphere
@@ -28,8 +28,13 @@ function WireSphere() {
 // Floating Particles
 function Particles() {
   const count = 150;
-  const positions = new Float32Array(count * 3);
-  for (let i = 0; i < count * 3; i++) positions[i] = (Math.random() - 0.5) * 6;
+  const [positions] = useState(() => {
+    const pos = new Float32Array(count * 3);
+    for (let i = 0; i < count * 3; i++) {
+      pos[i] = (Math.random() - 0.5) * 6;
+    }
+    return pos;
+  });
 
   return (
     <points>
@@ -166,7 +171,7 @@ export default function ContactPage() {
         </h1>
 
         <p className="text-gray-300 max-w-xl mb-10 text-[18px] leading-relaxed">
-          We'd love to hear from you. Whether you have a question, project idea,
+          We&apos;d love to hear from you. Whether you have a question, project idea,
           or want to collaborate, feel free to reach out using the form below.
         </p>
 

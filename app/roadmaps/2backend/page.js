@@ -96,7 +96,7 @@ function Rack({ x = 0, z = 0, height = 6, index = 0 }) {
 // ambient floating dust / particles
 function Dust({ count = 250 }) {
   const ref = useRef();
-  const positions = useMemo(() => {
+  const [positions] = useState(() => {
     const arr = new Float32Array(count * 3);
     for (let i = 0; i < count; i++) {
       arr[i * 3 + 0] = (Math.random() - 0.5) * 25;
@@ -104,7 +104,7 @@ function Dust({ count = 250 }) {
       arr[i * 3 + 2] = (Math.random() - 0.5) * 18;
     }
     return arr;
-  }, [count]);
+  });
 
   useFrame((state) => {
     if (!ref.current) return;
@@ -138,10 +138,10 @@ export default function BackendPage() {
   const titleRef = React.useRef();
   const introRef = React.useRef();
   const sectionRefs = React.useRef([]);
-  sectionRefs.current = [];
 
   // GSAP entrance
   useEffect(() => {
+    sectionRefs.current = [];
     const tl = gsap.timeline();
     tl.from(titleRef.current, { opacity: 0, y: -30, duration: 0.9, ease: "power3.out" })
       .from(introRef.current, { opacity: 0, y: -12, duration: 0.8, ease: "power3.out" }, "-=0.4");

@@ -73,7 +73,7 @@ function WireSphere() {
 // -----------------------------
 function Particles({ count = 300 }) {
   const pointsRef = useRef();
-  const positions = useMemo(() => {
+  const [positions] = useState(() => {
     const p = new Float32Array(count * 3);
     for (let i = 0; i < count; i++) {
       const r = 6 * Math.random();
@@ -84,7 +84,7 @@ function Particles({ count = 300 }) {
       p[i * 3 + 2] = r * Math.cos(phi);
     }
     return p;
-  }, [count]);
+  });
 
   useFrame((state) => {
     if (pointsRef.current) {
