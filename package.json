@@ -8,9 +8,8 @@
     "start": "next start",
     "lint": "eslint"
   },
-
-"dependencies": {
-    "next": "15.3.4",
+  "dependencies": {
+    "next": "15.3.8",
     "@fortawesome/fontawesome-svg-core": "^7.1.0",
     "@gsap/react": "^2.1.2",
     "@react-md/icon": "^5.1.6",
