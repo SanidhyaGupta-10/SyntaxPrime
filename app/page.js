@@ -240,8 +240,8 @@ export default function Page() {
             </div>
 
             <div className="mt-6 flex gap-4 reveal relative z-10">
-              <MagneticButton href="/learn">Learn More</MagneticButton>
-              <MagneticButton href="/projects">Projects</MagneticButton>
+              <MagneticButton href="/roadmaps">Learn More</MagneticButton>
+              <MagneticButton href="/notes">Notes</MagneticButton>
             </div>
           </div>
 
