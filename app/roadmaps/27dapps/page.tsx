@@ -23,7 +23,7 @@ function RoadmapCard(props: RoadmapCardProps) {
 }
 
 export default function DAppsPage() {
-  const canvasRef = useRef(null);
+  const canvasRef = useRef<HTMLCanvasElement | null>(null);
 
   const roadmap = [
     {
@@ -76,7 +76,14 @@ export default function DAppsPage() {
     const ctx = canvas.getContext("2d");
     if (!ctx) return;
 
-    const nodes = [];
+    interface Node {
+      x: number;
+      y: number;
+      vx: number;
+      vy: number;
+    }
+
+    const nodes: Node[] = [];
     const nodeCount = 60;
 
     const resize = () => {
