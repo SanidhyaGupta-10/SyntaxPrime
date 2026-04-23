@@ -1,9 +1,13 @@
 'use client';
 
-import { useEffect } from 'react';
+import React, { useEffect } from 'react';
 import Lenis from 'lenis';
 
-export function LenisProvider({ children }) {
+interface LenisProviderProps {
+  children: React.ReactNode;
+}
+
+export function LenisProvider({ children }: LenisProviderProps) {
   useEffect(() => {
     const lenis = new Lenis({
       duration: 1.2,

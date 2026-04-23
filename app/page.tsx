@@ -10,9 +10,9 @@ import gsap from "gsap";
 
 
 function InteractiveTitle() {
-  const titleRef = useRef(null);
+  const titleRef = useRef<HTMLHeadingElement>(null);
 
-  const handleMove = (e) => {
+  const handleMove = (e: React.MouseEvent<HTMLHeadingElement>) => {
     if (!titleRef.current) return;
     const rect = titleRef.current.getBoundingClientRect();
     const x = e.clientX - rect.left - rect.width / 2;
@@ -193,7 +193,7 @@ export default function Page() {
                     </mesh>
                   }
                 >
-                  <Environment preset="studio"/>
+                  <Environment preset="studio" />
                   <OrbitControls enableZoom={false} enablePan={false} />
                   <Desk scale={0.4} position={[0, -0.9, 0]} />
                   <EffectComposer>

@@ -2,7 +2,11 @@
 import React, { useRef } from 'react'
 import { useGLTF } from '@react-three/drei'
 
-export function Desk(props) {
+interface DeskProps {
+  [key: string]: any;
+}
+
+export function Desk(props: DeskProps) {
   const { nodes, materials } = useGLTF('/models/programmer_desktop_3d_pc.glb')
   return (
     <group {...props} dispose={null}>

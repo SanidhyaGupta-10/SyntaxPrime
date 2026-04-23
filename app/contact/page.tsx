@@ -2,11 +2,12 @@
 import { Canvas } from "@react-three/fiber";
 import { OrbitControls } from "@react-three/drei";
 import { useEffect, useRef, useState, useMemo } from "react";
+import { Mesh } from "three";
 import gsap from "gsap";
 
 // 3D Animated Sphere
 function WireSphere() {
-  const sphereRef = useRef();
+  const sphereRef = useRef<Mesh>(null);
 
   useEffect(() => {
     gsap.to(sphereRef.current.rotation, {

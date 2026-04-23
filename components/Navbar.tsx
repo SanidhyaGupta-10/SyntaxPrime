@@ -7,8 +7,8 @@ import gsap from "gsap";
 import { Github } from 'lucide-react';
 
 const Navbar = () => {
-  const [open, setOpen] = useState(false);
-  const mobileMenuRef = useRef(null);
+  const [open, setOpen] = useState<boolean>(false);
+  const mobileMenuRef = useRef<HTMLDivElement>(null);
 
   // GSAP animation for mobile menu
   useEffect(() => {
@@ -58,8 +58,8 @@ const Navbar = () => {
             </Link>
           </li>
         </ul>
-      
-        
+
+
 
         {/* Mobile Menu Button */}
         <button
@@ -89,7 +89,7 @@ const Navbar = () => {
           <li className="hover:text-blue-500 transition-all duration-200">
             <Link href="/" target="_blank">Visit our website MathsBuddy</Link>
           </li>
-            <li className="hover:text-blue-500 transition-all duration-200  text-[17px]">
+          <li className="hover:text-blue-500 transition-all duration-200  text-[17px]">
             <Link href="https://sanidhy-portfolio.vercel.app/" target="_blank">Portfolio</Link>
           </li>
           <li className="hover:text-blue-500 transition-all list-none items-center gap-3 flex  duration-200 ">

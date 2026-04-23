@@ -33,7 +33,7 @@ function FloatingShape() {
 }
 
 export default function Page() {
-  const sectionsRef = useRef([]);
+  const sectionsRef = useRef<(HTMLDivElement | null)[]>([]);
 
   gsap.registerPlugin(ScrollTrigger);
 
