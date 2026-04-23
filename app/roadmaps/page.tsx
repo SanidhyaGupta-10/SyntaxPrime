@@ -1,11 +1,7 @@
 ﻿"use client";
 
-import React, { useEffect, useMemo, useRef, useState, Suspense } from "react";
+import React, { useState } from "react";
 import Link from "next/link";
-import { Canvas } from "@react-three/fiber";
-import { Points, PointMaterial, Text, OrbitControls } from "@react-three/drei";
-import gsap from "gsap";
-import { ScrollTrigger } from "gsap/ScrollTrigger";
 
 // Icons
 import {
@@ -35,43 +31,12 @@ import {
   FaPhp,
 } from "react-icons/fa";
 
-gsap.registerPlugin(ScrollTrigger);
-
-/* ---------------------------
-   FLOATING PARTICLES
---------------------------- */
-function FloatingParticles() {
-  const count = 2000;
-
-  const [positions] = useState(() => {
-    const arr = [];
-    for (let i = 0; i < count; i++) {
-      arr.push((Math.random() - 0.5) * 40);
-      arr.push((Math.random() - 0.5) * 40);
-      arr.push((Math.random() - 0.5) * 40);
-    }
-    return new Float32Array(arr);
-  });
-
-  return (
-    <Points positions={positions} stride={3}>
-      <PointMaterial
-        transparent
-        size={0.045}
-        sizeAttenuation
-        depthWrite={false}
-        color="#7f5cff"
-      />
-    </Points>
-  );
-}
-
 /* ---------------------------
    SECTION TITLE
 --------------------------- */
 function SectionTitle({ text }: { text: string }) {
   return (
-    <h2 className="text-center text-4xl font-bold mb-8 mt-20 tracking-wide">
+    <h2 className="text-center text-2xl sm:text-3xl font-bold mb-6 mt-12 text-slate-100">
       {text}
     </h2>
   );
@@ -81,27 +46,18 @@ function SectionTitle({ text }: { text: string }) {
    DIVIDER
 --------------------------- */
 function Divider() {
-  return <hr className="border-white/10 my-12 w-[80%] mx-auto" />;
+  return <hr className="border-slate-700/50 my-8 w-[80%] mx-auto" />;
 }
 
 /* ---------------------------
-   BUTTON CARD
+   SKILL CARD
 --------------------------- */
-function SkillCard({ icon, name, link }) {
+function SkillCard({ icon, name, link }: { icon: React.ReactNode; name: string; link: string }) {
   return (
     <Link href={link} className="group">
-      <div
-        className="
-        flex items-center gap-3 p-5 rounded-2xl bg-[#0b0b13]
-        border border-white/10
-        hover:border-[#7f5cff]
-        hover:shadow-[0_0_18px_#7f5cff]
-        hover:scale-[1.05] transition duration-300"
-      >
-        <span className="text-3xl group-hover:rotate-6 transition">
-          {icon}
-        </span>
-        <p className="text-lg">{name}</p>
+      <div className="flex items-center gap-3 p-4 rounded-xl bg-slate-800/60 border border-slate-700 hover:border-indigo-500 hover:bg-slate-700/60 transition-colors">
+        <span className="text-2xl text-indigo-400">{icon}</span>
+        <p className="text-sm sm:text-base text-slate-200">{name}</p>
       </div>
     </Link>
   );
@@ -110,22 +66,16 @@ function SkillCard({ icon, name, link }) {
 /* ---------------------------
    SEARCH BAR
 --------------------------- */
-function SearchBar({ query, setQuery }) {
+function SearchBar({ query, setQuery }: { query: string; setQuery: (q: string) => void }) {
   return (
-    <div className="flex items-center justify-center mt-10 mb-16">
-      <div
-        className="
-        flex items-center gap-4 bg-[#0b0b13] px-6 py-3 rounded-2xl
-        border border-white/10 w-[80%] md:w-[40%]
-        shadow-[0_0_15px_rgba(127,92,255,0.5)]
-      "
-      >
-        <FaSearch className="text-xl text-gray-300" />
+    <div className="flex items-center justify-center mt-6 mb-10 px-4">
+      <div className="flex items-center gap-3 bg-slate-800/80 px-4 py-2.5 rounded-xl border border-slate-700 w-full max-w-md">
+        <FaSearch className="text-lg text-slate-400" />
         <input
           value={query}
           onChange={(e) => setQuery(e.target.value)}
-          placeholder="Search for skills..."
-          className="bg-transparent focus:outline-none w-full text-white text-lg"
+          placeholder="Search roadmaps..."
+          className="bg-transparent focus:outline-none w-full text-slate-200 text-sm"
         />
       </div>
     </div>
@@ -135,14 +85,12 @@ function SearchBar({ query, setQuery }) {
 /* ---------------------------
    GRID WRAPPER
 --------------------------- */
-function SectionGrid({ items, innerRef }) {
+function SectionGrid({ items }: { items: Array<{ name: string; icon: React.ReactNode; link: string }> }) {
+  if (items.length === 0) return null;
   return (
-    <div
-      ref={innerRef}
-      className="grid grid-cols-2 md:grid-cols-4 gap-6 px-10 transition"
-    >
-      {items.map((i) => (
-        <SkillCard key={i.name} name={i.name} icon={i.icon} link={i.link} />
+    <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-3 px-4 sm:px-6">
+      {items.map((item) => (
+        <SkillCard key={item.name} name={item.name} icon={item.icon} link={item.link} />
       ))}
     </div>
   );
@@ -152,170 +100,111 @@ function SectionGrid({ items, innerRef }) {
    PAGE
 --------------------------- */
 export default function RoadmapsPage() {
-  const sectionsRef = useRef([]);
   const [query, setQuery] = useState("");
 
-  useEffect(() => {
-    sectionsRef.current.forEach((sec) => {
-      gsap.fromTo(
-        sec,
-        { opacity: 0, y: 60 },
-        {
-          opacity: 1,
-          y: 0,
-          duration: 1.2,
-          ease: "power3.out",
-          scrollTrigger: {
-            trigger: sec,
-            start: "top 85%",
-          },
-        }
-      );
-    });
-  }, []);
-
-  const filter = (items) =>
+  const filter = (items: Array<{ name: string; icon: React.ReactNode; link: string }>) =>
     items.filter((i) => i.name.toLowerCase().includes(query.toLowerCase()));
 
+  const categories = [
+    {
+      title: "Web Development",
+      items: [
+        { name: "Frontend", icon: <FaReact />, link: "/roadmaps/1frontend" },
+        { name: "Backend", icon: <FaNodeJs />, link: "/roadmaps/2backend" },
+        { name: "Full-Stack", icon: <FaJs />, link: "/roadmaps/3fullstack" },
+        { name: "Databases", icon: <FaDatabase />, link: "/roadmaps/4databases" },
+        { name: "PHP", icon: <FaPhp />, link: "/roadmaps/5php" },
+        { name: "Rust", icon: <FaRust />, link: "/roadmaps/6rust" },
+      ],
+    },
+    {
+      title: "App Development",
+      items: [
+        { name: "React Native", icon: <FaReact />, link: "/roadmaps/7react-native" },
+        { name: "Android", icon: <FaAndroid />, link: "/roadmaps/8android" },
+        { name: "iOS", icon: <FaApple />, link: "/roadmaps/9ios" },
+        { name: "Flutter", icon: <FaCube />, link: "/roadmaps/10flutter" },
+      ],
+    },
+    {
+      title: "AI / ML / Data Science",
+      items: [
+        { name: "AI", icon: <FaBrain />, link: "/roadmaps/11ai" },
+        { name: "Machine Learning", icon: <FaRobot />, link: "/roadmaps/12ml" },
+        { name: "Data Science", icon: <FaPython />, link: "/roadmaps/13datascience" },
+        { name: "Deep Learning", icon: <FaBrain />, link: "/roadmaps/14dl" },
+      ],
+    },
+    {
+      title: "Cloud & DevOps",
+      items: [
+        { name: "AWS", icon: <FaAws />, link: "/roadmaps/15aws" },
+        { name: "Docker", icon: <FaDocker />, link: "/roadmaps/16docker" },
+        { name: "Linux", icon: <FaLinux />, link: "/roadmaps/17linux" },
+        { name: "CI/CD", icon: <FaGitAlt />, link: "/roadmaps/18cicd" },
+      ],
+    },
+    {
+      title: "Cybersecurity",
+      items: [
+        { name: "Ethical Hacking", icon: <FaShieldAlt />, link: "/roadmaps/19hacking" },
+        { name: "Network Security", icon: <FaShieldAlt />, link: "/roadmaps/20network-security" },
+        { name: "Bug Bounty", icon: <FaShieldAlt />, link: "/roadmaps/21bug-bounty" },
+      ],
+    },
+    {
+      title: "Game Development",
+      items: [
+        { name: "Unity", icon: <FaUnity />, link: "/roadmaps/22unity" },
+        { name: "Unreal Engine", icon: <FaCube />, link: "/roadmaps/23unreal" },
+        { name: "Game Programming", icon: <FaJs />, link: "/roadmaps/24game-programming" },
+      ],
+    },
+    {
+      title: "Blockchain & Web3",
+      items: [
+        { name: "Blockchain", icon: <FaEthereum />, link: "/roadmaps/25blockchain" },
+        { name: "Smart Contracts", icon: <FaEthereum />, link: "/roadmaps/26solidity" },
+        { name: "DApps", icon: <FaCube />, link: "/roadmaps/27dapps" },
+      ],
+    },
+  ];
+
   return (
-    <div className="min-h-screen w-full  text-white pb-20 relative overflow-hidden">
-
-      {/* Floating Particle Background */}
-      <div className="absolute inset-0 -z-10">
-        <Canvas camera={{ position: [0, 0, 12] }}>
-          <Suspense fallback={null}>
-            <FloatingParticles />
-          </Suspense>
-        </Canvas>
+    <main className="min-h-screen bg-gradient-to-b from-slate-900 to-slate-950 text-slate-100 pb-16">
+      {/* Header */}
+      <div className="pt-8 pb-4 text-center px-4">
+        <h1 className="text-3xl sm:text-4xl font-bold text-indigo-400 mb-2">
+          Developer Roadmaps
+        </h1>
+        <p className="text-slate-400 text-sm sm:text-base max-w-lg mx-auto">
+          Choose your path and start learning today
+        </p>
       </div>
 
-      {/* 3D PAGE TITLE */}
-      <div className="w-full h-[200px] mt-10">
-        <Canvas camera={{ position: [0, 0, 10] }}>
-          <ambientLight intensity={1} />
-
-          <Text fontSize={1.5} color="white">
-            DEVELOPER ROADMAPS
-          </Text>
-
-          <OrbitControls enableZoom={false} enablePan={false} />
-        </Canvas>
-      </div>
-
-      {/* SEARCH BAR */}
+      {/* Search */}
       <SearchBar query={query} setQuery={setQuery} />
 
-      {/* -----------------------
-          WEB DEVELOPMENT
-      -------------------------- */}
-      <SectionTitle text="Web Development" />
-      <SectionGrid
-        innerRef={(el) => { sectionsRef.current[0] = el; }}
-        items={filter([
-          { name: "Frontend", icon: <FaReact />, link: "/roadmaps/1frontend" },
-          { name: "Backend", icon: <FaNodeJs />, link: "/roadmaps/2backend" },
-          { name: "Full-Stack", icon: <FaJs />, link: "/roadmaps/3fullstack" },
-          { name: "Databases", icon: <FaDatabase />, link: "/roadmaps/4databases" },
-          { name: "PHP", icon: <FaPhp />, link: "/roadmaps/5php" },
-          { name: "Rust", icon: <FaRust />, link: "/roadmaps/6rust" },
-        ])}
-      />
+      {/* Categories */}
+      <div className="max-w-5xl mx-auto space-y-8">
+        {categories.map((category) => {
+          const filtered = filter(category.items);
+          if (filtered.length === 0) return null;
+          return (
+            <section key={category.title}>
+              <SectionTitle text={category.title} />
+              <SectionGrid items={filtered} />
+              <Divider />
+            </section>
+          );
+        })}
+      </div>
 
-      <Divider />
-
-      {/* -----------------------
-          APP DEVELOPMENT
-      -------------------------- */}
-      <SectionTitle text="App Development" />
-      <SectionGrid
-        innerRef={(el) => { sectionsRef.current[1] = el; }}
-        items={filter([
-          { name: "React Native", icon: <FaReact />, link: "/roadmaps/7react-native" },
-          { name: "Android Development", icon: <FaAndroid />, link: "/roadmaps/8android" },
-          { name: "iOS Development", icon: <FaApple />, link: "/roadmaps/9ios" },
-          { name: "Flutter", icon: <FaCube />, link: "/roadmaps/10flutter" },
-        ])}
-      />
-
-      <Divider />
-
-      {/* -----------------------
-          AI / ML / DS
-      -------------------------- */}
-      <SectionTitle text="AI / ML / Data Science" />
-      <SectionGrid
-        innerRef={(el) => { sectionsRef.current[2] = el; }}
-        items={filter([
-          { name: "Artificial Intelligence", icon: <FaBrain />, link: "/roadmaps/11ai" },
-          { name: "Machine Learning", icon: <FaRobot />, link: "/roadmaps/12ml" },
-          { name: "Data Science", icon: <FaPython />, link: "/roadmaps/13datascience" },
-          { name: "Deep Learning", icon: <FaBrain />, link: "/roadmaps/14dl" },
-        ])}
-      />
-
-      <Divider />
-
-      {/* -----------------------
-          CLOUD & DEVOPS
-      -------------------------- */}
-      <SectionTitle text="Cloud & DevOps" />
-      <SectionGrid
-        innerRef={(el) => { sectionsRef.current[3] = el; }}
-        items={filter([
-          { name: "AWS", icon: <FaAws />, link: "/roadmaps/15aws" },
-          { name: "Docker", icon: <FaDocker />, link: "/roadmaps/16docker" },
-          { name: "Linux", icon: <FaLinux />, link: "/roadmaps/17linux" },
-          { name: "CI/CD Pipelines", icon: <FaGitAlt />, link: "/roadmaps/18cicd" },
-        ])}
-      />
-
-      <Divider />
-
-      {/* -----------------------
-          CYBERSECURITY
-      -------------------------- */}
-      <SectionTitle text="Cybersecurity" />
-      <SectionGrid
-        innerRef={(el) => { sectionsRef.current[4] = el; }}
-        items={filter([
-          { name: "Ethical Hacking", icon: <FaShieldAlt />, link: "/roadmaps/19hacking" },
-          { name: "Network Security", link: "/roadmaps/20network-security", icon: <FaShieldAlt /> },
-          { name: "Bug Bounty", link: "/roadmaps/21bug-bounty", icon: <FaShieldAlt /> },
-        ])}
-      />
-
-      <Divider />
-
-      {/* -----------------------
-          GAME DEVELOPMENT
-      -------------------------- */}
-      <SectionTitle text="Game Development" />
-      <SectionGrid
-        innerRef={(el) => { sectionsRef.current[5] = el; }}
-        items={filter([
-          { name: "Unity", icon: <FaUnity />, link: "/roadmaps/22unity" },
-          { name: "Unreal Engine", icon: <FaCube />, link: "/roadmaps/23unreal" },
-          { name: "Game Programming", icon: <FaJs />, link: "/roadmaps/24game-programming" },
-        ])}
-      />
-
-      <Divider />
-
-      {/* -----------------------
-          BLOCKCHAIN
-      -------------------------- */}
-      <SectionTitle text="Blockchain & Web3" />
-      <SectionGrid
-        innerRef={(el) => { sectionsRef.current[6] = el; }}
-        items={filter([
-          { name: "Blockchain Basics", icon: <FaEthereum />, link: "/roadmaps/25blockchain" },
-          { name: "Smart Contracts", icon: <FaEthereum />, link: "/roadmaps/26solidity" },
-          { name: "Decentralized Apps", icon: <FaCube />, link: "/roadmaps/27dapps" },
-        ])}
-      />
-
-      <Divider />
-    </div>
+      {/* No results */}
+      {categories.every((c) => filter(c.items).length === 0) && (
+        <p className="text-center text-slate-500 mt-8">No roadmaps found</p>
+      )}
+    </main>
   );
 }
 
