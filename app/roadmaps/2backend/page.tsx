@@ -1,4 +1,4 @@
-"use client";
+﻿"use client";
 import React, { useRef, useEffect, useMemo } from "react";
 import Image from "next/image";
 import Link from "next/link";
@@ -8,7 +8,7 @@ import * as THREE from "three";
 import { gsap } from "gsap";
 
 /*
-  Backend page — server room vibe
+  Backend page â€” server room vibe
   - r3f Canvas with rows of "server racks"
   - volumetric fog + spot lights
   - tiny glowing LED panels on racks
@@ -68,7 +68,7 @@ function Rack({ x = 0, z = 0, height = 6, index = 0 }) {
               {Array.from({ length: 6 }).map((_, j) => (
                 <mesh
                   key={j}
-                  ref={(el) => (ledRefs.current[i * 6 + j] = el)}
+                  ref={(el) => { ledRefs.current[i * 6 + j] = el; }}
                   position={[j * 0.15, 0, 0.02]}
                 >
                   <boxGeometry args={[0.08, 0.04, 0.01]} />
@@ -199,10 +199,10 @@ export default function BackendPage() {
       <div className="max-w-6xl mx-auto relative z-10 py-12 mt-16">
         <header className="text-center">
           <h1 ref={titleRef} className="text-5xl font-semibold mb-4">
-            🖥️ Backend — Server Room Essentials
+            ðŸ–¥ï¸ Backend â€” Server Room Essentials
           </h1>
           <p ref={introRef} className="text-gray-300 max-w-3xl mx-auto text-[18px]">
-            Backends power applications — from servers and databases to auth, APIs and deployment. The visual below gives you the server room vibe while the roadmap guides you through the learning path.
+            Backends power applications â€” from servers and databases to auth, APIs and deployment. The visual below gives you the server room vibe while the roadmap guides you through the learning path.
           </p>
         </header>
 
@@ -298,7 +298,7 @@ export default function BackendPage() {
               </div>
 
               <p className="mt-4 text-gray-300">
-                Pro tip: build small projects and deploy them — the server-room skills really come alive when you ship.
+                Pro tip: build small projects and deploy them â€” the server-room skills really come alive when you ship.
               </p>
             </section>
           </div>
@@ -307,3 +307,4 @@ export default function BackendPage() {
     </main>
   );
 }
+

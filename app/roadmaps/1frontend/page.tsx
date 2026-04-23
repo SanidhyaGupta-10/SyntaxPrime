@@ -1,10 +1,10 @@
-"use client";
+﻿"use client";
 import React, { useEffect, useRef } from "react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { Canvas } from "@react-three/fiber";
 import { Float, OrbitControls } from "@react-three/drei";
-import Image from "next/image";
+import Image, { type StaticImageData } from "next/image";
 
 // ICON IMAGES
 import Frontend from "../../../public/frontend.png";
@@ -76,11 +76,11 @@ export default function Page() {
           {/* ---------- SECTION 1 ---------- */}
           <div
             className="section mb-20"
-            ref={(el) => (sectionsRef.current[0] = el)}
+            ref={(el) => { sectionsRef.current[0] = el; }}
           >
             <div className="heading flex items-center justify-center flex-col mb-10">
               <h1 className="mt-16 flex items-center text-5xl font-bold">
-                🎨 What is Frontend?
+                ðŸŽ¨ What is Frontend?
               </h1>
               <p className="text-center text-[24px] w-[800px] mt-5 opacity-90">
                 Frontend = The part of a website or app that the user sees and interacts with.
@@ -92,7 +92,7 @@ export default function Page() {
           {/* ---------- SECTION 2 ---------- */}
           <div
             className="section flex gap-12 mb-20"
-            ref={(el) => (sectionsRef.current[1] = el)}
+            ref={(el) => { sectionsRef.current[1] = el; }}
           >
             <Image
               src={Frontend}
@@ -102,15 +102,15 @@ export default function Page() {
             />
 
             <div>
-              <h1 className="text-3xl mb-4">🛠 Languages Used in Frontend</h1>
+              <h1 className="text-3xl mb-4">ðŸ›  Languages Used in Frontend</h1>
 
-              <h2 className="text-xl py-1">1. HTML — Structure</h2>
+              <h2 className="text-xl py-1">1. HTML â€” Structure</h2>
               <p className="px-2 text-[18px]">Creates the layout and structure</p>
 
-              <h2 className="text-xl py-1 mt-2">2. CSS — Design</h2>
+              <h2 className="text-xl py-1 mt-2">2. CSS â€” Design</h2>
               <p className="px-2 text-[18px]">Colors, fonts, animations, spacing</p>
 
-              <h2 className="text-xl py-1 mt-2">3. JavaScript — Logic</h2>
+              <h2 className="text-xl py-1 mt-2">3. JavaScript â€” Logic</h2>
               <p className="px-2 text-[18px]">Click events, popups, sliders</p>
             </div>
           </div>
@@ -118,9 +118,9 @@ export default function Page() {
           {/* ---------- SECTION 3 ---------- */}
           <div
             className="section mb-20"
-            ref={(el) => (sectionsRef.current[2] = el)}
+            ref={(el) => { sectionsRef.current[2] = el; }}
           >
-            <h1 className="text-4xl mb-3">⚡ Popular Frontend Frameworks</h1>
+            <h1 className="text-4xl mb-3">âš¡ Popular Frontend Frameworks</h1>
 
             <div className="ml-12 flex flex-col gap-4 text-[22px]">
               <Skill name="React.js" icon={ReactPNG} />
@@ -136,9 +136,9 @@ export default function Page() {
           {/* ---------- SECTION 4 ---------- */}
           <div
             className="section mb-10"
-            ref={(el) => (sectionsRef.current[3] = el)}
+            ref={(el) => { sectionsRef.current[3] = el; }}
           >
-            <h1 className="text-4xl mb-5 ml-5">📘 Recommended Learning Path</h1>
+            <h1 className="text-4xl mb-5 ml-5">ðŸ“˜ Recommended Learning Path</h1>
 
             <div className="flex flex-col gap-10 items-center">
 
@@ -196,7 +196,17 @@ export default function Page() {
 
 /* ---------------- SMALL COMPONENTS ---------------- */
 
-function Skill({ name, icon }) {
+interface SkillProps {
+  name: string;
+  icon: StaticImageData | string;
+}
+
+interface StepCardProps {
+  title: string;
+  items: Array<{ name: string; icon: StaticImageData | string }>;
+}
+
+function Skill({ name, icon }: SkillProps) {
   return (
     <h3 className="flex gap-3 items-center">
       {name}
@@ -205,7 +215,7 @@ function Skill({ name, icon }) {
   );
 }
 
-function StepCard({ title, items }) {
+function StepCard({ title, items }: StepCardProps) {
   return (
     <div className="flex flex-col gap-4 bg-[#0A0D14] px-6 py-4 rounded-xl shadow-lg">
       <h2 className="text-2xl">{title}</h2>
@@ -222,3 +232,4 @@ function StepCard({ title, items }) {
 function Arrow() {
   return <i className="ri-arrow-down-line text-3xl mt-2"></i>;
 }
+

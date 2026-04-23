@@ -159,7 +159,7 @@ const MagneticButton = React.forwardRef<HTMLAnchorElement, MagneticButtonProps>(
           text-white/95
           border border-white/10
           backdrop-blur-sm
-          bg-gradient-to-br from-[rgba(7,20,48,0.55)] to-[rgba(6,12,30,0.45)]
+          bg-linear-to-br from-[rgba(7,20,48,0.55)] to-[rgba(6,12,30,0.45)]
           hover:bg-[rgba(255,255,255,0.02)]
           transition-all duration-200
           shadow-sm

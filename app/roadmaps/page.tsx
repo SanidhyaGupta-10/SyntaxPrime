@@ -1,4 +1,4 @@
-"use client";
+﻿"use client";
 
 import React, { useEffect, useMemo, useRef, useState, Suspense } from "react";
 import Link from "next/link";
@@ -210,7 +210,7 @@ export default function RoadmapsPage() {
       -------------------------- */}
       <SectionTitle text="Web Development" />
       <SectionGrid
-        innerRef={(el) => (sectionsRef.current[0] = el)}
+        innerRef={(el) => { sectionsRef.current[0] = el; }}
         items={filter([
           { name: "Frontend", icon: <FaReact />, link: "/roadmaps/1frontend" },
           { name: "Backend", icon: <FaNodeJs />, link: "/roadmaps/2backend" },
@@ -228,7 +228,7 @@ export default function RoadmapsPage() {
       -------------------------- */}
       <SectionTitle text="App Development" />
       <SectionGrid
-        innerRef={(el) => (sectionsRef.current[1] = el)}
+        innerRef={(el) => { sectionsRef.current[1] = el; }}
         items={filter([
           { name: "React Native", icon: <FaReact />, link: "/roadmaps/7react-native" },
           { name: "Android Development", icon: <FaAndroid />, link: "/roadmaps/8android" },
@@ -244,7 +244,7 @@ export default function RoadmapsPage() {
       -------------------------- */}
       <SectionTitle text="AI / ML / Data Science" />
       <SectionGrid
-        innerRef={(el) => (sectionsRef.current[2] = el)}
+        innerRef={(el) => { sectionsRef.current[2] = el; }}
         items={filter([
           { name: "Artificial Intelligence", icon: <FaBrain />, link: "/roadmaps/11ai" },
           { name: "Machine Learning", icon: <FaRobot />, link: "/roadmaps/12ml" },
@@ -260,7 +260,7 @@ export default function RoadmapsPage() {
       -------------------------- */}
       <SectionTitle text="Cloud & DevOps" />
       <SectionGrid
-        innerRef={(el) => (sectionsRef.current[3] = el)}
+        innerRef={(el) => { sectionsRef.current[3] = el; }}
         items={filter([
           { name: "AWS", icon: <FaAws />, link: "/roadmaps/15aws" },
           { name: "Docker", icon: <FaDocker />, link: "/roadmaps/16docker" },
@@ -276,7 +276,7 @@ export default function RoadmapsPage() {
       -------------------------- */}
       <SectionTitle text="Cybersecurity" />
       <SectionGrid
-        innerRef={(el) => (sectionsRef.current[4] = el)}
+        innerRef={(el) => { sectionsRef.current[4] = el; }}
         items={filter([
           { name: "Ethical Hacking", icon: <FaShieldAlt />, link: "/roadmaps/19hacking" },
           { name: "Network Security", link: "/roadmaps/20network-security", icon: <FaShieldAlt /> },
@@ -291,7 +291,7 @@ export default function RoadmapsPage() {
       -------------------------- */}
       <SectionTitle text="Game Development" />
       <SectionGrid
-        innerRef={(el) => (sectionsRef.current[5] = el)}
+        innerRef={(el) => { sectionsRef.current[5] = el; }}
         items={filter([
           { name: "Unity", icon: <FaUnity />, link: "/roadmaps/22unity" },
           { name: "Unreal Engine", icon: <FaCube />, link: "/roadmaps/23unreal" },
@@ -306,7 +306,7 @@ export default function RoadmapsPage() {
       -------------------------- */}
       <SectionTitle text="Blockchain & Web3" />
       <SectionGrid
-        innerRef={(el) => (sectionsRef.current[6] = el)}
+        innerRef={(el) => { sectionsRef.current[6] = el; }}
         items={filter([
           { name: "Blockchain Basics", icon: <FaEthereum />, link: "/roadmaps/25blockchain" },
           { name: "Smart Contracts", icon: <FaEthereum />, link: "/roadmaps/26solidity" },
@@ -318,3 +318,4 @@ export default function RoadmapsPage() {
     </div>
   );
 }
+

@@ -4,7 +4,15 @@ import React from "react";
 import { FaCoins, FaNetworkWired, FaLock, FaDatabase, FaCogs, FaRocket } from "react-icons/fa";
 
 // Reusable Card Component
-function RoadmapCard({ icon: Icon, title, text }) {
+interface RoadmapCardProps {
+  icon: React.ComponentType<React.SVGProps<SVGSVGElement>>;
+  title: string;
+  text: string;
+}
+
+function RoadmapCard(props: RoadmapCardProps) {
+  const Icon = props.icon;
+  const { title, text } = props;
   return (
     <div className="bg-gray-900/70 border border-gray-700 rounded-2xl p-6 flex flex-col items-center gap-4 shadow-lg transform transition-transform duration-300 hover:scale-105 hover:shadow-xl">
       <Icon className="text-4xl text-indigo-400" />
