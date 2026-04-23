@@ -1,9 +1,17 @@
-"use client";
+﻿"use client";
 import React from "react";
 import { Smartphone, Cpu, Database, Code2, Layers, Rocket } from "lucide-react";
 
+interface InfoCardProps {
+  icon: React.ComponentType<React.SVGProps<SVGSVGElement>>;
+  title: string;
+  text: string;
+}
+
 // Reusable Card Component
-function InfoCard({ icon: Icon, title, text }) {
+function InfoCard(props: InfoCardProps) {
+  const Icon = props.icon;
+  const { title, text } = props;
   return (
     <div className="p-8 rounded-2xl bg-white/10 border border-white/10 shadow-xl
                     flex flex-col items-center gap-4 backdrop-blur-lg
@@ -104,3 +112,4 @@ export default function ReactNativePage() {
     </div>
   );
 }
+

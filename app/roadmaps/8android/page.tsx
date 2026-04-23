@@ -1,9 +1,17 @@
-"use client";
+﻿"use client";
 import React from "react";
 import { Smartphone, Cpu, Settings, Database, Code2, Rocket } from "lucide-react";
 
 // Reusable Card Component
-function InfoCard({ icon: Icon, title, text }) {
+interface InfoCardProps {
+  icon: React.ComponentType<React.SVGProps<SVGSVGElement>>;
+  title: string;
+  text: string;
+}
+
+function InfoCard(props: InfoCardProps) {
+  const Icon = props.icon;
+  const { title, text } = props;
   return (
     <div className="p-8 rounded-2xl bg-white/10 border border-white/10 shadow-xl
                     flex flex-col items-center gap-4 backdrop-blur-lg
@@ -42,7 +50,7 @@ export default function AndroidPage() {
           <InfoCard
             icon={Code2}
             title="Kotlin Basics"
-            text="Learn variables, data types, classes, functions, collections, and OOP concepts — the foundation of Android."
+            text="Learn variables, data types, classes, functions, collections, and OOP concepts â€” the foundation of Android."
           />
           <InfoCard
             icon={Smartphone}
@@ -74,7 +82,7 @@ export default function AndroidPage() {
           <InfoCard
             icon={Smartphone}
             title="Modern UI with Compose"
-            text="Build beautiful reactive UIs using Jetpack Compose — Android's modern declarative UI toolkit."
+            text="Build beautiful reactive UIs using Jetpack Compose â€” Android's modern declarative UI toolkit."
           />
         </div>
       </section>

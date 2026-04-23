@@ -1,10 +1,18 @@
-"use client";
+﻿"use client";
 
 import React from "react";
 import { FaDesktop, FaCode, FaGamepad, FaCogs } from "react-icons/fa";
 
 // Reusable Card Component
-function InfoCard({ icon: Icon, title, text }) {
+interface InfoCardProps {
+  icon: React.ComponentType<React.SVGProps<SVGSVGElement>>;
+  title: string;
+  text: string;
+}
+
+function InfoCard(props: InfoCardProps) {
+  const Icon = props.icon;
+  const { title, text } = props;
   return (
     <div className="bg-gray-900/70 border hover:border-2 hover:border-purple-800 border-gray-700 rounded-2xl p-6 flex flex-col items-center gap-4 shadow-lg hover:scale-[1.03] transition-all duration-300">
       <Icon className="text-4xl text-purple-400" />
@@ -53,7 +61,7 @@ export default function UnrealPage() {
       {/* Header */}
       <div className="text-center mb-16">
         <h1 className="text-4xl md:text-6xl font-bold mb-4 pt-16 text-purple-400 hover:text-purple-600 ">
-          🎮 Unreal Engine Game Development Roadmap
+          ðŸŽ® Unreal Engine Game Development Roadmap
         </h1>
         <p className="text-gray-300 max-w-2xl mx-auto">
           Learn Unreal Engine from beginner to advanced: scripting with C++ and Blueprints, game mechanics, level design, and publishing.
@@ -74,3 +82,4 @@ export default function UnrealPage() {
     </div>
   );
 }
+

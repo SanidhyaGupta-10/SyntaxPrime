@@ -1,9 +1,17 @@
-"use client";
+﻿"use client";
 import React from "react";
 import { Smartphone, Code2, Layers } from "lucide-react";
 
 // Reusable Card Component
-function InfoCard({ icon: Icon, title, text }) {
+interface InfoCardProps {
+  icon: React.ComponentType<React.SVGProps<SVGSVGElement>>;
+  title: string;
+  text: string;
+}
+
+function InfoCard(props: InfoCardProps) {
+  const Icon = props.icon;
+  const { title, text } = props;
   return (
     <div
       className="
@@ -39,8 +47,8 @@ export default function FlutterPage() {
           </h1>
 
           <p className="mt-4 text-lg opacity-80 leading-relaxed max-w-2xl mx-auto">
-            Flutter is Google’s UI toolkit that lets you create beautiful, fast,
-            and natively compiled applications for **mobile, web, desktop, and embedded devices** —
+            Flutter is Googleâ€™s UI toolkit that lets you create beautiful, fast,
+            and natively compiled applications for **mobile, web, desktop, and embedded devices** â€”
             all from a single Dart codebase.
           </p>
         </div>
@@ -52,7 +60,7 @@ export default function FlutterPage() {
         <InfoCard
           icon={Layers}
           title="Single Codebase"
-          text="Write once and deploy on Android, iOS, Web, Windows, Linux, macOS, and even embedded systems — all using Dart."
+          text="Write once and deploy on Android, iOS, Web, Windows, Linux, macOS, and even embedded systems â€” all using Dart."
         />
 
         <InfoCard
@@ -72,3 +80,4 @@ export default function FlutterPage() {
     </div>
   );
 }
+

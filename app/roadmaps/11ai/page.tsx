@@ -1,8 +1,16 @@
-"use client";
+﻿"use client";
 import React from "react";
 import { BrainCircuit, Lightbulb, Rocket, Workflow } from "lucide-react";
 
-function InfoCard({ icon: Icon, title, text }) {
+interface InfoCardProps {
+  icon: React.ComponentType<React.SVGProps<SVGSVGElement>>;
+  title: string;
+  text: string;
+}
+
+function InfoCard(props: InfoCardProps) {
+  const Icon = props.icon;
+  const { title, text } = props;
   return (
     <div className="p-8 rounded-2xl bg-gradient-to-br from-blue-500/10 via-purple-500/10 to-indigo-500/10 border border-white/10 shadow-xl flex flex-col items-center gap-4 backdrop-blur-lg hover:scale-[1.05] transition-all duration-300">
       <Icon className="size-12 text-blue-300" />
@@ -57,7 +65,7 @@ export default function AIPage() {
         <InfoCard
           icon={Lightbulb}
           title="How AI Helps You"
-          text="AI saves time, boosts productivity, automates repetitive tasks, enhances accuracy, and helps create smarter solutions—making your workflow faster, more intelligent, and more efficient."
+          text="AI saves time, boosts productivity, automates repetitive tasks, enhances accuracy, and helps create smarter solutionsâ€”making your workflow faster, more intelligent, and more efficient."
         />
       </section>
 

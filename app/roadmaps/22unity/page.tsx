@@ -1,10 +1,18 @@
-"use client";
+﻿"use client";
 
 import React from "react";
 import { FaDesktop, FaCode, FaGamepad, FaPuzzlePiece } from "react-icons/fa";
 
 // Reusable Card Component
-function InfoCard({ icon: Icon, title, text }) {
+interface InfoCardProps {
+  icon: React.ComponentType<React.SVGProps<SVGSVGElement>>;
+  title: string;
+  text: string;
+}
+
+function InfoCard(props: InfoCardProps) {
+  const Icon = props.icon;
+  const { title, text } = props;
   return (
     <div className="bg-gray-900/70 border border-gray-700 rounded-2xl p-6 flex flex-col hover:border-2 hover:border-cyan-700 items-center gap-4 shadow-lg hover:scale-[1.03] transition-all duration-300">
       <Icon className="text-4xl text-cyan-400" />
@@ -53,7 +61,7 @@ export default function UnityPage() {
       {/* Header */}
       <div className="text-center mb-16 pt-16">
         <h1 className="text-4xl md:text-6xl font-bold mb-4 text-cyan-400">
-          🎮 Unity Game Development Roadmap
+          ðŸŽ® Unity Game Development Roadmap
         </h1>
         <p className="text-gray-300 max-w-2xl mx-auto">
           Learn how to create games in Unity, from beginner concepts to advanced
@@ -75,3 +83,4 @@ export default function UnityPage() {
     </div>
   );
 }
+

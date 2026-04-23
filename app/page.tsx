@@ -61,9 +61,9 @@ function InteractiveTitle() {
 }
 
 function InteractiveParagraph() {
-  const paraRef = useRef(null);
+  const paraRef = useRef<HTMLParagraphElement>(null);
 
-  const handleMove = (e) => {
+  const handleMove = (e: React.MouseEvent<HTMLElement>) => {
     if (!paraRef.current) return;
     const rect = paraRef.current.getBoundingClientRect();
     const x = e.clientX - rect.left - rect.width / 2;
@@ -107,11 +107,17 @@ function InteractiveParagraph() {
   );
 }
 
-const MagneticButton = React.forwardRef(function MagneticButton({ href, children, accent = "blue" }, ref) {
-  const btnRef = useRef(null);
-  useImperativeHandle(ref, () => btnRef.current);
+interface MagneticButtonProps {
+  href: string;
+  children: React.ReactNode;
+  accent?: string;
+}
 
-  const handleMove = (e) => {
+const MagneticButton = React.forwardRef<HTMLAnchorElement, MagneticButtonProps>(function MagneticButton({ href, children, accent = "blue" }, ref) {
+  const btnRef = useRef<HTMLAnchorElement>(null);
+  useImperativeHandle(ref, () => btnRef.current!);
+
+  const handleMove = (e: React.MouseEvent<HTMLAnchorElement>) => {
     if (!btnRef.current) return;
 
     const rect = btnRef.current.getBoundingClientRect();
@@ -163,7 +169,7 @@ const MagneticButton = React.forwardRef(function MagneticButton({ href, children
 });
 
 export default function Page() {
-  const heroRef = useRef(null);
+  const heroRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     if (!heroRef.current) return;

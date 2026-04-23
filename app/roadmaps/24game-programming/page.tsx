@@ -1,10 +1,18 @@
-"use client";
+﻿"use client";
 
 import React from "react";
 import { FaGamepad, FaCode, FaDesktop, FaCogs, FaRocket } from "react-icons/fa";
 
+interface InfoCardProps {
+  icon: React.ComponentType<React.SVGProps<SVGSVGElement>>;
+  title: string;
+  text: string;
+}
+
 // Reusable InfoCard
-function InfoCard({ icon: Icon, title, text }) {
+function InfoCard(props: InfoCardProps) {
+  const Icon = props.icon;
+  const { title, text } = props;
   return (
     <div className="bg-gray-900/70 border border-gray-700 rounded-2xl p-6 flex flex-col items-center gap-4 shadow-lg hover:scale-[1.03] transition-all duration-300">
       <Icon className="text-4xl text-indigo-400" />
@@ -18,42 +26,42 @@ export default function GameProgrammingPage() {
   const roadmap = [
     {
       icon: FaCode,
-      title: "1️⃣ Basics of Programming",
+      title: "1ï¸âƒ£ Basics of Programming",
       text: "Learn programming fundamentals: variables, loops, conditions, functions. Languages like Python, C++, or C# are commonly used in games.",
     },
     {
       icon: FaGamepad,
-      title: "2️⃣ Game Engines",
+      title: "2ï¸âƒ£ Game Engines",
       text: "Familiarize with engines like Unity (C#) or Unreal (C++/Blueprints). Learn engine interface, asset import, scene setup, and prefab usage.",
     },
     {
       icon: FaDesktop,
-      title: "3️⃣ 2D & 3D Game Development",
+      title: "3ï¸âƒ£ 2D & 3D Game Development",
       text: "Start with 2D games: sprites, animations, collisions. Move to 3D: models, physics, lighting, camera control, and player mechanics.",
     },
     {
       icon: FaCogs,
-      title: "4️⃣ Scripting & Game Logic",
+      title: "4ï¸âƒ£ Scripting & Game Logic",
       text: "Write scripts for player input, AI behavior, inventory systems, scoring, and game state management. Use C#, C++, or Blueprints depending on engine.",
     },
     {
       icon: FaRocket,
-      title: "5️⃣ Advanced Game Mechanics",
+      title: "5ï¸âƒ£ Advanced Game Mechanics",
       text: "Implement AI, pathfinding, networking/multiplayer, particle effects, shaders, and optimization techniques for smooth gameplay.",
     },
     {
       icon: FaDesktop,
-      title: "6️⃣ Level Design & Assets",
+      title: "6ï¸âƒ£ Level Design & Assets",
       text: "Learn to design levels, use terrain tools, place objects, lighting, sound, UI/UX, and implement animation controllers for characters.",
     },
     {
       icon: FaCogs,
-      title: "7️⃣ Publishing & Monetization",
+      title: "7ï¸âƒ£ Publishing & Monetization",
       text: "Package games for PC, console, or mobile. Optimize assets, integrate analytics, ads, or in-app purchases, and follow platform guidelines.",
     },
     {
       icon: FaGamepad,
-      title: "8️⃣ Continuous Learning",
+      title: "8ï¸âƒ£ Continuous Learning",
       text: "Stay updated with game development trends, new engines, VR/AR, graphics programming, and indie game publishing techniques.",
     },
   ];
@@ -63,7 +71,7 @@ export default function GameProgrammingPage() {
       {/* Header */}
       <div className="text-center mb-16 pt-16">
         <h1 className="text-4xl md:text-6xl font-bold mb-4 text-indigo-400">
-          🎮 Game Programming Roadmap
+          ðŸŽ® Game Programming Roadmap
         </h1>
         <p className="text-gray-300 max-w-2xl mx-auto">
           From beginner to expert: learn programming, game engines, scripting, AI, level design, and publishing.
@@ -84,3 +92,4 @@ export default function GameProgrammingPage() {
     </div>
   );
 }
+

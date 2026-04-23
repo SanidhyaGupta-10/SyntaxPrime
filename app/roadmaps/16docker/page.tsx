@@ -1,8 +1,16 @@
-"use client";
+﻿"use client";
 import React from "react";
 import { Container, Cpu, Server, Layers, ShieldCheck } from "lucide-react";
 
-function InfoCard({ icon: Icon, title, text }) {
+interface InfoCardProps {
+  icon: React.ComponentType<React.SVGProps<SVGSVGElement>>;
+  title: string;
+  text: string;
+}
+
+function InfoCard(props: InfoCardProps) {
+  const Icon = props.icon;
+  const { title, text } = props;
   return (
     <div className="p-8 rounded-2xl shadow-[0_0_120px_rgba(255,255,255,0)] bg-linear-to-br   from-cyan-500/10 via-blue-500/10 to-indigo-500/10 border border-white/10 flex flex-col items-center gap-4 backdrop-blur-lg hover:scale-[1.05] transition-all duration-300">
       <Icon className="size-12 text-cyan-300" />
@@ -65,3 +73,4 @@ export default function DockerPage() {
     </div>
   );
 }
+
