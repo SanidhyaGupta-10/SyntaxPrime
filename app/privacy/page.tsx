@@ -4,7 +4,7 @@ import React from "react";
 
 export default function PrivacyPolicy() {
   return (
-    <div className="min-h-screen  text-gray-100 px-6 md:px-16 py-20">
+    <div className="min-h-screen text-gray-100 px-6 md:px-16 pt-32 pb-20">
       {/* Header */}
       <div className="max-w-4xl mx-auto text-center mb-16 mt-16">
         <h1 className="text-4xl md:text-5xl font-bold text-purple-400 mb-4">

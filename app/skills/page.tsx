@@ -125,10 +125,10 @@ export default function SkillsPage() {
   );
 
   return (
-    <main className="min-h-screen bg-gradient-to-b from-slate-900 to-slate-950 text-slate-100 px-4 pt-24 pb-8">
+    <main className="min-h-screen bg-linear-to-b from-slate-900 to-slate-950 text-slate-100 px-4 pt-24 pb-8">
       {/* Header */}
       <div className="text-center mb-8">
-        <h1 className="text-2xl sm:text-3xl font-bold mb-2 text-indigo-400">
+        <h1 className="text-2xl mt-5 sm:text-3xl font-bold mb-2 text-indigo-400">
           In-Demand Skills
         </h1>
         <p className="text-slate-400 text-sm sm:text-base max-w-lg mx-auto">
