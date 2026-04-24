@@ -113,8 +113,8 @@ const sections = [
 ];
 
 export default function HackingPage() {
-  const cardsRef = useRef([]);
-  const canvasRef = useRef(null);
+  const cardsRef = useRef<(HTMLDivElement | null)[]>([]);
+  const canvasRef = useRef<HTMLCanvasElement | null>(null);
 
   // GSAP Animations + ScrollTrigger
   useEffect(() => {
@@ -132,9 +132,13 @@ export default function HackingPage() {
 
     // Matrix rain canvas
     const canvas = canvasRef.current;
+    if (!canvas) return;
+
     const ctx = canvas.getContext("2d");
+    if (!ctx) return;
 
     const resize = () => {
+      if (!canvas) return;
       canvas.width = window.innerWidth;
       canvas.height = window.innerHeight;
     };
@@ -181,7 +185,9 @@ export default function HackingPage() {
         {sections.map((section, index) => (
           <div
             key={index}
-            ref={(el) => (cardsRef.current[index] = el)}
+            ref={(el) => {
+              cardsRef.current[index] = el;
+            }}
             className="bg-black/70 border border-green-500/20 rounded-xl p-6 shadow-[0_0_25px_rgba(0,255,0,0.15)]
                        hover:shadow-[0_0_40px_rgba(0,255,0,0.4)] transition-all duration-300"
           >

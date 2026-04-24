@@ -2,19 +2,22 @@
 import { Canvas } from "@react-three/fiber";
 import { OrbitControls } from "@react-three/drei";
 import { useEffect, useRef, useState, useMemo } from "react";
+import { Mesh } from "three";
 import gsap from "gsap";
 
 // 3D Animated Sphere
 function WireSphere() {
-  const sphereRef = useRef();
+  const sphereRef = useRef<Mesh>(null);
 
   useEffect(() => {
-    gsap.to(sphereRef.current.rotation, {
-      y: Math.PI * 2,
-      duration: 10,
-      repeat: -1,
-      ease: "none",
-    });
+    if (sphereRef.current) {
+      gsap.to(sphereRef.current.rotation, {
+        y: Math.PI * 2,
+        duration: 10,
+        repeat: -1,
+        ease: "none",
+      });
+    }
   }, []);
 
   return (
@@ -41,9 +44,7 @@ function Particles() {
       <bufferGeometry>
         <bufferAttribute
           attach="attributes-position"
-          count={count}
-          array={positions}
-          itemSize={3}
+          args={[positions, 3]}
         />
       </bufferGeometry>
       <pointsMaterial size={0.015} />
@@ -68,12 +69,12 @@ export default function ContactPage() {
   const [status, setStatus] = useState("");
 
   // Handle Form Change
-  const handleChange = (e) => {
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     setForm({ ...form, [e.target.name]: e.target.value });
   };
 
   // Submit Form
-  const handleSubmit = async (e) => {
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     setStatus("Sending...");
 
@@ -203,7 +204,7 @@ export default function ContactPage() {
           <textarea
             name="message"
             required
-            rows="4"
+            rows={4}
             placeholder="Message"
             value={form.message}
             onChange={handleChange}
@@ -234,7 +235,7 @@ export default function ContactPage() {
             Message Sent!
           </h2>
           <p className="text-gray-200 mb-6">
-            Thank you for contacting SyntaxPrime.  
+            Thank you for contacting SyntaxPrime.
             We will get back to you shortly.
           </p>
 

@@ -4,7 +4,15 @@ import React, { useEffect, useRef } from "react";
 import { FaEthereum, FaCode, FaDatabase, FaLock, FaRocket } from "react-icons/fa";
 
 // Card Component
-function RoadmapCard({ icon: Icon, title, text }) {
+interface RoadmapCardProps {
+  icon: React.ComponentType<React.SVGProps<SVGSVGElement>>;
+  title: string;
+  text: string;
+}
+
+function RoadmapCard(props: RoadmapCardProps) {
+  const Icon = props.icon;
+  const { title, text } = props;
   return (
     <div className="bg-gray-900/70 border border-gray-700 rounded-2xl hover:border-2 hover:border-purple-400 p-6 flex flex-col items-center gap-4 shadow-lg transform transition-transform duration-300 hover:scale-105 hover:shadow-xl">
       <Icon className="text-4xl text-purple-400" />
@@ -15,7 +23,7 @@ function RoadmapCard({ icon: Icon, title, text }) {
 }
 
 export default function DAppsPage() {
-  const canvasRef = useRef(null);
+  const canvasRef = useRef<HTMLCanvasElement | null>(null);
 
   const roadmap = [
     {
@@ -63,11 +71,23 @@ export default function DAppsPage() {
   // Animated Blockchain Node Background
   useEffect(() => {
     const canvas = canvasRef.current;
+    if (!canvas) return;
+
     const ctx = canvas.getContext("2d");
-    const nodes = [];
+    if (!ctx) return;
+
+    interface Node {
+      x: number;
+      y: number;
+      vx: number;
+      vy: number;
+    }
+
+    const nodes: Node[] = [];
     const nodeCount = 60;
 
     const resize = () => {
+      if (!canvas) return;
       canvas.width = window.innerWidth;
       canvas.height = window.innerHeight;
     };

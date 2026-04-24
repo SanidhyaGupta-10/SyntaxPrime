@@ -1,9 +1,17 @@
-"use client";
+﻿"use client";
 import React from "react";
 import { BookOpen, Hash, Cpu, Layers, Database, Code, Terminal, GitBranch } from "lucide-react";
 
 // Reusable InfoCard used across pages
-function InfoCard({ icon: Icon, title, text }) {
+interface InfoCardProps {
+  icon: React.ComponentType<React.SVGProps<SVGSVGElement>>;
+  title: string;
+  text: string;
+}
+
+function InfoCard(props: InfoCardProps) {
+  const Icon = props.icon;
+  const { title, text } = props;
   return (
     <div className="p-6 rounded-2xl bg-gradient-to-br from-white/3 to-white/6 border border-white/10 shadow-lg flex flex-col items-start gap-4 min-h-[160px]">
       <div className="flex items-center gap-3">
@@ -16,14 +24,14 @@ function InfoCard({ icon: Icon, title, text }) {
 }
 
 export default function MLPage() {
-  // Beginner → Intermediate → Advanced roadmap and library checklist
+  // Beginner â†’ Intermediate â†’ Advanced roadmap and library checklist
   return (
     <div className="min-h-screen w-full mt-16 bg-linear-to-b from-black via-zinc-900 to-[#05010a] text-white px-6 py-16 flex flex-col items-center gap-16">
 
       {/* Hero */}
       <section className="w-full max-w-5xl text-center">
         <div className="rounded-2xl p-8 border border-white/10 backdrop-blur-xl bg-white/5 shadow-[0_0_120px_rgba(0,0,0,0.6)]">
-          <h1 className="text-4xl font-bold mb-3">Machine Learning — Roadmap (Beginner → Expert)</h1>
+          <h1 className="text-4xl font-bold mb-3">Machine Learning â€” Roadmap (Beginner â†’ Expert)</h1>
           <p className="text-[22px] opacity-80 max-w-3xl mx-auto">
             A practical learning path: what to learn first, which libraries to master, project ideas, and how to progress from fundamentals to production-ready ML systems.
           </p>
@@ -34,7 +42,7 @@ export default function MLPage() {
       <section className="w-full max-w-6xl grid grid-cols-1 lg:grid-cols-3 gap-8">
         <InfoCard
           icon={BookOpen}
-          title="Start Here — Foundations"
+          title="Start Here â€” Foundations"
           text={`Learn Python basics (syntax, functions, OOP), linear algebra (vectors, matrices), probability & statistics, and calculus basics. These are the foundations that make ML understandable.`}
         />
 
@@ -54,7 +62,7 @@ export default function MLPage() {
       <section className="w-full max-w-6xl grid grid-cols-1 lg:grid-cols-3 gap-8">
         <InfoCard
           icon={Layers}
-          title="Intermediate — Models & Libraries"
+          title="Intermediate â€” Models & Libraries"
           text={`Learn scikit-learn thoroughly (regression, classification, clustering, pipelines), then move to deep learning with TensorFlow/Keras or PyTorch. Study regularization, hyperparameter tuning, and model selection.`}
         />
 
@@ -91,7 +99,7 @@ export default function MLPage() {
         <InfoCard
           icon={Terminal}
           title="Beginner Projects"
-          text={`House price prediction, Titanic survival classifier, basic image classifier (MNIST), and EDA notebooks—focus on end-to-end workflow.`}
+          text={`House price prediction, Titanic survival classifier, basic image classifier (MNIST), and EDA notebooksâ€”focus on end-to-end workflow.`}
         />
         <InfoCard
           icon={Terminal}
@@ -116,10 +124,11 @@ export default function MLPage() {
         <InfoCard
           icon={BookOpen}
           title="Recommended Path"
-          text={`1) Python & Math → 2) EDA & scikit-learn → 3) Deep learning basics → 4) Specialize (NLP, CV, RL) → 5) Production & MLOps.`}
+          text={`1) Python & Math â†’ 2) EDA & scikit-learn â†’ 3) Deep learning basics â†’ 4) Specialize (NLP, CV, RL) â†’ 5) Production & MLOps.`}
         />
       </section>
 
     </div>
   );
 }
+

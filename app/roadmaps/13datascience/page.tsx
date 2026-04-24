@@ -1,9 +1,18 @@
-"use client";
+﻿"use client";
 import React from "react";
 import { Brain, BarChart3, Database, LineChart } from "lucide-react";
 
+interface InfoCardProps {
+  icon: React.ComponentType<React.SVGProps<SVGSVGElement>>;
+  title: string;
+  text: string;
+  color: string;
+}
+
 // Reusable Card Component
-function InfoCard({ icon: Icon, title, text, color }) {
+function InfoCard(props: InfoCardProps) {
+  const Icon = props.icon;
+  const { title, text, color } = props;
   return (
     <div
       className={`p-8 rounded-2xl border border-white/10 shadow-xl flex flex-col items-center gap-4 backdrop-blur-lg hover:scale-[1.04] transition-all duration-300 ${color}`}
@@ -26,7 +35,7 @@ export default function DataSciencePage() {
             <BarChart3 className="size-12" /> Data Science Hub
           </h1>
           <p className="mt-4 text-[22px] opacity-80 leading-relaxed max-w-2xl mx-auto">
-            Explore the world of Data Science — a blend of statistics, machine learning,
+            Explore the world of Data Science â€” a blend of statistics, machine learning,
             programming, and storytelling with data that powers modern innovation.
           </p>
         </div>
@@ -67,21 +76,21 @@ export default function DataSciencePage() {
         <div className="grid grid-cols-1 md:grid-cols-3 gap-10">
           <InfoCard
             icon={Database}
-            title="Beginner – Foundations"
+            title="Beginner â€“ Foundations"
             color="bg-gradient-to-br from-yellow-600/20 to-yellow-400/10"
             text="Start with Python, basic mathematics, statistics, probability, and learn how to work with data using Pandas, NumPy, and Matplotlib."
           />
 
           <InfoCard
             icon={BarChart3}
-            title="Intermediate – Analytics"
+            title="Intermediate â€“ Analytics"
             color="bg-gradient-to-br from-red-600/20 to-red-400/10"
             text="Learn Exploratory Data Analysis (EDA), SQL, data cleaning, visualization (Seaborn/Plotly), and working with real datasets."
           />
 
           <InfoCard
             icon={Brain}
-            title="Advanced – Machine Learning"
+            title="Advanced â€“ Machine Learning"
             color="bg-gradient-to-br from-purple-600/20 to-purple-400/10"
             text="Dive into ML models, Scikit-Learn, feature engineering, model tuning, deployment, and handling large-scale datasets."
           />
@@ -140,3 +149,4 @@ export default function DataSciencePage() {
     </div>
   );
 }
+

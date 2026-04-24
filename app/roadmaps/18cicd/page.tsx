@@ -1,8 +1,16 @@
-"use client";
+﻿"use client";
 import React from "react";
 import { GitBranch, Cpu, Server, ShieldCheck, Cloud } from "lucide-react";
 
-function InfoCard({ icon: Icon, title, text }) {
+interface InfoCardProps {
+  icon: React.ComponentType<React.SVGProps<SVGSVGElement>>;
+  title: string;
+  text: string;
+}
+
+function InfoCard(props: InfoCardProps) {
+  const Icon = props.icon;
+  const { title, text } = props;
   return (
     <div className="p-8 rounded-2xl bg-gray-800 border border-gray-700 shadow-md flex flex-col items-center gap-4 backdrop-blur-lg hover:scale-[1.05] transition-all duration-300">
       <Icon className="size-12 text-gray-300" />
@@ -65,3 +73,4 @@ export default function CICDPage() {
     </div>
   );
 }
+
