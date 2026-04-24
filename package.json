@@ -1,5 +1,5 @@
 {
-  "name": "my-app",
+  "name": "syntax-prime",
   "version": "0.1.0",
   "private": true,
   "scripts": {
@@ -11,8 +11,6 @@
   "dependencies": {
     "@fortawesome/fontawesome-svg-core": "^7.1.0",
     "@gsap/react": "^2.1.2",
-    "@react-md/icon": "^5.1.6",
-    "@react-md/material-icons": "^6.2.7",
     "@react-three/drei": "^10.7.7",
     "@react-three/fiber": "^9.4.2",
     "@react-three/postprocessing": "^3.0.4",
