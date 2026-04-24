@@ -4,8 +4,8 @@ import Navbar from "@/components/Navbar";
 import { LenisProvider } from "./providers";
 
 export const metadata = {
-  title: "Syntax Prime | Where Code Meets Clarity.",
-  description: "The Prime Source of Developer Knowledge.",
+  title: "Syntax Prime | Professional Programming Notes & Roadmaps",
+  description: "Deep-dive technical notes, professional roadmaps, and high-impact skills for developers. The prime source for mastering engineering from the ground up.",
 };
 
 interface RootLayoutProps {
@@ -14,9 +14,9 @@ interface RootLayoutProps {
 
 export default function RootLayout({ children }: RootLayoutProps) {
   return (
-    <html lang="en">
+    <html lang="en" suppressHydrationWarning>
       <body
-
+        suppressHydrationWarning
         style={{
           fontFamily: "'Courier New', Courier, monospace",
           position: "relative",

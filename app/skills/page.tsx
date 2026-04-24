@@ -125,7 +125,7 @@ export default function SkillsPage() {
   );
 
   return (
-    <main className="min-h-screen bg-gradient-to-b from-slate-900 to-slate-950 text-slate-100 px-4 py-8">
+    <main className="min-h-screen bg-gradient-to-b from-slate-900 to-slate-950 text-slate-100 px-4 pt-24 pb-8">
       {/* Header */}
       <div className="text-center mb-8">
         <h1 className="text-2xl sm:text-3xl font-bold mb-2 text-indigo-400">

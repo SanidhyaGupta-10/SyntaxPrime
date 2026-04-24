@@ -1,4 +1,4 @@
-﻿"use client";
+"use client";
 
 import React, { useState } from "react";
 import Link from "next/link";
@@ -36,7 +36,7 @@ import {
 --------------------------- */
 function SectionTitle({ text }: { text: string }) {
   return (
-    <h2 className="text-center text-2xl sm:text-3xl font-bold mb-6 mt-12 text-slate-100">
+    <h2 className="text-center text-2xl sm:text-3xl font-bold mb-6 mt-8 text-slate-100">
       {text}
     </h2>
   );
@@ -171,9 +171,9 @@ export default function RoadmapsPage() {
   ];
 
   return (
-    <main className="min-h-screen bg-gradient-to-b from-slate-900 to-slate-950 text-slate-100 pb-16">
+    <main className="min-h-screen bg-linear-to-b from-slate-900 to-slate-950 text-slate-100 pb-16">
       {/* Header */}
-      <div className="pt-8 pb-4 text-center px-4">
+      <div className="pt-30 pb-4 text-center px-4">
         <h1 className="text-3xl sm:text-4xl font-bold text-indigo-400 mb-2">
           Developer Roadmaps
         </h1>
