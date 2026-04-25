@@ -30,11 +30,11 @@ export default function Page() {
   ];
 
   return (
-    <main className="min-h-screen bg-gradient-to-b from-slate-900 to-slate-950 text-slate-100">
+    <main className="min-h-screen bg-linear-to-b from-slate-900 to-slate-950 text-slate-100">
       {/* Hero */}
-      <section className="py-16 sm:py-24 px-4 sm:px-6 lg:px-8 text-center">
+      <section className="py-16  sm:py-24 px-4 sm:px-6 lg:px-8 text-center">
         <div className="max-w-3xl mx-auto">
-          <h1 className="text-4xl sm:text-5xl font-bold mb-4 text-indigo-400">
+          <h1 className="text-4xl sm:text-5xl font-bold mt-20 text-indigo-400">
             &lt;SyntaxPrime/&gt;
           </h1>
           <p className="text-slate-400 text-lg sm:text-xl mb-8 max-w-xl mx-auto">
