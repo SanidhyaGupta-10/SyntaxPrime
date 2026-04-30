@@ -55,14 +55,6 @@ const Navbar = () => {
 
         {/* Right Actions */}
         <div className="flex items-center gap-4">
-          <div className="hidden lg:flex items-center bg-white/5 rounded-full px-4 py-1.5 border border-white/10 group focus-within:border-primary/50 transition-all">
-            <span className="material-symbols-outlined text-sm text-slate-400 mr-2">search</span>
-            <input 
-              type="text" 
-              placeholder="Search technical docs..." 
-              className="bg-transparent border-none focus:outline-none text-sm text-on-surface placeholder:text-slate-500 w-40"
-            />
-          </div>
 
           <div className="hidden md:flex items-center gap-2">
             <button className="p-2 text-slate-400 hover:bg-white/5 transition-all duration-200 active:scale-95 rounded-full">
