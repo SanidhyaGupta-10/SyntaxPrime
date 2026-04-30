@@ -1,7 +1,27 @@
 import React from "react";
 import "./globals.css";
 import Navbar from "@/components/Navbar";
+import Footer from "@/components/Footer";
 import { LenisProvider } from "./providers";
+import { Inter, Space_Grotesk, JetBrains_Mono } from "next/font/google";
+
+const inter = Inter({
+  subsets: ["latin"],
+  variable: "--font-inter",
+  display: "swap",
+});
+
+const spaceGrotesk = Space_Grotesk({
+  subsets: ["latin"],
+  variable: "--font-space",
+  display: "swap",
+});
+
+const jetbrainsMono = JetBrains_Mono({
+  subsets: ["latin"],
+  variable: "--font-mono",
+  display: "swap",
+});
 
 export const metadata = {
   title: "Syntax Prime | Professional Programming Notes & Roadmaps",
@@ -14,43 +34,18 @@ interface RootLayoutProps {
 
 export default function RootLayout({ children }: RootLayoutProps) {
   return (
-    <html lang="en" suppressHydrationWarning>
-      <body
-        suppressHydrationWarning
-        style={{
-          fontFamily: "'Courier New', Courier, monospace",
-          position: "relative",
-        }}
-      >
+    <html lang="en" className={`${inter.variable} ${spaceGrotesk.variable} ${jetbrainsMono.variable} dark`} suppressHydrationWarning>
+      <head>
+        <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet" />
+      </head>
+      <body suppressHydrationWarning className="min-h-screen">
         <LenisProvider>
-          <div className="min-h-full w-full bg-[#0A0A0F] relative overflow-hidden">
-
-            {/* Background Layers */}
-            <div className="absolute inset-0 bg-black"></div>
-
-            {/* Grid overlay */}
-            <div
-              className="absolute inset-0"
-              style={{
-                backgroundImage: `linear-gradient(to right, #4f4f4f2e 1px, transparent 1px),
-              linear-gradient(to bottom, #8080800a 1px, transparent 1px)`,
-                backgroundSize: "14px 24px",
-              }}
-            ></div>
-
-            {/* Radial glow */}
-            <div
-              className="absolute left-0 top-[-10%] w-[1000px] h-[1000px] rounded-full"
-              style={{
-                background: "radial-gradient(circle 400px at 50% 300px, #fbfbfb36, #000)",
-              }}
-            ></div>
-
-            {/* Page content */}
+          <div className="relative min-h-screen flex flex-col">
             <Navbar />
-            <div className="relative z-10">
+            <main className="relative flex-grow pt-16">
               {children}
-            </div>
+            </main>
+            <Footer />
           </div>
         </LenisProvider>
       </body>

@@ -1,0 +1,292 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Download Notes | SyntaxPrime</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&amp;family=Inter:wght@300;400;500;600;700&amp;family=JetBrains+Mono:wght@400;500&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                "on-secondary-fixed-variant": "#005236",
+                "secondary-container": "#00a572",
+                "on-secondary-fixed": "#002113",
+                "surface-tint": "#89ceff",
+                "surface-container-lowest": "#0e0e0e",
+                "inverse-primary": "#006591",
+                "on-tertiary": "#3c0091",
+                "on-error": "#690005",
+                "primary": "#89ceff",
+                "on-tertiary-fixed": "#23005c",
+                "on-primary-container": "#003751",
+                "error-container": "#93000a",
+                "tertiary": "#d0bcff",
+                "outline": "#88929b",
+                "on-surface-variant": "#bec8d2",
+                "on-primary": "#00344d",
+                "on-primary-fixed-variant": "#004c6e",
+                "surface": "#131313",
+                "primary-container": "#0ea5e9",
+                "on-surface": "#e5e2e1",
+                "inverse-surface": "#e5e2e1",
+                "on-error-container": "#ffdad6",
+                "tertiary-container": "#a986ff",
+                "secondary-fixed-dim": "#4edea3",
+                "tertiary-fixed": "#e9ddff",
+                "inverse-on-surface": "#313030",
+                "on-primary-fixed": "#001e2f",
+                "surface-container-low": "#1c1b1b",
+                "on-tertiary-container": "#3e0097",
+                "primary-fixed-dim": "#89ceff",
+                "outline-variant": "#3e4850",
+                "surface-container": "#201f1f",
+                "surface-dim": "#131313",
+                "tertiary-fixed-dim": "#d0bcff",
+                "background": "#050505",
+                "surface-bright": "#3a3939",
+                "on-tertiary-fixed-variant": "#5516be",
+                "on-secondary": "#003824",
+                "surface-container-highest": "#353534",
+                "secondary-fixed": "#6ffbbe",
+                "on-background": "#e5e2e1",
+                "on-secondary-container": "#00311f",
+                "primary-fixed": "#c9e6ff",
+                "surface-variant": "#353534",
+                "surface-container-high": "#2a2a2a",
+                "secondary": "#4edea3",
+                "error": "#ffb4ab"
+            },
+            "borderRadius": {
+                "DEFAULT": "0.125rem",
+                "lg": "0.25rem",
+                "xl": "0.5rem",
+                "full": "0.75rem"
+            },
+            "spacing": {
+                "xl": "4rem",
+                "md": "1.5rem",
+                "gutter": "24px",
+                "xs": "0.5rem",
+                "container-max": "1280px",
+                "unit": "4px",
+                "sm": "1rem",
+                "lg": "2.5rem"
+            },
+            "fontFamily": {
+                "label-caps": ["Inter"],
+                "headline-lg": ["Space Grotesk"],
+                "code-sm": ["JetBrains Mono"],
+                "body-lg": ["Inter"],
+                "display-xl": ["Space Grotesk"],
+                "body-md": ["Inter"],
+                "headline-md": ["Space Grotesk"]
+            },
+            "fontSize": {
+                "label-caps": ["12px", {"lineHeight": "1", "letterSpacing": "0.05em", "fontWeight": "600"}],
+                "headline-lg": ["32px", {"lineHeight": "1.2", "fontWeight": "600"}],
+                "code-sm": ["14px", {"lineHeight": "1.5", "fontWeight": "400"}],
+                "body-lg": ["18px", {"lineHeight": "1.6", "fontWeight": "400"}],
+                "display-xl": ["64px", {"lineHeight": "1.1", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                "body-md": ["16px", {"lineHeight": "1.5", "fontWeight": "400"}],
+                "headline-md": ["24px", {"lineHeight": "1.3", "fontWeight": "500"}]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+        body {
+            background-color: #050505;
+            background-image: 
+                linear-gradient(rgba(14, 165, 233, 0.03) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(14, 165, 233, 0.03) 1px, transparent 1px);
+            background-size: 40px 40px;
+        }
+        .glass-panel {
+            background: rgba(18, 18, 18, 0.7);
+            backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        .glow-hover:hover {
+            box-shadow: 0 0 25px rgba(14, 165, 233, 0.15);
+            border-color: #89ceff;
+        }
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+    </style>
+</head>
+<body class="font-body-md text-on-surface min-h-screen flex flex-col">
+<!-- TopAppBar -->
+<header class="fixed top-0 left-0 w-full z-50 flex justify-between items-center px-6 h-16 max-w-[1280px] mx-auto bg-[#050505]/80 backdrop-blur-xl border-b border-white/10 shadow-[0_0_20px_rgba(14,165,233,0.1)] left-1/2 -translate-x-1/2">
+<div class="flex items-center gap-8">
+<span class="text-xl font-bold text-white tracking-tighter font-headline-lg">SyntaxPrime</span>
+<nav class="hidden md:flex items-center gap-6">
+<a class="font-label-caps text-sky-400 border-b-2 border-sky-500 pb-1 transition-all duration-200" href="#">Notes</a>
+<a class="font-label-caps text-slate-400 hover:text-white transition-colors" href="#">Roadmaps</a>
+<a class="font-label-caps text-slate-400 hover:text-white transition-colors" href="#">Skills</a>
+<a class="font-label-caps text-slate-400 hover:text-white transition-colors" href="#">MathsBuddy</a>
+</nav>
+</div>
+<div class="flex items-center gap-4">
+<div class="flex items-center gap-2">
+<button class="p-2 text-slate-400 hover:bg-white/5 transition-all duration-200 active:scale-95 rounded-lg">
+<span class="material-symbols-outlined" data-icon="terminal">terminal</span>
+</button>
+<button class="p-2 text-slate-400 hover:bg-white/5 transition-all duration-200 active:scale-95 rounded-lg">
+<span class="material-symbols-outlined" data-icon="settings">settings</span>
+</button>
+<button class="p-2 text-slate-400 hover:bg-white/5 transition-all duration-200 active:scale-95 rounded-lg">
+<span class="material-symbols-outlined" data-icon="account_circle">account_circle</span>
+</button>
+</div>
+<button class="hidden lg:flex items-center gap-2 bg-primary-container text-on-primary-container px-4 py-2 font-label-caps rounded transition-transform active:scale-95">
+                Console
+            </button>
+</div>
+</header>
+<main class="flex-grow pt-32 pb-24 px-6 max-w-[1280px] mx-auto w-full">
+<!-- Hero Section -->
+<section class="mb-16">
+<h1 class="font-display-xl text-white mb-4">Engineering Notes</h1>
+<p class="text-on-surface-variant font-body-lg max-w-2xl">
+                High-fidelity, architectural summaries of core engineering frameworks and languages. Designed for rapid cognitive retrieval and performance-grade implementation.
+            </p>
+</section>
+<!-- Bento Grid for Notes -->
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-gutter">
+<!-- Card: Angular 2+ -->
+<div class="glass-panel glow-hover rounded-xl overflow-hidden flex flex-col group transition-all duration-300">
+<div class="relative h-48 overflow-hidden">
+<img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" data-alt="A clean, futuristic close-up of a semiconductor circuit board illuminated with deep red and electric blue lights. The perspective is sharp and technical, emphasizing precision engineering and high-performance hardware. The lighting is moody and dark-mode oriented, with vibrant glowing neon traces and soft bokeh in the background, creating a professional development environment feel." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBJ8BO8RGGOV4CBoFCii_REepe5DMgQAumH97_xoEflbOV64dXNQ0_Cm3qOXcQ4SlgYS0_D-GiCeJ_iqa37dHubCAC0W2dOwUosZWQFDR00U90HDy9RJK1H-_Nwm4KiHffhcAcYLq_4rFBcO_zTGkKPTKyreYXTWJTjo1t0-uoRSH3PlujcTRrl1Fu-JAV82p3sqr0CQBZnofwTF0aOVvKlV-1r8ouPUeH-8SarWiqc2WFjs-jU1BuqDbDZoIKJRlmRy8JsZrvUpew"/>
+<div class="absolute inset-0 bg-gradient-to-t from-[#050505] to-transparent"></div>
+<div class="absolute bottom-4 left-4">
+<span class="bg-red-500/20 text-red-400 text-xs font-label-caps px-2 py-1 rounded border border-red-500/30 uppercase tracking-widest">Enterprise</span>
+</div>
+</div>
+<div class="p-md flex flex-col flex-grow">
+<div class="flex justify-between items-start mb-2">
+<h3 class="font-headline-md text-white">Angular 2+</h3>
+<span class="font-code-sm text-primary">248 Pages</span>
+</div>
+<p class="text-on-surface-variant text-sm mb-6 flex-grow">Complete reference for TypeScript-based architecture, RxJS observables, and modular dependency injection patterns.</p>
+<div class="flex items-center justify-between mt-auto">
+<div class="flex -space-x-2">
+<div class="w-8 h-8 rounded-full border-2 border-surface bg-surface-container-high flex items-center justify-center text-[10px] font-bold">TS</div>
+<div class="w-8 h-8 rounded-full border-2 border-surface bg-surface-container-high flex items-center justify-center text-[10px] font-bold">RX</div>
+</div>
+<button class="bg-primary text-on-primary font-label-caps px-4 py-2 rounded-lg flex items-center gap-2 active:scale-95 transition-transform">
+<span class="material-symbols-outlined text-sm" data-icon="download">download</span>
+                            Download
+                        </button>
+</div>
+</div>
+</div>
+<!-- Card: AngularJS -->
+<div class="glass-panel glow-hover rounded-xl overflow-hidden flex flex-col group transition-all duration-300">
+<div class="relative h-48 overflow-hidden">
+<img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" data-alt="An abstract visualization of interconnected code nodes glowing in emerald green and deep charcoal. The visual style is sleek glassmorphism with light-catching edges and subtle background blurs. The aesthetic represents a legacy software system that is organized, complex, and professional, bathed in a sophisticated low-light environment characteristic of a developer's workspace." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDq4_GbtlzhEf8R4R6D0CVPb5NMMaWYea32JVtfJ08FpETX4UoEuZxetb6Y6ytdwVGeU_oPIpf0dNSKk-52Tjzbm67CmmmuljiyugmGW7jbvjXHyo8ilrOFqrmZwgAzI8NYMYvPjZ2_FzipBRn8YbeyHuhWI1-Ci4l5XesuPTCMJZgY3YmY2b60TG-Yp2iw67IryBnZ3ThcsDkS_5O1mvMUBnOdmmirrB4upFW4zbVf46-Cv2gnH6n_R29JyOBEdsQyHPqwz5Ekc-o"/>
+<div class="absolute inset-0 bg-gradient-to-t from-[#050505] to-transparent"></div>
+<div class="absolute bottom-4 left-4">
+<span class="bg-secondary-container/20 text-secondary-fixed-dim text-xs font-label-caps px-2 py-1 rounded border border-secondary-container/30 uppercase tracking-widest">Legacy</span>
+</div>
+</div>
+<div class="p-md flex flex-col flex-grow">
+<div class="flex justify-between items-start mb-2">
+<h3 class="font-headline-md text-white">AngularJS</h3>
+<span class="font-code-sm text-secondary">192 Pages</span>
+</div>
+<p class="text-on-surface-variant text-sm mb-6 flex-grow">In-depth guide to 1.x directives, scopes, and two-way data binding mechanisms for maintaining legacy systems.</p>
+<div class="flex items-center justify-between mt-auto">
+<div class="flex -space-x-2">
+<div class="w-8 h-8 rounded-full border-2 border-surface bg-surface-container-high flex items-center justify-center text-[10px] font-bold">JS</div>
+<div class="w-8 h-8 rounded-full border-2 border-surface bg-surface-container-high flex items-center justify-center text-[10px] font-bold">DOM</div>
+</div>
+<button class="bg-secondary text-on-secondary font-label-caps px-4 py-2 rounded-lg flex items-center gap-2 active:scale-95 transition-transform">
+<span class="material-symbols-outlined text-sm" data-icon="download">download</span>
+                            Download
+                        </button>
+</div>
+</div>
+</div>
+<!-- Card: Bash Shell -->
+<div class="glass-panel glow-hover rounded-xl overflow-hidden flex flex-col group transition-all duration-300">
+<div class="relative h-48 overflow-hidden">
+<img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" data-alt="A macro shot of a sleek mechanical keyboard with glowing violet and blue backlighting on a dark, reflective surface. The aesthetic is extremely high-tech and minimalist, representing the raw power of command-line scripting. The mood is focused and intense, using a dark-mode palette with sharp highlights on the keycaps and a subtle mist of color in the shadows." src="https://lh3.googleusercontent.com/aida-public/AB6AXuB82_TwqIKBfM7A9K_zk8EEiXmQ9t3e-Ra6zck3YapyhCO3hOy02v-SzDXSykmlyOWxTiigNdu5TU6eUhFCR2vxZetcKs1G9LSiANY4H7NZAM7E0o9P7hpVP4Of1DvdGtW4SkxQpUx-lof_kSYenSr_Lh8AGnkP7xGqCJbFIVXDxhco6zwuDZ0mCrX3KKT5IKykmufKk7xc7YKKohladHpLBcPDmTTaQYPFsnwDf47xA_IPtmMqc793rhvNFsWfLoj4jZKN_HNeT74"/>
+<div class="absolute inset-0 bg-gradient-to-t from-[#050505] to-transparent"></div>
+<div class="absolute bottom-4 left-4">
+<span class="bg-tertiary-container/20 text-tertiary-fixed-dim text-xs font-label-caps px-2 py-1 rounded border border-tertiary-container/30 uppercase tracking-widest">Systems</span>
+</div>
+</div>
+<div class="p-md flex flex-col flex-grow">
+<div class="flex justify-between items-start mb-2">
+<h3 class="font-headline-md text-white">Bash</h3>
+<span class="font-code-sm text-tertiary">156 Pages</span>
+</div>
+<p class="text-on-surface-variant text-sm mb-6 flex-grow">Scripting essentials, piping, automation workflows, and advanced Unix command-line utilities for DevOps excellence.</p>
+<div class="flex items-center justify-between mt-auto">
+<div class="flex -space-x-2">
+<div class="w-8 h-8 rounded-full border-2 border-surface bg-surface-container-high flex items-center justify-center text-[10px] font-bold">SH</div>
+<div class="w-8 h-8 rounded-full border-2 border-surface bg-surface-container-high flex items-center justify-center text-[10px] font-bold">CLI</div>
+</div>
+<button class="bg-tertiary text-on-tertiary font-label-caps px-4 py-2 rounded-lg flex items-center gap-2 active:scale-95 transition-transform">
+<span class="material-symbols-outlined text-sm" data-icon="download">download</span>
+                            Download
+                        </button>
+</div>
+</div>
+</div>
+</div>
+<!-- System Stats / Search Bar -->
+<div class="mt-24 grid grid-cols-1 lg:grid-cols-4 gap-8">
+<div class="lg:col-span-1 glass-panel p-6 rounded-xl">
+<h4 class="font-label-caps text-slate-500 mb-4">Storage Usage</h4>
+<div class="h-1.5 w-full bg-white/5 rounded-full overflow-hidden mb-2">
+<div class="h-full bg-primary w-2/3 shadow-[0_0_10px_#89ceff]"></div>
+</div>
+<div class="flex justify-between font-code-sm text-xs">
+<span class="text-on-surface-variant">4.2 GB used</span>
+<span class="text-slate-500">8 GB Total</span>
+</div>
+</div>
+<div class="lg:col-span-3 glass-panel p-6 rounded-xl flex items-center justify-between gap-6">
+<div class="flex-grow flex items-center gap-4 bg-black/40 px-4 py-3 border border-white/5 rounded-lg">
+<span class="material-symbols-outlined text-slate-500" data-icon="search">search</span>
+<input class="bg-transparent border-none focus:ring-0 w-full text-white placeholder-slate-600 font-code-sm" placeholder="Query documentation library..." type="text"/>
+</div>
+<div class="flex items-center gap-2">
+<button class="p-3 text-slate-400 hover:text-white transition-colors">
+<span class="material-symbols-outlined" data-icon="filter_list">filter_list</span>
+</button>
+<button class="p-3 text-slate-400 hover:text-white transition-colors">
+<span class="material-symbols-outlined" data-icon="grid_view">grid_view</span>
+</button>
+</div>
+</div>
+</div>
+</main>
+<!-- Footer -->
+<footer class="w-full mt-auto flex flex-col md:flex-row justify-between items-center px-8 py-12 max-w-[1280px] mx-auto border-t border-white/5 bg-[#050505]">
+<div class="flex flex-col items-center md:items-start gap-2 mb-8 md:mb-0">
+<span class="text-lg font-bold text-white font-headline-lg">SyntaxPrime</span>
+<p class="font-['Space_Grotesk'] text-sm text-slate-500">© 2024 SyntaxPrime. Engineered for performance.</p>
+</div>
+<nav class="flex gap-8 items-center">
+<a class="font-['Space_Grotesk'] text-sm text-slate-500 hover:text-sky-400 transition-colors" href="#">Documentation</a>
+<a class="font-['Space_Grotesk'] text-sm text-slate-500 hover:text-sky-400 transition-colors" href="#">Changelog</a>
+<a class="font-['Space_Grotesk'] text-sm text-slate-500 hover:text-sky-400 transition-colors" href="#">Status</a>
+<a class="font-['Space_Grotesk'] text-sm text-slate-500 hover:text-sky-400 transition-colors" href="#">Privacy</a>
+</nav>
+<div class="mt-8 md:mt-0 flex gap-4">
+<span class="w-2 h-2 rounded-full bg-secondary shadow-[0_0_8px_#4edea3]"></span>
+<span class="text-[10px] font-label-caps text-secondary uppercase tracking-widest">System Online</span>
+</div>
+</footer>
+</body></html>

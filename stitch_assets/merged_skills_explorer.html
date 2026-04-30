@@ -1,0 +1,323 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&amp;family=Inter:wght@400;500;600&amp;family=JetBrains+Mono:wght@400;500&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          "colors": {
+            "on-secondary-fixed-variant": "#005236",
+            "secondary-container": "#00a572",
+            "on-secondary-fixed": "#002113",
+            "surface-tint": "#89ceff",
+            "surface-container-lowest": "#0e0e0e",
+            "inverse-primary": "#006591",
+            "on-tertiary": "#3c0091",
+            "on-error": "#690005",
+            "primary": "#89ceff",
+            "on-tertiary-fixed": "#23005c",
+            "on-primary-container": "#003751",
+            "error-container": "#93000a",
+            "tertiary": "#d0bcff",
+            "outline": "#88929b",
+            "on-surface-variant": "#bec8d2",
+            "on-primary": "#00344d",
+            "on-primary-fixed-variant": "#004c6e",
+            "surface": "#131313",
+            "primary-container": "#0ea5e9",
+            "on-surface": "#e5e2e1",
+            "inverse-surface": "#e5e2e1",
+            "on-error-container": "#ffdad6",
+            "tertiary-container": "#a986ff",
+            "secondary-fixed-dim": "#4edea3",
+            "tertiary-fixed": "#e9ddff",
+            "inverse-on-surface": "#313030",
+            "on-primary-fixed": "#001e2f",
+            "surface-container-low": "#1c1b1b",
+            "on-tertiary-container": "#3e0097",
+            "primary-fixed-dim": "#89ceff",
+            "outline-variant": "#3e4850",
+            "surface-container": "#201f1f",
+            "surface-dim": "#131313",
+            "tertiary-fixed-dim": "#d0bcff",
+            "background": "#131313",
+            "surface-bright": "#3a3939",
+            "on-tertiary-fixed-variant": "#5516be",
+            "on-secondary": "#003824",
+            "surface-container-highest": "#353534",
+            "secondary-fixed": "#6ffbbe",
+            "on-background": "#e5e2e1",
+            "on-secondary-container": "#00311f",
+            "primary-fixed": "#c9e6ff",
+            "surface-variant": "#353534",
+            "surface-container-high": "#2a2a2a",
+            "secondary": "#4edea3",
+            "error": "#ffb4ab"
+          },
+          "borderRadius": {
+            "DEFAULT": "0.125rem",
+            "lg": "0.25rem",
+            "xl": "0.5rem",
+            "full": "0.75rem"
+          },
+          "spacing": {
+            "xl": "4rem",
+            "md": "1.5rem",
+            "gutter": "24px",
+            "xs": "0.5rem",
+            "container-max": "1280px",
+            "unit": "4px",
+            "sm": "1rem",
+            "lg": "2.5rem"
+          },
+          "fontFamily": {
+            "label-caps": ["Inter"],
+            "headline-lg": ["Space Grotesk"],
+            "code-sm": ["JetBrains Mono"],
+            "body-lg": ["Inter"],
+            "display-xl": ["Space Grotesk"],
+            "body-md": ["Inter"],
+            "headline-md": ["Space Grotesk"]
+          },
+          "fontSize": {
+            "label-caps": ["12px", {"lineHeight": "1", "letterSpacing": "0.05em", "fontWeight": "600"}],
+            "headline-lg": ["32px", {"lineHeight": "1.2", "fontWeight": "600"}],
+            "code-sm": ["14px", {"lineHeight": "1.5", "fontWeight": "400"}],
+            "body-lg": ["18px", {"lineHeight": "1.6", "fontWeight": "400"}],
+            "display-xl": ["64px", {"lineHeight": "1.1", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+            "body-md": ["16px", {"lineHeight": "1.5", "fontWeight": "400"}],
+            "headline-md": ["24px", {"lineHeight": "1.3", "fontWeight": "500"}]
+          }
+        },
+      },
+    }
+  </script>
+<style>
+    .glass-card {
+      background: rgba(18, 18, 18, 0.7);
+      backdrop-filter: blur(12px);
+      border: 1px solid rgba(255, 255, 255, 0.05);
+      border-top: 1px solid rgba(255, 255, 255, 0.1);
+    }
+    .skill-pill {
+      background: rgba(255, 255, 255, 0.03);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+    .skill-pill:hover {
+      background: rgba(137, 206, 255, 0.1);
+      border-color: #89ceff;
+      box-shadow: 0 0 15px rgba(137, 206, 255, 0.2);
+      transform: translateY(-1px);
+    }
+    .glow-bg {
+      background: radial-gradient(circle at 50% -20%, rgba(14, 165, 233, 0.15) 0%, transparent 70%);
+    }
+  </style>
+</head>
+<body class="bg-[#050505] text-on-surface font-body-md min-h-screen flex flex-col overflow-x-hidden glow-bg">
+<!-- TopAppBar -->
+<header class="fixed top-0 left-0 w-full z-50 bg-[#050505]/80 backdrop-blur-xl border-b border-white/10 shadow-[0_0_20px_rgba(14,165,233,0.1)] h-16">
+<div class="max-w-[1280px] mx-auto flex justify-between items-center px-6 h-full">
+<div class="flex items-center gap-8">
+<span class="text-xl font-bold text-white tracking-tighter font-headline-lg">SyntaxPrime</span>
+<nav class="hidden md:flex items-center gap-6">
+<a class="text-slate-400 hover:text-white transition-colors font-label-caps uppercase tracking-widest text-[10px]" href="#">Notes</a>
+<a class="text-slate-400 hover:text-white transition-colors font-label-caps uppercase tracking-widest text-[10px]" href="#">Roadmaps</a>
+<a class="text-sky-400 border-b-2 border-sky-500 pb-1 font-label-caps uppercase tracking-widest text-[10px]" href="#">Skills</a>
+</nav>
+</div>
+<div class="flex items-center gap-4">
+<div class="relative hidden sm:block">
+<span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-outline text-sm">search</span>
+<input class="bg-surface-container-low border border-white/5 rounded-full py-1.5 pl-10 pr-4 text-sm w-64 focus:outline-none focus:border-primary transition-all" placeholder="Search skills..." type="text"/>
+</div>
+<div class="flex items-center gap-2">
+<button class="p-2 text-slate-400 hover:bg-white/5 rounded-full transition-all active:scale-95">
+<span class="material-symbols-outlined">terminal</span>
+</button>
+<button class="p-2 text-slate-400 hover:bg-white/5 rounded-full transition-all active:scale-95">
+<span class="material-symbols-outlined">settings</span>
+</button>
+<div class="w-8 h-8 rounded-full overflow-hidden border border-primary/30">
+<img class="w-full h-full object-cover" data-alt="A professional user profile avatar showing a modern tech worker with clean minimalist aesthetic, soft studio lighting, and high-tech blue-toned background atmosphere to match the platform style." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBZBbWnJM-1DOERgbTTgOlctXN2Bm64CDIXNIRCPHnkEtGbBfDwzSDxmj_hCYZvzNQHUlKPyTSFG_onPUQm6H6O_3H_5slgfB1izkJaPM88Yu4Jv-mm9BiD1rE03-J7mTjPq6_Y5skRyS3AhPLeWAo7TLddnFOba-VoarqvNB-O-A5CwHxN-heSAmtmdeSJE0B_Ya7fYGTE3GEWhNxPTcFAGUa5CiupC-cVuS7cV_h-F97k6xCl-1t0hJ0IeUwx9Ewjui8xZu4TymY"/>
+</div>
+</div>
+</div>
+</div>
+</header>
+<!-- Main Content -->
+<main class="flex-grow pt-24 pb-12 px-6 max-w-[1280px] mx-auto w-full">
+<div class="mb-12">
+<h1 class="font-display-xl text-display-xl text-white mb-2">Most Popular Skills</h1>
+<p class="text-on-surface-variant max-w-2xl font-body-lg">Accelerate your career by mastering the industry's most sought-after technical capabilities, curated for high-performance engineering.</p>
+</div>
+<!-- Bento Grid for Categories -->
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-6">
+<!-- Web Development Section -->
+<section class="lg:col-span-8 glass-card p-8 rounded-xl relative overflow-hidden group">
+<div class="absolute top-0 right-0 p-8 opacity-10 group-hover:opacity-20 transition-opacity">
+<span class="material-symbols-outlined text-8xl text-primary">language</span>
+</div>
+<div class="relative z-10">
+<div class="flex items-center gap-3 mb-6">
+<div class="bg-primary/10 p-2 rounded-lg">
+<span class="material-symbols-outlined text-primary">web</span>
+</div>
+<h2 class="font-headline-md text-headline-md text-white">Web Development</h2>
+</div>
+<p class="text-on-surface-variant mb-8 max-w-lg">Build scalable, high-performance web applications using modern architectures and front-end frameworks.</p>
+<div class="flex flex-wrap gap-4">
+<button class="skill-pill flex items-center gap-3 px-5 py-3 rounded-full text-white active:scale-95">
+<span class="material-symbols-outlined text-orange-400">html</span>
+<span class="font-label-caps uppercase tracking-wider">HTML</span>
+</button>
+<button class="skill-pill flex items-center gap-3 px-5 py-3 rounded-full text-white active:scale-95">
+<span class="material-symbols-outlined text-blue-400">css</span>
+<span class="font-label-caps uppercase tracking-wider">CSS</span>
+</button>
+<button class="skill-pill flex items-center gap-3 px-5 py-3 rounded-full text-white active:scale-95">
+<span class="material-symbols-outlined text-yellow-400">javascript</span>
+<span class="font-label-caps uppercase tracking-wider">JavaScript</span>
+</button>
+<button class="skill-pill flex items-center gap-3 px-5 py-3 rounded-full text-white active:scale-95">
+<span class="material-symbols-outlined text-sky-400" style="font-variation-settings: 'FILL' 1;">deployed_code</span>
+<span class="font-label-caps uppercase tracking-wider">React</span>
+</button>
+<button class="skill-pill flex items-center gap-3 px-5 py-3 rounded-full text-white active:scale-95">
+<span class="material-symbols-outlined text-white">stat_0</span>
+<span class="font-label-caps uppercase tracking-wider">Next.js</span>
+</button>
+</div>
+</div>
+</section>
+<!-- Stats Card -->
+<aside class="lg:col-span-4 glass-card p-8 rounded-xl flex flex-col justify-between border-primary/20">
+<div>
+<h3 class="font-headline-md text-headline-md text-primary mb-4">Trending</h3>
+<p class="text-on-surface-variant text-sm mb-6">Real-time demand metrics across the SyntaxPrime ecosystem.</p>
+</div>
+<div class="space-y-4">
+<div class="flex items-center justify-between">
+<span class="text-sm font-label-caps text-on-surface-variant">NEXT.JS</span>
+<span class="text-emerald-400 text-sm font-code-sm">+24%</span>
+</div>
+<div class="h-1 bg-surface-container rounded-full overflow-hidden">
+<div class="h-full bg-secondary w-[85%]"></div>
+</div>
+<div class="flex items-center justify-between">
+<span class="text-sm font-label-caps text-on-surface-variant">FLUTTER</span>
+<span class="text-emerald-400 text-sm font-code-sm">+18%</span>
+</div>
+<div class="h-1 bg-surface-container rounded-full overflow-hidden">
+<div class="h-full bg-primary w-[72%]"></div>
+</div>
+<div class="flex items-center justify-between">
+<span class="text-sm font-label-caps text-on-surface-variant">PYTORCH</span>
+<span class="text-emerald-400 text-sm font-code-sm">+31%</span>
+</div>
+<div class="h-1 bg-surface-container rounded-full overflow-hidden">
+<div class="h-full bg-tertiary w-[92%]"></div>
+</div>
+</div>
+</aside>
+<!-- AI & ML Section -->
+<section class="lg:col-span-6 glass-card p-8 rounded-xl relative group">
+<div class="flex items-center gap-3 mb-6">
+<div class="bg-tertiary/10 p-2 rounded-lg">
+<span class="material-symbols-outlined text-tertiary">psychology</span>
+</div>
+<h2 class="font-headline-md text-headline-md text-white">AI &amp; ML</h2>
+</div>
+<p class="text-on-surface-variant mb-8">Master the mathematical foundations and frameworks powering the intelligence revolution.</p>
+<div class="flex flex-wrap gap-4">
+<button class="skill-pill flex items-center gap-3 px-5 py-3 rounded-full text-white active:scale-95">
+<span class="material-symbols-outlined text-blue-300">terminal</span>
+<span class="font-label-caps uppercase tracking-wider">Python</span>
+</button>
+<button class="skill-pill flex items-center gap-3 px-5 py-3 rounded-full text-white active:scale-95">
+<span class="material-symbols-outlined text-orange-500">memory</span>
+<span class="font-label-caps uppercase tracking-wider">TensorFlow</span>
+</button>
+<button class="skill-pill flex items-center gap-3 px-5 py-3 rounded-full text-white active:scale-95">
+<span class="material-symbols-outlined text-red-400">local_fire_department</span>
+<span class="font-label-caps uppercase tracking-wider">PyTorch</span>
+</button>
+</div>
+</section>
+<!-- App Development Section -->
+<section class="lg:col-span-6 glass-card p-8 rounded-xl relative group">
+<div class="flex items-center gap-3 mb-6">
+<div class="bg-secondary/10 p-2 rounded-lg">
+<span class="material-symbols-outlined text-secondary">devices</span>
+</div>
+<h2 class="font-headline-md text-headline-md text-white">App Development</h2>
+</div>
+<p class="text-on-surface-variant mb-8">Design and deploy native-grade experiences for mobile platforms and cross-device environments.</p>
+<div class="flex flex-wrap gap-4">
+<button class="skill-pill flex items-center gap-3 px-5 py-3 rounded-full text-white active:scale-95">
+<span class="material-symbols-outlined text-sky-300">bolt</span>
+<span class="font-label-caps uppercase tracking-wider">Flutter</span>
+</button>
+<button class="skill-pill flex items-center gap-3 px-5 py-3 rounded-full text-white active:scale-95">
+<span class="material-symbols-outlined text-indigo-400">tablet_android</span>
+<span class="font-label-caps uppercase tracking-wider">React Native</span>
+</button>
+<button class="skill-pill flex items-center gap-3 px-5 py-3 rounded-full text-white active:scale-95">
+<span class="material-symbols-outlined text-orange-600">code_blocks</span>
+<span class="font-label-caps uppercase tracking-wider">Swift</span>
+</button>
+<button class="skill-pill flex items-center gap-3 px-5 py-3 rounded-full text-white active:scale-95">
+<span class="material-symbols-outlined text-purple-400">pentagon</span>
+<span class="font-label-caps uppercase tracking-wider">Kotlin</span>
+</button>
+</div>
+</section>
+</div>
+<!-- Recommended Roadmap Banner -->
+<div class="mt-12 glass-card p-6 rounded-xl border-dashed border-white/20 flex flex-col md:flex-row items-center justify-between gap-6">
+<div class="flex items-center gap-4 text-center md:text-left">
+<div class="w-16 h-16 bg-gradient-to-br from-primary to-tertiary rounded-xl flex items-center justify-center">
+<span class="material-symbols-outlined text-on-primary-container text-3xl">route</span>
+</div>
+<div>
+<h4 class="font-headline-md text-white">Personalized Learning Path</h4>
+<p class="text-on-surface-variant">Based on your interests, we recommend the <span class="text-primary font-medium">Full-Stack AI Architect</span> roadmap.</p>
+</div>
+</div>
+<button class="px-8 py-3 bg-primary text-on-primary font-label-caps rounded-full hover:shadow-[0_0_20px_rgba(137,206,255,0.4)] transition-all">
+        VIEW ROADMAP
+      </button>
+</div>
+</main>
+<!-- Footer -->
+<footer class="bg-[#050505] border-t border-white/5 py-12 w-full mt-auto">
+<div class="max-w-[1280px] mx-auto px-8 flex flex-col md:flex-row justify-between items-center gap-8">
+<div class="flex flex-col gap-2">
+<span class="text-lg font-bold text-white font-headline-lg">SyntaxPrime</span>
+<p class="text-slate-500 font-['Space_Grotesk'] text-sm">© 2024 SyntaxPrime. Engineered for performance.</p>
+</div>
+<div class="flex gap-8">
+<a class="text-slate-500 hover:text-sky-400 transition-colors font-['Space_Grotesk'] text-sm" href="#">Documentation</a>
+<a class="text-slate-500 hover:text-sky-400 transition-colors font-['Space_Grotesk'] text-sm" href="#">Changelog</a>
+<a class="text-slate-500 hover:text-sky-400 transition-colors font-['Space_Grotesk'] text-sm" href="#">Status</a>
+<a class="text-slate-500 hover:text-sky-400 transition-colors font-['Space_Grotesk'] text-sm" href="#">Privacy</a>
+</div>
+<div class="flex gap-4">
+<a class="w-10 h-10 rounded-full flex items-center justify-center bg-white/5 hover:bg-white/10 transition-all" href="#">
+<img class="w-5 h-5 invert" data-alt="Official GitHub logo icon in white on a dark minimalist background, representing technical collaboration and code hosting." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAhRKMuFycYmt0M8DFvSM8Y_ZLyqQ2pjvvcOtCq_z1qqJRTCKenaDHxn_PYnoF__zscAlP-g73z6htyIkpjPOrc7LE1oKxxGu0-gTNWJCKxyXJxPl7UTnIQIE1e06tiRG3_nKDaozEEnppQ2r8Bw0bEBB3roqsDYGK8dXlOVnY0R-Gj5JacAYvf1UyJvA5nHH88LEOD9L_9sxo0dfitgG4viTdXqnBtrdM2YY7pS7cE_LuZAPkQe9cXOTlUCanRkMeISuq3Fx15JXA"/>
+</a>
+<a class="w-10 h-10 rounded-full flex items-center justify-center bg-white/5 hover:bg-white/10 transition-all" href="#">
+<img class="w-5 h-5 invert" data-alt="Official Discord logo icon in white on a dark minimalist background, representing community communication and technical networking." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDWsUDFRi18JS6ko6bHLFRGctNEYVUoOYw4bq2bJ4AAwdCCeNFoSMco28HKuBZGpbVF5TE9lgHNhcbLlvRod_wMV-yB4LKHWbwefr6ED94VlgOHr43brFeTMIKXTSJfjd5iRLzcHzoBDJpV6AFcF8Q8jjR1sd7pTjD_92C7ddhFALO8DtWenOcUp9brOpTS_ahjCXs4IR99X9rrjt10SZxqbXdndG-BxIlUrpdtBbutyyxw0RKtZOZCZPLnQ5HmkwCBymqJnRyu6Xg"/>
+</a>
+</div>
+</div>
+</footer>
+</body></html>
