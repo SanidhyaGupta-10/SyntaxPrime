@@ -1,90 +1,72 @@
 "use client";
 
 import React from "react";
+import Link from "next/link";
+
+const privacySections = [
+  {
+    title: "1. Information We Collect",
+    content: "We may collect personal information such as your name, email address, and usage data when you interact with our platform. This helps us provide better services and improve your experience.",
+  },
+  {
+    title: "2. How We Use Information",
+    content: "The information collected is used to enhance the functionality of SyntaxPrime, personalize your experience, send updates or notes, and analyze website traffic. We do not sell your data to third parties.",
+  },
+  {
+    title: "3. Cookies and Tracking",
+    content: "SyntaxPrime uses cookies and similar tracking technologies to monitor site activity, improve performance, and remember preferences. You can disable cookies in your browser settings, but some features may not work properly.",
+  },
+  {
+    title: "4. Data Security",
+    content: "We implement reasonable technical and organizational measures to protect your data from unauthorized access, disclosure, or destruction. However, no method of transmission over the internet is 100% secure.",
+  },
+  {
+    title: "5. Third-Party Services",
+    content: "We may use third-party services to operate our platform, such as analytics or cloud hosting. These services follow strict privacy standards, and we are not responsible for their individual privacy practices.",
+  },
+  {
+    title: "6. Your Rights",
+    content: "You have the right to access, correct, or delete your personal information. You can contact us for any privacy-related inquiries.",
+  },
+];
 
 export default function PrivacyPolicy() {
   return (
-    <div className="min-h-screen text-gray-100 px-6 md:px-16 pt-32 pb-20">
+    <div className="min-h-screen pb-24 px-6 max-w-4xl mx-auto w-full pt-16">
       {/* Header */}
-      <div className="max-w-4xl mx-auto text-center mb-16 mt-16">
-        <h1 className="text-4xl md:text-5xl font-bold text-purple-400 mb-4">
-          Privacy Policy
-        </h1>
-        <p className="text-gray-400 text-lg">
-          This Privacy Policy explains how <span className="font-semibold">SyntaxPrime</span> collects, uses, and protects your information when you use our Notes and Roadmaps platform.
+      <section className="mb-12 pt-12 text-center">
+        <h1 className="font-display text-4xl md:text-5xl text-white mb-4 tracking-tight">Privacy Protocol</h1>
+        <p className="text-slate-400 font-inter text-lg max-w-xl mx-auto leading-relaxed">
+          Detailed overview of our data processing logic and user protection measures.
         </p>
-      </div>
+      </section>
 
       {/* Content */}
-      <div className="max-w-4xl mx-auto space-y-8 text-gray-300">
-        <section>
-          <h2 className="text-2xl font-semibold text-purple-400 mb-2">
-            1. Information We Collect
-          </h2>
-          <p className="text-xl text-gray-200">
-            We may collect personal information such as your name, email address, and usage data when you interact with our platform. This helps us provide better services and improve your experience.
-          </p>
-        </section>
+      <div className="space-y-8 mb-16">
+        {privacySections.map((section, i) => (
+          <section key={i} className="glass-panel p-8 rounded-xl border border-white/5 bg-surface/30">
+            <h2 className="font-display text-xl text-white mb-4 flex items-center gap-3">
+              <span className="text-tertiary text-sm font-mono">SEC_0{i + 1}</span>
+              {section.title.split('. ')[1]}
+            </h2>
+            <p className="text-slate-400 font-inter leading-relaxed text-sm md:text-base">
+              {section.content}
+            </p>
+          </section>
+        ))}
+      </div>
 
-        <section>
-          <h2 className="text-2xl font-semibold text-purple-400 mb-2">
-            2. How We Use Information
-          </h2>
-          <p className="text-xl text-gray-200">
-            The information collected is used to enhance the functionality of SyntaxPrime, personalize your experience, send updates or notes, and analyze website traffic. We do not sell your data to third parties.
-          </p>
-        </section>
-
-        <section>
-          <h2 className="text-2xl font-semibold text-purple-400 mb-2">
-            3. Cookies and Tracking
-          </h2>
-          <p className="text-xl text-gray-200">
-            SyntaxPrime uses cookies and similar tracking technologies to monitor site activity, improve performance, and remember preferences. You can disable cookies in your browser settings, but some features may not work properly.
-          </p>
-        </section>
-
-        <section>
-          <h2 className="text-2xl font-semibold text-purple-400 mb-2">
-            4. Data Security
-          </h2>
-          <p className="text-xl text-gray-200">
-            We implement reasonable technical and organizational measures to protect your data from unauthorized access, disclosure, or destruction. However, no method of transmission over the internet is 100% secure.
-          </p>
-        </section>
-
-        <section>
-          <h2 className="text-2xl font-semibold text-purple-400 mb-2">
-            5. Third-Party Services
-          </h2>
-          <p className="text-xl text-gray-200">
-            We may use third-party services to operate our platform, such as analytics or cloud hosting. These services follow strict privacy standards, and we are not responsible for their individual privacy practices.
-          </p>
-        </section>
-
-        <section>
-          <h2 className="text-2xl font-semibold text-purple-400 mb-2">
-            6. Your Rights
-          </h2>
-          <p className="text-xl text-gray-200">
-            You have the right to access, correct, or delete your personal information. You can contact us at <span className="text-purple-300">support@syntaxprime.com</span> for any privacy-related inquiries.
-          </p>
-        </section>
-
-        <section>
-          <h2 className="text-2xl font-semibold text-purple-400 mb-2">
-            7. Changes to This Policy
-          </h2>
-          <p className="text-xl text-gray-200">
-            SyntaxPrime may update this Privacy Policy from time to time. We recommend checking this page periodically to stay informed about any changes.
-          </p>
-        </section>
-
-        <section>
-          <p className="text-center text-gray-400 mt-10 text-2xl">
-            &copy; {new Date().getFullYear()} SyntaxPrime. All rights reserved.
-          </p>
-        </section>
+      {/* Footer Info */}
+      <div className="text-center pt-12 border-t border-white/5">
+        <p className="text-[10px] font-label-caps text-slate-600 uppercase tracking-widest mb-6">
+          &copy; {new Date().getFullYear()} SyntaxPrime Neural Network. All rights reserved.
+        </p>
+        <Link 
+          href="/" 
+          className="text-primary font-label-caps text-xs hover:underline tracking-widest"
+        >
+          RETURN_TO_BASE
+        </Link>
       </div>
     </div>
   );

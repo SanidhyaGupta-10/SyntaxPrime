@@ -2,7 +2,6 @@
 
 import React, { useState } from "react";
 import Link from "next/link";
-import Image from "next/image";
 
 const skillSections = [
   {
@@ -95,7 +94,7 @@ export default function SkillsPage() {
         {filteredSections.map((section, idx) => (
           <section 
             key={section.id} 
-            className={`${section.colSpan} glass-panel p-8 rounded-xl relative overflow-hidden group hover:border-${section.color}/30 transition-all duration-500`}
+            className={`${section.colSpan} glass-panel p-8 rounded-xl relative overflow-hidden group hover:border-${section.color}/30 transition-all duration-500 bg-surface/30`}
           >
             <div className={`absolute top-0 right-0 p-8 opacity-5 group-hover:opacity-10 transition-opacity`}>
               <span className={`material-symbols-outlined text-[120px] text-${section.color}`}>{section.icon}</span>
@@ -104,7 +103,7 @@ export default function SkillsPage() {
             <div className="relative z-10 h-full flex flex-col">
               <div className="flex items-center gap-3 mb-6">
                 <div className={`bg-${section.color}/10 p-2 rounded-lg border border-${section.color}/20`}>
-                  <span className={`material-symbols-outlined text-${section.color}`}>{section.id === 'web' ? 'web' : section.icon}</span>
+                  <span className={`material-symbols-outlined text-${section.color}`}>{section.icon}</span>
                 </div>
                 <h2 className="font-display text-2xl text-white">{section.title}</h2>
               </div>
@@ -131,12 +130,12 @@ export default function SkillsPage() {
           </section>
         ))}
 
-        {/* Trending Stats Sidebar - Only show if not searching or if search is empty */}
+        {/* Trending Stats Sidebar */}
         {(!search || filteredSections.length > 0) && (
           <aside className="lg:col-span-4 glass-panel p-8 rounded-xl flex flex-col justify-between border-primary/20 bg-surface/30">
             <div>
               <h3 className="font-display text-2xl text-primary mb-4 tracking-tight">Trending Now</h3>
-              <p className="text-slate-500 text-sm mb-8 font-inter">Real-time demand metrics across the SyntaxPrime ecosystem.</p>
+              <p className="text-slate-500 text-sm mb-8 font-inter leading-relaxed">Real-time demand metrics across the SyntaxPrime ecosystem.</p>
             </div>
             
             <div className="space-y-6">
@@ -148,8 +147,8 @@ export default function SkillsPage() {
                   </div>
                   <div className="h-1 bg-white/5 rounded-full overflow-hidden">
                     <div 
-                      className={`h-full bg-${stat.color} transition-all duration-1000`} 
-                      style={{ width: `${stat.progress}%`, boxShadow: `0 0 10px var(--color-${stat.color})` }}
+                      className={`h-full bg-${stat.color} transition-all duration-1000 shadow-[0_0_8px_var(--color-${stat.color})]`} 
+                      style={{ width: `${stat.progress}%` }}
                     ></div>
                   </div>
                 </div>
@@ -157,8 +156,8 @@ export default function SkillsPage() {
             </div>
 
             <div className="mt-8 pt-8 border-t border-white/5">
-              <Link href="/roadmaps" className="text-[10px] font-label-caps text-primary flex items-center gap-2 hover:gap-3 transition-all group">
-                EXPLORE ALL METRICS 
+              <Link href="/roadmaps" className="text-[10px] font-label-caps text-primary flex items-center gap-2 hover:gap-3 transition-all group tracking-widest">
+                EXPLORE_METRICS 
                 <span className="material-symbols-outlined text-sm group-hover:translate-x-1 transition-transform">arrow_right_alt</span>
               </Link>
             </div>
@@ -167,21 +166,22 @@ export default function SkillsPage() {
       </div>
 
       {/* Recommendation Banner */}
-      <div className="mt-12 glass-panel p-8 rounded-2xl border-dashed border-white/20 flex flex-col md:flex-row items-center justify-between gap-8 bg-surface/20">
-        <div className="flex items-center gap-6 text-center md:text-left">
+      <div className="mt-12 glass-panel p-8 rounded-2xl border-dashed border-white/20 flex flex-col md:flex-row items-center justify-between gap-8 bg-surface/20 relative overflow-hidden group">
+        <div className="absolute inset-0 bg-gradient-to-r from-primary/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity"></div>
+        <div className="flex items-center gap-6 text-center md:text-left relative z-10">
           <div className="w-16 h-16 bg-gradient-to-br from-primary to-tertiary rounded-2xl flex items-center justify-center shadow-lg">
             <span className="material-symbols-outlined text-[#050505] text-3xl font-bold">route</span>
           </div>
           <div>
             <h4 className="font-display text-2xl text-white mb-1">Personalized Learning Path</h4>
-            <p className="text-slate-400 font-inter">Based on your interests, we recommend the <span className="text-primary font-medium">Full-Stack AI Architect</span> roadmap.</p>
+            <p className="text-slate-400 font-inter">Based on your profile, we recommend the <span className="text-primary font-medium underline underline-offset-4 decoration-primary/30">Full-Stack AI Architect</span> roadmap.</p>
           </div>
         </div>
         <Link 
           href="/roadmaps" 
-          className="px-8 py-4 bg-primary text-on-primary font-label-caps rounded-xl hover:shadow-[0_0_30px_rgba(137,206,255,0.4)] transition-all active:scale-95 whitespace-nowrap"
+          className="relative z-10 px-8 py-4 bg-primary text-on-primary font-label-caps rounded-xl hover:shadow-[0_0_30px_rgba(137,206,255,0.4)] transition-all active:scale-95 whitespace-nowrap tracking-wider text-xs"
         >
-          VIEW ROADMAP
+          VIEW_ROADMAP
         </Link>
       </div>
     </div>

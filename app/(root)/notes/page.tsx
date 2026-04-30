@@ -119,10 +119,10 @@ export default function NotesPage() {
 
       {/* Filter & Search Bar */}
       <div className="mb-12 flex flex-col lg:flex-row items-center gap-6">
-        <div className="flex-grow flex items-center gap-4 bg-surface/50 backdrop-blur-md px-5 py-4 border border-white/5 rounded-xl w-full">
-          <span className="material-symbols-outlined text-slate-500">search</span>
+        <div className="flex-grow flex items-center gap-4 bg-surface/50 backdrop-blur-md px-5 py-4 border border-white/5 rounded-xl w-full group focus-within:border-primary/50 transition-all">
+          <span className="material-symbols-outlined text-slate-500 group-focus-within:text-primary transition-colors">search</span>
           <input 
-            className="bg-transparent border-none focus:ring-0 w-full text-white placeholder-slate-600 font-mono text-sm" 
+            className="bg-transparent border-none focus:ring-0 w-full text-white placeholder-slate-600 font-mono text-sm outline-none" 
             placeholder="Search documentation library..." 
             type="text"
             value={search}
@@ -135,7 +135,7 @@ export default function NotesPage() {
             <button
               key={cat}
               onClick={() => setActiveCategory(cat)}
-              className={`px-4 py-2 rounded-lg font-label-caps text-xs transition-all border ${
+              className={`px-4 py-2 rounded-lg font-label-caps text-[10px] tracking-wider transition-all border ${
                 activeCategory === cat 
                   ? "bg-primary/10 border-primary text-primary" 
                   : "bg-white/5 border-white/5 text-slate-500 hover:bg-white/10"
@@ -156,31 +156,31 @@ export default function NotesPage() {
                 <Image 
                   src={note.image} 
                   alt={note.title}
-                  className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" 
+                  className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500 opacity-80" 
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-[#050505] to-transparent"></div>
+                <div className="absolute inset-0 bg-gradient-to-t from-surface to-transparent"></div>
                 <div className="absolute bottom-4 left-4">
-                  <span className={`bg-${note.color}/20 text-${note.color} text-[10px] font-label-caps px-2 py-1 rounded border border-${note.color}/30 uppercase tracking-widest`}>
+                  <span className={`bg-${note.color}/20 text-${note.color} text-[9px] font-label-caps px-2 py-0.5 rounded border border-${note.color}/30 uppercase tracking-widest`}>
                     {note.tag}
                   </span>
                 </div>
               </div>
               <div className="p-5 flex flex-col flex-grow">
                 <div className="flex justify-between items-start mb-2">
-                  <h3 className="font-display text-xl text-white">{note.title}</h3>
+                  <h3 className="font-display text-xl text-white group-hover:text-primary transition-colors">{note.title}</h3>
                 </div>
-                <p className="text-slate-500 text-sm mb-6 flex-grow line-clamp-2">
+                <p className="text-slate-500 text-sm mb-6 flex-grow line-clamp-2 font-inter leading-relaxed">
                   Comprehensive notes and technical guides for mastering {note.title} from basic to advanced concepts.
                 </p>
                 <div className="flex items-center justify-between mt-auto">
-                  <span className="text-[10px] font-mono text-primary uppercase">PDF Format</span>
+                  <span className="text-[9px] font-mono text-slate-600 uppercase tracking-tighter">FORMAT: PDF_SYNC</span>
                   <a 
                     href={`/pdfs/${note.pdf}`} 
                     download={note.pdf}
-                    className="bg-primary text-on-primary font-label-caps text-[10px] px-4 py-2 rounded-lg flex items-center gap-2 active:scale-95 transition-transform hover:brightness-110"
+                    className="bg-primary text-on-primary font-label-caps text-[10px] px-4 py-2 rounded-lg flex items-center gap-2 active:scale-95 transition-transform hover:shadow-[0_0_15px_rgba(137,206,255,0.3)]"
                   >
                     <span className="material-symbols-outlined text-xs">download</span>
-                    Download
+                    GET ASSET
                   </a>
                 </div>
               </div>
@@ -188,15 +188,15 @@ export default function NotesPage() {
           ))}
         </div>
       ) : (
-        <div className="py-24 text-center">
-          <span className="material-symbols-outlined text-6xl text-slate-700 mb-4">search_off</span>
-          <h3 className="text-xl text-white font-display mb-2">No results found</h3>
-          <p className="text-slate-500">We couldn't find any notes matching your query.</p>
+        <div className="py-24 text-center glass-panel rounded-2xl border-dashed border-white/10">
+          <span className="material-symbols-outlined text-6xl text-slate-700 mb-4 animate-pulse">search_off</span>
+          <h3 className="text-xl text-white font-display mb-2">Query mismatch</h3>
+          <p className="text-slate-500 max-w-xs mx-auto font-inter">We couldn't find any documentation modules matching your current parameters.</p>
           <button 
             onClick={() => {setSearch(""); setActiveCategory("All");}}
-            className="mt-6 text-primary font-label-caps hover:underline"
+            className="mt-6 text-primary font-label-caps text-xs tracking-widest hover:underline"
           >
-            Clear all filters
+            RESET_ENGINE
           </button>
         </div>
       )}
@@ -206,31 +206,34 @@ export default function NotesPage() {
         <div className="lg:col-span-1 glass-panel p-6 rounded-xl border border-white/5 bg-surface/30">
           <h4 className="font-label-caps text-slate-500 text-[10px] mb-4 uppercase tracking-widest">Library Integrity</h4>
           <div className="h-1 w-full bg-white/5 rounded-full overflow-hidden mb-2">
-            <div className="h-full bg-secondary w-[98%] shadow-[0_0_10px_#4edea3]"></div>
+            <div className="h-full bg-secondary w-[98%] shadow-[0_0_10px_var(--color-secondary)]"></div>
           </div>
-          <div className="flex justify-between font-mono text-[10px]">
-            <span className="text-secondary">98% Optimized</span>
-            <span className="text-slate-500">Ready for I/O</span>
+          <div className="flex justify-between font-mono text-[9px]">
+            <span className="text-secondary tracking-tighter">98% OPTIMIZED</span>
+            <span className="text-slate-600">READY_FOR_IO</span>
           </div>
         </div>
         
-        <div className="lg:col-span-3 glass-panel p-6 rounded-xl flex flex-col md:flex-row items-center justify-between gap-6 border border-white/5 bg-surface/30">
-          <div className="flex items-center gap-4">
+        <div className="lg:col-span-3 glass-panel p-6 rounded-xl flex flex-col md:flex-row items-center justify-between gap-6 border border-white/5 bg-surface/30 relative overflow-hidden group">
+          <div className="absolute -right-12 -bottom-12 w-32 h-32 bg-primary/5 rounded-full blur-3xl group-hover:bg-primary/10 transition-colors"></div>
+          <div className="flex items-center gap-4 relative z-10">
             <div className="w-12 h-12 rounded-lg bg-primary/10 border border-primary/20 flex items-center justify-center">
               <span className="material-symbols-outlined text-primary">analytics</span>
             </div>
             <div>
               <p className="text-white font-display text-lg">Knowledge Sync</p>
-              <p className="text-slate-500 text-sm">Last update: 2 hours ago. 42 modules available.</p>
+              <p className="text-slate-500 text-sm font-inter">Last update: 2 hours ago. <span className="text-primary font-mono text-xs">42 MODULES_ACTIVE</span></p>
             </div>
           </div>
-          <div className="flex items-center gap-3">
+          <div className="flex items-center gap-4 relative z-10">
             <div className="flex -space-x-3">
               {[1, 2, 3].map((i) => (
-                <div key={i} className="w-8 h-8 rounded-full border-2 border-[#050505] bg-slate-800"></div>
+                <div key={i} className="w-8 h-8 rounded-full border-2 border-surface bg-slate-800 flex items-center justify-center text-[8px] text-white">
+                  {i}
+                </div>
               ))}
             </div>
-            <p className="text-[10px] font-label-caps text-slate-500 uppercase">Synchronized across 15k instances</p>
+            <p className="text-[9px] font-label-caps text-slate-500 uppercase tracking-widest">Global Distributed Mesh</p>
           </div>
         </div>
       </div>
