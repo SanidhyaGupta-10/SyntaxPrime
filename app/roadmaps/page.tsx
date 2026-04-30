@@ -162,7 +162,7 @@ export default function RoadmapsPage() {
             </p>
           </div>
           <a 
-            href="https://github.com/SanidhyaGupta-10/" 
+            href="https://github.com/SanidhyaGupta-10/SyntaxPrime" 
             target="_blank"
             className="px-8 py-3 glass-panel text-white font-label-caps rounded-lg hover:bg-white/10 transition-all active:scale-95 flex items-center gap-2"
           >
