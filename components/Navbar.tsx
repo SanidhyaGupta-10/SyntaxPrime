@@ -34,28 +34,14 @@ const Navbar = () => {
 
         {/* Desktop Menu */}
         <ul className="hidden md:flex gap-8 text-white">
-          <li className="hover:text-blue-500 transition-all duration-200 text-[17px]">
+          <li className="hover:text-blue-500 transition-all duration-200 text-[15px]">
             <Link href="/roadmaps">Explore Roadmaps</Link>
           </li>
-          <li className="hover:text-blue-500 transition-all duration-200 text-[17px]">
+          <li className="hover:text-blue-500 transition-all duration-200 text-[15px]">
             <Link href="/notes">Download Notes</Link>
           </li>
-          <li className="hover:text-blue-500 transition-all duration-200 text-[17px]">
-            <Link href="/skills">Most Popular Skills</Link>
-          </li>
-          <li className="hover:text-blue-500 transition-all duration-200 text-[17px]">
-            <Link href="https://maths-buddy-six.vercel.app/" target="_blank">Visit our website MathsBuddy</Link>
-          </li>
-          <li className="hover:text-blue-500 transition-all duration-200  text-[17px]">
-            <Link href="https://sanidhy-portfolio.vercel.app/" target="_blank">Portfolio</Link>
-          </li>
-          <li className="hover:text-blue-500 transition-all list-none items-center gap-3 flex  duration-200 ">
-            <Link href='https://github.com/SanidhyaGupta-10/' target="_blank">
-              <span><Github /></span>
-            </Link>
-            <Link href='https://github.com/SanidhyaGupta-10/' target="_blank">
-              <span>Github</span>
-            </Link>
+          <li className="hover:text-blue-500 transition-all duration-200 text-[15px]">
+            <Link href="/skills">Explore Skills</Link>
           </li>
         </ul>
 
