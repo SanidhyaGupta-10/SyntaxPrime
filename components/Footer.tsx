@@ -10,7 +10,28 @@ const Footer = () => {
           <p className="text-slate-500 font-space text-sm">© {new Date().getFullYear()} SyntaxPrime. Engineered for performance.</p>
         </div>
         
-        <nav className="flex flex-wrap justify-center gap-8">
+        <nav className="flex flex-wrap justify-center gap-6 md:gap-8">
+          <Link 
+            href="/privacy"
+            className="text-slate-500 hover:text-white transition-colors font-space text-sm flex items-center gap-2 group"
+          >
+            <span className="material-symbols-outlined text-sm group-hover:text-white transition-colors">shield</span>
+            Privacy
+          </Link>
+          <Link 
+            href="/terms"
+            className="text-slate-500 hover:text-white transition-colors font-space text-sm flex items-center gap-2 group"
+          >
+            <span className="material-symbols-outlined text-sm group-hover:text-white transition-colors">gavel</span>
+            Terms
+          </Link>
+          <Link 
+            href="/contact"
+            className="text-slate-500 hover:text-white transition-colors font-space text-sm flex items-center gap-2 group"
+          >
+            <span className="material-symbols-outlined text-sm group-hover:text-white transition-colors">mail</span>
+            Contact
+          </Link>
           <a 
             href="https://github.com/SanidhyaGupta-10/" 
             target="_blank" 
