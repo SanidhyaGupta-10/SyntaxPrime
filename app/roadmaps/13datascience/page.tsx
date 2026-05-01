@@ -1,4 +1,4 @@
-﻿"use client";
+"use client";
 import React from "react";
 import { Brain, BarChart3, Database, LineChart } from "lucide-react";
 
@@ -14,7 +14,7 @@ function InfoCard(props: InfoCardProps) {
   const Icon = props.icon;
   const { title, text, color } = props;
   return (
-    <div className="p-8 rounded-[32px] bg-white/5 border border-white/10 shadow-2xl flex flex-col items-center gap-4 backdrop-blur-2xl hover:bg-white/10 hover:scale-[1.02] hover:border-white/20 transition-all duration-500 text-center w-[90%] sm:w-[400px] z-10 relative" />
+    <div className="p-8 rounded-[32px] bg-white/5 border border-white/10 shadow-2xl flex flex-col items-center gap-4 backdrop-blur-2xl hover:bg-white/10 hover:scale-[1.02] hover:border-white/20 transition-all duration-500 text-center w-[90%] sm:w-[400px] z-10 relative">
       <h3 className="text-2xl font-semibold tracking-tight text-white">{title}</h3>
       <p className="text-[18px] opacity-80 text-center leading-relaxed">{text}</p>
     </div>

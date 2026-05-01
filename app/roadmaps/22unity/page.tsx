@@ -1,4 +1,4 @@
-﻿"use client";
+"use client";
 
 import React from "react";
 import { FaDesktop, FaCode, FaGamepad, FaPuzzlePiece } from "react-icons/fa";
@@ -60,8 +60,8 @@ export default function UnityPage() {
     <div className="min-h-screen w-full bg-black text-white px-6 py-24 sm:py-32 flex flex-col items-center gap-20 overflow-hidden relative">
       {/* Header */}
       <div className="text-center mb-16 pt-16">
-        <h1 className="text-4xl md:text-6xl font-bold mb-4 text-white mb-4">
-          ðŸŽ® Unity Game Development Roadmap
+        <h1 className="text-4xl md:text-6xl font-bold mb-4 text-white">
+          🎮 Unity Game Development Roadmap
         </h1>
         <p className="text-gray-300 max-w-2xl mx-auto">
           Learn how to create games in Unity, from beginner concepts to advanced
@@ -72,17 +72,15 @@ export default function UnityPage() {
       {/* Cards Grid */}
       <div className="flex flex-col items-center gap-10 relative w-full max-w-3xl mx-auto before:absolute before:inset-0 before:left-1/2 before:-translate-x-px before:h-full before:w-1 before:bg-gradient-to-b before:from-transparent before:via-white/10 before:to-transparent">
         {cards.map((card, index) => (
-          <div className="relative z-10 flex flex-col items-center">
-      <InfoCard
-            key={index}
-            icon={card.icon}
-            title={card.title}
-            text={card.text}
-          />
-    </div>
+          <div key={index} className="relative z-10 flex flex-col items-center">
+            <InfoCard
+              icon={card.icon}
+              title={card.title}
+              text={card.text}
+            />
+          </div>
         ))}
       </div>
     </div>
   );
 }
-

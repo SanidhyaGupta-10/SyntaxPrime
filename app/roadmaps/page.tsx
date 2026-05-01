@@ -146,7 +146,7 @@ export default function RoadmapsPage() {
           <div className="py-24 text-center">
             <span className="material-symbols-outlined text-6xl text-slate-700 mb-4">route</span>
             <h3 className="text-xl text-white font-display mb-2">No roadmaps found</h3>
-            <p className="text-slate-500">We couldn't find any learning tracks matching your query.</p>
+            <p className="text-slate-500">We couldn&apos;t find any learning tracks matching your query.</p>
           </div>
         )}
       </div>

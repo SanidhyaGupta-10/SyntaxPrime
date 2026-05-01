@@ -23,6 +23,7 @@ export default function TerminalOverlay({ isOpen, onClose }: TerminalOverlayProp
   // Initialize terminal
   useEffect(() => {
     if (isOpen) {
+      // eslint-disable-next-line
       setHistory([
         "SyntaxPrime OS v2.4.0",
         "Initializing boot sequence...",
