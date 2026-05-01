@@ -12,6 +12,7 @@ interface TerminalOverlayProps {
 type Step = "name" | "destination";
 
 export default function TerminalOverlay({ isOpen, onClose }: TerminalOverlayProps) {
+  const navTimeoutRef = useRef<ReturnType<typeof setTimeout> | null>(null);
   const [step, setStep] = useState<Step>("name");
   const [name, setName] = useState("");
   const [input, setInput] = useState("");
@@ -46,6 +47,14 @@ export default function TerminalOverlay({ isOpen, onClose }: TerminalOverlayProp
 
   if (!isOpen) return null;
 
+  const handleClose = () => {
+    if (navTimeoutRef.current) {
+      clearTimeout(navTimeoutRef.current);
+      navTimeoutRef.current = null;
+    }
+    onClose();
+  };
+
   const handleKeyDown = (e: React.KeyboardEvent<HTMLInputElement>) => {
     if (e.key === "Enter" && input.trim()) {
       const currentInput = input.trim();
@@ -75,15 +84,15 @@ export default function TerminalOverlay({ isOpen, onClose }: TerminalOverlayProp
             `Executing routing protocol...`,
             `Redirecting to /${dest} ...`,
           ]);
-          setTimeout(() => {
+          navTimeoutRef.current = setTimeout(() => {
             router.push(`/${dest}`);
-            onClose();
+            handleClose();
           }, 1000);
         } else if (dest === "exit" || dest === "quit" || dest === "clear") {
              if (dest === "clear") {
                  setHistory(["SyntaxPrime OS v2.4.0", "Navigate where?"]);
              } else {
-                 onClose();
+                 handleClose();
              }
         } else {
           setHistory((prev) => [
@@ -94,25 +103,30 @@ export default function TerminalOverlay({ isOpen, onClose }: TerminalOverlayProp
         }
       }
     } else if (e.key === "Escape") {
-      onClose();
+      handleClose();
     }
   };
 
   return (
-    <div className="fixed inset-0 z-[100] flex items-center justify-center bg-[#050505]/90 backdrop-blur-md p-4 animate-in fade-in duration-300">
+    <div 
+      className="fixed inset-0 z-[100] flex items-center justify-center bg-[#050505]/90 backdrop-blur-md p-4 animate-in fade-in duration-300"
+      role="dialog"
+      aria-modal="true"
+      aria-labelledby="terminal-overlay-title"
+    >
       <div 
         className="relative w-full max-w-3xl h-[60vh] max-h-[600px] bg-[#0a0a0a] border border-white/10 shadow-[0_0_50px_rgba(14,165,233,0.15)] rounded-xl flex flex-col overflow-hidden font-mono text-sm"
         onClick={() => inputRef.current?.focus()}
       >
         {/* Terminal Header */}
-        <div className="flex items-center justify-between px-4 py-3 border-b border-white/5 bg-[#111]">
+        <div className="flex items-center justify-between px-4 py-3 border-b border-white/5 bg-[#111]" id="terminal-overlay-title">
           <div className="flex items-center gap-2">
             <div className="w-3 h-3 rounded-full bg-error/80"></div>
             <div className="w-3 h-3 rounded-full bg-secondary/80"></div>
             <div className="w-3 h-3 rounded-full bg-primary/80"></div>
             <span className="ml-4 text-xs text-slate-500 font-mono tracking-widest">GUEST@SYNTAX_PRIME:~</span>
           </div>
-          <button onClick={onClose} className="text-slate-500 hover:text-white transition-colors">
+          <button onClick={handleClose} className="text-slate-500 hover:text-white transition-colors" aria-label="Close">
             <X size={16} />
           </button>
         </div>

@@ -10,7 +10,7 @@ function processFile(filePath: string) {
     // Backgrounds & Wrappers
     content = content.replace(/min-h-screen\s+bg-gradient-to-b\s+from-slate-900\s+to-slate-950/g, "min-h-screen pb-24 pt-24 max-w-7xl mx-auto w-full");
     content = content.replace(/bg-gradient-to-b\s+from-slate-900\s+to-slate-950/g, "");
-    content = content.replace(/bg-black/g, "bg-transparent");
+    content = content.replace(/min-h-screen\s+w-full\s+bg-black/g, "min-h-screen w-full bg-transparent");
     content = content.replace(/min-h-\[100vh\]\s+mt-16\s+w-full\s+relative\s+text-\[\#E5E7EB\]/g, "min-h-screen mt-16 w-full relative pb-24 pt-16 max-w-7xl mx-auto");
     content = content.replace(/bg-transparent text-white px-6 py-16 flex flex-col gap-24 items-center overflow-hidden/g, "bg-transparent text-white px-6 py-16 flex flex-col gap-16 items-center overflow-hidden max-w-7xl mx-auto w-full");
 

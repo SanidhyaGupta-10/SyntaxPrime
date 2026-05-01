@@ -71,8 +71,8 @@ export default function UnityPage() {
 
       {/* Cards Grid */}
       <div className="flex flex-col items-center gap-10 relative w-full max-w-3xl mx-auto before:absolute before:inset-0 before:left-1/2 before:-translate-x-px before:h-full before:w-1 before:bg-gradient-to-b before:from-transparent before:via-white/10 before:to-transparent">
-        {cards.map((card, index) => (
-          <div key={index} className="relative z-10 flex flex-col items-center">
+        {cards.map((card) => (
+          <div key={card.title} className="relative z-10 flex flex-col items-center">
             <InfoCard
               icon={card.icon}
               title={card.title}
