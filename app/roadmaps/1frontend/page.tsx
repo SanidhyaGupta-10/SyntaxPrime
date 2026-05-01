@@ -104,7 +104,7 @@ export default function FrontendPage() {
 
         {/* Learning Path */}
         <section className="mb-10 w-full">
-          <h2 className="text-2xl font-semibold tracking-tight text-white mb-8 text-center">Recommended Learning Path</h2>
+          <h2 id="recommended-learning-path" className="text-2xl font-semibold tracking-tight text-white mb-8 text-center">Recommended Learning Path</h2>
           <div className="flex flex-col items-center gap-10 relative w-full max-w-3xl mx-auto before:absolute before:inset-0 before:left-1/2 before:-translate-x-px before:h-full before:w-1 before:bg-gradient-to-b before:from-transparent before:via-white/10 before:to-transparent">
             {learningPath.map((stage) => (
               <div
@@ -133,12 +133,12 @@ export default function FrontendPage() {
           >
             Back to Home
           </Link>
-          <a
-            href="#"
+          <Link
+            href="#recommended-learning-path"
             className="px-6 py-2.5 text-center rounded-lg bg-primary hover:bg-primary/90 text-on-primary font-medium transition-colors text-sm"
           >
             Start Learning
-          </a>
+          </Link>
         </div>
       </div>
     </main>
