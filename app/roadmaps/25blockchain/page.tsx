@@ -16,7 +16,7 @@ function RoadmapCard(props: RoadmapCardProps) {
   return (
     <div className="bg-gray-900/70 border border-gray-700 rounded-2xl p-6 flex flex-col items-center gap-4 shadow-lg transform transition-transform duration-300 hover:scale-105 hover:shadow-xl">
       <Icon className="text-4xl text-indigo-400" />
-      <h3 className="font-display text-2xl tracking-tight text-white text-center">{title}</h3>
+      <h3 className="text-2xl font-semibold tracking-tight text-white">{title}</h3>
       <p className="text-gray-300 text-center text-[18px] leading-relaxed">{text}</p>
     </div>
   );
@@ -67,7 +67,7 @@ export default function BlockchainPage() {
   ];
 
   return (
-    <div className="min-h-screen w-full bg-transparent text-white px-6 py-16">
+    <div className="min-h-screen w-full bg-black text-white px-6 py-24 sm:py-32 flex flex-col items-center gap-20 overflow-hidden relative">
       {/* Header */}
       <div className="text-center mb-16 pt-16">
         <h1 className="text-4xl md:text-6xl font-bold mb-4 text-indigo-400">
@@ -79,7 +79,7 @@ export default function BlockchainPage() {
       </div>
 
       {/* Cards Grid */}
-      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-10 max-w-6xl mx-auto">
+      <div className="flex flex-col items-center gap-10 relative w-full max-w-3xl mx-auto before:absolute before:inset-0 before:left-1/2 before:-translate-x-px before:h-full before:w-1 before:bg-gradient-to-b before:from-transparent before:via-white/10 before:to-transparent">
         {roadmap.map((card, index) => (
           <RoadmapCard
             key={index}

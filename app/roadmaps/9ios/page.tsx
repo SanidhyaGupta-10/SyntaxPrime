@@ -12,14 +12,14 @@ import { FaTools } from "react-icons/fa";
 
 export default function IOSPage() {
   return (
-    <div className="min-h-screen w-full mt-16 flex flex-col items-center justify-center bg-transparent text-white px-6 py-16">
+    <div className="min-h-screen w-full bg-black text-white px-6 py-24 sm:py-32 flex flex-col items-center gap-20 overflow-hidden relative">
 
       {/* Title */}
       <motion.h1
         initial={{ opacity: 0, y: -40 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.6 }}
-        className="font-display text-5xl tracking-tight mb-6 text-center"
+        className="text-5xl sm:text-7xl font-bold tracking-tighter bg-clip-text text-transparent bg-gradient-to-b from-white to-neutral-400 mb-6 flex items-center justify-center gap-4"
       >
         iOS Development Roadmap
       </motion.h1>
@@ -36,7 +36,7 @@ export default function IOSPage() {
       </motion.p>
 
       {/* Sections Container */}
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10 w-full max-w-6xl">
+      <div className="flex flex-col items-center gap-10 relative w-full max-w-3xl mx-auto before:absolute before:inset-0 before:left-1/2 before:-translate-x-px before:h-full before:w-1 before:bg-gradient-to-b before:from-transparent before:via-white/10 before:to-transparent">
 
         {/* Languages */}
         <motion.div

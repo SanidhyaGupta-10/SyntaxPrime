@@ -27,29 +27,29 @@ export default function FullStackPage() {
   ];
 
   return (
-    <main className="min-h-screen pb-24 pt-24 max-w-7xl mx-auto w-full text-slate-100 px-4 py-8 sm:px-6 lg:px-8">
-      <div className="max-w-4xl mx-auto">
+    <main className="min-h-screen w-full bg-black text-white px-6 py-24 sm:py-32 flex flex-col items-center gap-20 overflow-hidden relative">
+      <div className="max-w-6xl w-full mx-auto">
         {/* Header */}
         <header className="text-center mb-10">
-          <h1 className="font-display text-4xl sm:text-5xl tracking-tight mb-3 text-white mb-4">
+          <h1 className="text-5xl sm:text-7xl font-bold tracking-tighter bg-clip-text text-transparent bg-gradient-to-b from-white to-neutral-400 mb-6 flex items-center justify-center gap-4">
             Full-Stack Development
           </h1>
-          <p className="text-slate-400 font-inter text-lg max-w-2xl mx-auto leading-relaxed">
+          <p className="mt-6 text-xl sm:text-2xl text-neutral-400 tracking-tight font-medium max-w-3xl mx-auto leading-relaxed">
             Master both frontend and backend. Build complete applications from database to user interface.
           </p>
         </header>
 
         {/* Stack Sections */}
-        <div className="grid gap-6 mb-10">
+        <div className="flex flex-col items-center gap-10 relative w-full max-w-3xl mx-auto before:absolute before:inset-0 before:left-1/2 before:-translate-x-px before:h-full before:w-1 before:bg-gradient-to-b before:from-transparent before:via-white/10 before:to-transparent">
           {sections.map((section) => (
             <section
               key={section.title}
-              className="glass-panel p-6 rounded-2xl border border-white/5 bg-surface/30 group hover:border-primary/50 transition-all duration-300"
+              className="p-8 rounded-[32px] bg-white/5 border border-white/10 shadow-2xl flex flex-col items-center gap-4 backdrop-blur-2xl hover:bg-white/10 hover:scale-[1.02] hover:border-white/20 transition-all duration-500 text-center w-[90%] sm:w-[400px] z-10 relative"
             >
-              <h2 className="font-display text-2xl tracking-tight mb-2 text-primary">
+              <h2 className="text-2xl font-semibold tracking-tight text-white">
                 {section.title}
               </h2>
-              <p className="text-slate-400 text-sm mb-4">{section.description}</p>
+              <p className="text-[17px] text-neutral-400 font-medium tracking-wide leading-relaxed">{section.description}</p>
               <div className="flex flex-wrap gap-2">
                 {section.skills.map((skill) => (
                   <span
@@ -65,18 +65,18 @@ export default function FullStackPage() {
         </div>
 
         {/* Projects */}
-        <section className="glass-panel p-6 rounded-2xl border border-white/5 bg-surface/30 group hover:border-primary/50 transition-all duration-300 mb-10">
-          <h2 className="font-display text-2xl tracking-tight mb-4 text-primary">Practice Projects</h2>
-          <div className="grid gap-4 sm:grid-cols-3">
+        <section className="p-8 rounded-[32px] bg-white/5 border border-white/10 shadow-2xl flex flex-col items-center gap-4 backdrop-blur-2xl hover:bg-white/10 hover:scale-[1.02] hover:border-white/20 transition-all duration-500 text-center w-[90%] sm:w-[400px] z-10 relative">
+          <h2 className="text-2xl font-semibold tracking-tight text-white">Practice Projects</h2>
+          <div className="flex flex-col items-center gap-10 relative w-full max-w-3xl mx-auto before:absolute before:inset-0 before:left-1/2 before:-translate-x-px before:h-full before:w-1 before:bg-gradient-to-b before:from-transparent before:via-white/10 before:to-transparent">
             {projects.map((project) => (
               <div
                 key={project.name}
-                className="glass-panel p-5 rounded-xl border border-white/5 bg-surface/40"
+                className="p-8 rounded-[32px] bg-white/5 border border-white/10 shadow-2xl flex flex-col items-center gap-4 backdrop-blur-2xl hover:bg-white/10 hover:scale-[1.02] hover:border-white/20 transition-all duration-500 text-center w-[90%] sm:w-[400px] z-10 relative"
               >
                 <h3 className="font-medium text-white text-sm mb-1">
                   {project.name}
                 </h3>
-                <p className="text-slate-500 text-xs">{project.stack}</p>
+                <p className="text-[15px] text-neutral-500 font-medium tracking-wide">{project.stack}</p>
               </div>
             ))}
           </div>

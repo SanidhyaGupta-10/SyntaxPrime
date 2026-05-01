@@ -1,13 +1,8 @@
 "use client";
-import React, { useEffect, useRef } from "react";
-import gsap from "gsap";
-import { ScrollTrigger } from "gsap/ScrollTrigger";
-import { Canvas } from "@react-three/fiber";
-import { Float, OrbitControls } from "@react-three/drei";
-import Image, { type StaticImageData } from "next/image";
+import Link from "next/link";
+import Image from "next/image";
 
-// ICON IMAGES
-import Frontend from "../../../public/frontend.png";
+// Icons
 import ReactPNG from "../../../public/React-icon.png";
 import Next from "../../../public/next.png";
 import VuePNG from "../../../public/vue.png";
@@ -20,216 +15,132 @@ import CSSPNG from "../../../public/css.png";
 import JSPNG from "../../../public/js.png";
 import BootstrapPNG from "../../../public/boot.png";
 
-// 3D SHAPE
-function FloatingShape() {
-  return (
-    <Float speed={2.2} rotationIntensity={1.6} floatIntensity={2}>
-      <mesh>
-        <torusKnotGeometry args={[1, 0.35, 80, 16]} />
-        <meshStandardMaterial color="#4b9fff" metalness={0.6} roughness={0.2} />
-      </mesh>
-    </Float>
-  );
-}
+export default function FrontendPage() {
+  const techStack = [
+    { name: "React.js", icon: ReactPNG },
+    { name: "Next.js", icon: Next },
+    { name: "Vue.js", icon: VuePNG },
+    { name: "Angular", icon: AngularPNG },
+    { name: "Tailwind CSS", icon: Tailwind },
+    { name: "GSAP", icon: GSAPPNG },
+    { name: "Three.js", icon: THREEPNG },
+  ];
 
-export default function Page() {
-  const sectionsRef = useRef<(HTMLDivElement | null)[]>([]);
+  const coreLanguages = [
+    { name: "HTML", description: "Creates the layout and structure", icon: HTMLPNG },
+    { name: "CSS", description: "Colors, fonts, animations, spacing", icon: CSSPNG },
+    { name: "JavaScript", description: "Click events, popups, sliders", icon: JSPNG },
+  ];
 
-  gsap.registerPlugin(ScrollTrigger);
-
-  useEffect(() => {
-    sectionsRef.current.forEach((sec) => {
-      if (sec) {
-        gsap.fromTo(
-          sec,
-          { opacity: 0, y: 80 },
-          {
-            opacity: 1,
-            y: 0,
-            duration: 1.2,
-            ease: "power3.out",
-            scrollTrigger: {
-              trigger: sec,
-              start: "top 80%",
-            },
-          }
-        );
-      }
-    });
-  }, []);
+  const learningPath = [
+    {
+      level: "Step 1: Basics",
+      items: ["HTML", "CSS", "JavaScript"],
+    },
+    {
+      level: "Step 2: CSS Framework",
+      items: ["Tailwind CSS", "Bootstrap"],
+    },
+    {
+      level: "Step 3: Animation (Optional)",
+      items: ["GSAP", "Three.js"],
+    },
+    {
+      level: "Step 4: JS Framework",
+      items: ["React.js", "Angular", "Vue.js", "Next.js"],
+    },
+  ];
 
   return (
-    <>
-      {/* 3D BACKGROUND CORNER */}
-      <div className="fixed right-10 top-20 w-[350px] h-[350px] pointer-events-none opacity-40">
-        <Canvas camera={{ position: [3, 3, 3] }}>
-          <ambientLight intensity={0.6} />
-          <directionalLight position={[5, 5, 5]} intensity={1} />
-          <FloatingShape />
-          <OrbitControls enableZoom={false} enablePan={false} autoRotate />
-        </Canvas>
-      </div>
+    <main className="min-h-screen w-full bg-black text-white px-6 py-24 sm:py-32 flex flex-col items-center gap-20 overflow-hidden relative">
+      <div className="max-w-6xl w-full mx-auto">
+        {/* Header */}
+        <header className="text-center mb-10">
+          <h1 className="text-5xl sm:text-7xl font-bold tracking-tighter bg-clip-text text-transparent bg-gradient-to-b from-white to-neutral-400 mb-6 flex items-center justify-center gap-4">
+            Frontend Development
+          </h1>
+          <p className="mt-6 text-xl sm:text-2xl text-neutral-400 tracking-tight font-medium max-w-3xl mx-auto leading-relaxed">
+            Frontend = The part of a website or app that the user sees and interacts with. Master the art of building beautiful user interfaces.
+          </p>
+        </header>
 
-      <main className="min-h-screen mt-16 w-full relative pb-24 pt-16 max-w-7xl mx-auto p-6">
-        <div className="h-full w-[80vw] mx-auto relative">
+        {/* Core Languages */}
+        <section className="p-10 rounded-[32px] bg-white/5 border border-white/10 shadow-2xl flex flex-col items-start gap-4 backdrop-blur-2xl hover:bg-white/10 hover:scale-[1.01] hover:border-white/20 transition-all duration-500 mb-8 w-full">
+          <h2 className="text-2xl font-semibold tracking-tight text-white">Core Languages</h2>
+          <ul className="space-y-4 w-full">
+            {coreLanguages.map((lang) => (
+              <li key={lang.name} className="flex items-center gap-4 border border-white/5 p-4 rounded-2xl bg-white/[0.02]">
+                <Image src={lang.icon} width={30} height={30} alt={lang.name} />
+                <div>
+                  <span className="text-white font-medium block">{lang.name}</span>
+                  <span className="text-neutral-400 text-sm">{lang.description}</span>
+                </div>
+              </li>
+            ))}
+          </ul>
+        </section>
 
-          {/* ---------- SECTION 1 ---------- */}
-          <div
-            className="section mb-20"
-            ref={(el) => { sectionsRef.current[0] = el; }}
-          >
-            <div className="heading flex items-center justify-center flex-col mb-10">
-              <h1 className="mt-16 flex items-center font-display text-5xl tracking-tight">
-                ðŸŽ¨ What is Frontend?
-              </h1>
-              <p className="text-center text-[24px] w-[800px] mt-5 opacity-90">
-                Frontend = The part of a website or app that the user sees and interacts with.
-              </p>
-            </div>
-            <div className="h-px w-[100vw] -ml-36 bg-white mb-10"></div>
+        {/* Tech Stack */}
+        <section className="p-10 rounded-[32px] bg-white/5 border border-white/10 shadow-2xl flex flex-col items-start gap-4 backdrop-blur-2xl hover:bg-white/10 hover:scale-[1.01] hover:border-white/20 transition-all duration-500 mb-8 w-full">
+          <h2 className="text-2xl font-semibold tracking-tight text-white">Popular Frameworks</h2>
+          <div className="flex flex-wrap gap-3">
+            {techStack.map((tech) => (
+              <div
+                key={tech.name}
+                className="flex items-center gap-2 bg-slate-900 px-3 py-2 rounded-lg border border-slate-700"
+              >
+                <Image
+                  src={tech.icon}
+                  alt={tech.name}
+                  width={20}
+                  height={20}
+                  className="w-5 h-5"
+                />
+                <span className="text-sm text-slate-200">{tech.name}</span>
+              </div>
+            ))}
           </div>
+        </section>
 
-          {/* ---------- SECTION 2 ---------- */}
-          <div
-            className="section flex gap-12 mb-20"
-            ref={(el) => { sectionsRef.current[1] = el; }}
-          >
-            <Image
-              src={Frontend}
-              width={450}
-              alt="Top Frontend Skills"
-              className="rounded-xl"
-            />
-
-            <div>
-              <h1 className="font-display text-3xl mb-4 tracking-tight text-white">ðŸ›  Languages Used in Frontend</h1>
-
-              <h2 className="text-xl py-1">1. HTML â€” Structure</h2>
-              <p className="px-2 text-[18px]">Creates the layout and structure</p>
-
-              <h2 className="text-xl py-1 mt-2">2. CSS â€” Design</h2>
-              <p className="px-2 text-[18px]">Colors, fonts, animations, spacing</p>
-
-              <h2 className="text-xl py-1 mt-2">3. JavaScript â€” Logic</h2>
-              <p className="px-2 text-[18px]">Click events, popups, sliders</p>
-            </div>
+        {/* Learning Path */}
+        <section className="mb-10 w-full">
+          <h2 className="text-2xl font-semibold tracking-tight text-white mb-8 text-center">Recommended Learning Path</h2>
+          <div className="flex flex-col items-center gap-10 relative w-full max-w-3xl mx-auto before:absolute before:inset-0 before:left-1/2 before:-translate-x-px before:h-full before:w-1 before:bg-gradient-to-b before:from-transparent before:via-white/10 before:to-transparent">
+            {learningPath.map((stage) => (
+              <div
+                key={stage.level}
+                className="p-8 rounded-[32px] bg-white/5 border border-white/10 shadow-2xl flex flex-col items-center gap-4 backdrop-blur-2xl hover:bg-white/10 hover:scale-[1.02] hover:border-white/20 transition-all duration-500 text-center w-[90%] sm:w-[400px] z-10 relative"
+              >
+                <h3 className="font-medium text-white mb-4 text-sm">{stage.level}</h3>
+                <ol className="space-y-2">
+                  {stage.items.map((item, idx) => (
+                    <li key={idx} className="text-[17px] text-neutral-400 font-medium tracking-wide leading-relaxed flex items-start gap-2">
+                      <span className="text-slate-600 shrink-0">{idx + 1}.</span>
+                      <span>{item}</span>
+                    </li>
+                  ))}
+                </ol>
+              </div>
+            ))}
           </div>
+        </section>
 
-          {/* ---------- SECTION 3 ---------- */}
-          <div
-            className="section mb-20"
-            ref={(el) => { sectionsRef.current[2] = el; }}
+        {/* CTA */}
+        <div className="flex flex-col sm:flex-row gap-3 justify-center">
+          <Link
+            href="/"
+            className="px-6 py-2.5 text-center rounded-lg border border-white/10 text-white hover:bg-white/5 glass-panel transition-colors text-sm font-medium"
           >
-            <h1 className="font-display text-4xl mb-6 tracking-tight text-white">âš¡ Popular Frontend Frameworks</h1>
-
-            <div className="ml-12 flex flex-col gap-4 text-[22px]">
-              <Skill name="React.js" icon={ReactPNG} />
-              <Skill name="Next.js" icon={Next} />
-              <Skill name="Vue.js" icon={VuePNG} />
-              <Skill name="Angular" icon={AngularPNG} />
-              <Skill name="Tailwind CSS" icon={Tailwind} />
-              <Skill name="GSAP (Animations)" icon={GSAPPNG} />
-              <Skill name="Three.js (3D)" icon={THREEPNG} />
-            </div>
-          </div>
-
-          {/* ---------- SECTION 4 ---------- */}
-          <div
-            className="section mb-10"
-            ref={(el) => { sectionsRef.current[3] = el; }}
+            Back to Home
+          </Link>
+          <a
+            href="#"
+            className="px-6 py-2.5 text-center rounded-lg bg-primary hover:bg-primary/90 text-on-primary font-medium transition-colors text-sm"
           >
-            <h1 className="font-display text-4xl mb-6 tracking-tight text-white ml-5">ðŸ“˜ Recommended Learning Path</h1>
-
-            <div className="flex flex-col gap-10 items-center">
-
-              {/* STEP 1 */}
-              <StepCard
-                title="Start with Basics:"
-                items={[
-                  { name: "HTML", icon: HTMLPNG },
-                  { name: "CSS", icon: CSSPNG },
-                  { name: "JavaScript", icon: JSPNG },
-                ]}
-              />
-
-              <Arrow />
-
-              {/* STEP 2 */}
-              <StepCard
-                title="Pick a CSS Framework:"
-                items={[
-                  { name: "Tailwind CSS", icon: Tailwind },
-                  { name: "Bootstrap", icon: BootstrapPNG },
-                ]}
-              />
-
-              <Arrow />
-
-              {/* STEP 3 */}
-              <StepCard
-                title="Optional: Animation Libraries"
-                items={[
-                  { name: "GSAP", icon: GSAPPNG },
-                  { name: "Three.js", icon: THREEPNG },
-                ]}
-              />
-
-              <Arrow />
-
-              {/* STEP 4 */}
-              <StepCard
-                title="Pick a JavaScript Framework:"
-                items={[
-                  { name: "React.js (Best Start)", icon: ReactPNG },
-                  { name: "Angular", icon: AngularPNG },
-                  { name: "Vue.js", icon: VuePNG },
-                  { name: "Next.js", icon: Next },
-                ]}
-              />
-            </div>
-          </div>
+            Start Learning
+          </a>
         </div>
-      </main>
-    </>
+      </div>
+    </main>
   );
 }
-
-/* ---------------- SMALL COMPONENTS ---------------- */
-
-interface SkillProps {
-  name: string;
-  icon: StaticImageData | string;
-}
-
-interface StepCardProps {
-  title: string;
-  items: Array<{ name: string; icon: StaticImageData | string }>;
-}
-
-function Skill({ name, icon }: SkillProps) {
-  return (
-    <h3 className="flex gap-3 items-center">
-      {name}
-      <Image src={icon} width={30} height={30} alt={name} />
-    </h3>
-  );
-}
-
-function StepCard({ title, items }: StepCardProps) {
-  return (
-    <div className="flex flex-col gap-4 glass-panel px-6 py-6 rounded-2xl border border-white/5 bg-surface/30">
-      <h2 className="text-2xl">{title}</h2>
-      {items.map((i) => (
-        <h3 key={i.name} className="text-[22px] flex gap-3 items-center">
-          {i.name}
-          <Image src={i.icon} width={30} height={30} alt={i.name} />
-        </h3>
-      ))}
-    </div>
-  );
-}
-
-function Arrow() {
-  return <i className="ri-arrow-down-line text-3xl mt-2"></i>;
-}
-
