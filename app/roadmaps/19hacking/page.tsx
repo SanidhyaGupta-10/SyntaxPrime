@@ -171,7 +171,7 @@ export default function HackingPage() {
   }, []);
 
   return (
-    <div className="relative min-h-screen  text-green-400 px-6 md:px-16 pt-28 overflow-x-hidden">
+    <div className="min-h-screen w-full bg-black text-white px-6 py-24 sm:py-32 flex flex-col items-center gap-20 overflow-hidden relative">
       {/* MATRIX CANVAS */}
       <canvas ref={canvasRef} className="fixed top-0 left-0 w-full h-full -z-10" />
 
@@ -181,17 +181,17 @@ export default function HackingPage() {
       </h1>
 
       {/* CARDS */}
-      <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-3 relative z-10 pb-16">
+      <div className="flex flex-col items-center gap-10 relative w-full max-w-3xl mx-auto before:absolute before:inset-0 before:left-1/2 before:-translate-x-px before:h-full before:w-1 before:bg-gradient-to-b before:from-transparent before:via-white/10 before:to-transparent">
         {sections.map((section, index) => (
           <div
             key={index}
             ref={(el) => {
               cardsRef.current[index] = el;
             }}
-            className="bg-black/70 border border-green-500/20 rounded-xl p-6 shadow-[0_0_25px_rgba(0,255,0,0.15)]
+            className="bg-transparent/70 border border-green-500/20 rounded-xl p-6 shadow-[0_0_25px_rgba(0,255,0,0.15)]
                        hover:shadow-[0_0_40px_rgba(0,255,0,0.4)] transition-all duration-300"
           >
-            <div className="flex items-center gap-3 mb-4">{section.icon}<h2 className="text-xl font-semibold">{section.title}</h2></div>
+            <div className="flex items-center gap-3 mb-4">{section.icon}<h2 className="text-2xl font-semibold tracking-tight text-white">{section.title}</h2></div>
             <ul className="space-y-2 text-green-300">
               {section.items.map((item, idx) => (
                 <li key={idx} className="text-sm opacity-90">• {item}</li>

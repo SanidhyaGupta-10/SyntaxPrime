@@ -47,7 +47,7 @@ const skills = [
   },
   {
     title: "Wireshark & Traffic Analysis",
-    icon: <SiWireshark className="text-4xl text-cyan-300" />,
+    icon: <SiWireshark className="text-4xl text-primary" />,
     description:
       "Capture, inspect, and analyze packets to detect attacks, anomalies, and compromised systems.",
   },
@@ -57,7 +57,7 @@ const Page = () => {
   const cardsRef = useRef([]);
 
   return (
-    <div className="min-h-screen w-full bg-[#0B0B0D] text-gray-200 px-5 sm:px-10 py-20">
+    <div className="min-h-screen w-full bg-black text-white px-6 py-24 sm:py-32 flex flex-col items-center gap-20 overflow-hidden relative">
 
       {/* Title */}
       <h1 className="text-4xl sm:text-5xl font-extrabold text-center mb-10 pt-10 text-[#EDEDED]">
@@ -71,7 +71,7 @@ const Page = () => {
       </p>
 
       {/* Cards */}
-      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-10">
+      <div className="flex flex-col items-center gap-10 relative w-full max-w-3xl mx-auto before:absolute before:inset-0 before:left-1/2 before:-translate-x-px before:h-full before:w-1 before:bg-gradient-to-b before:from-transparent before:via-white/10 before:to-transparent">
         {skills.map((item, index) => (
           <div
             key={index}
@@ -80,7 +80,7 @@ const Page = () => {
           >
             <div className="mb-4 flex justify-center">{item.icon}</div>
 
-            <h2 className="text-xl font-semibold text-gray-100 text-center">
+            <h2 className="text-2xl font-semibold tracking-tight text-white">
               {item.title}
             </h2>
 

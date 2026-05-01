@@ -3,9 +3,11 @@ import React, { useState, useRef, useEffect } from "react";
 import Link from "next/link";
 import { Menu, X } from "lucide-react";
 import gsap from "gsap";
+import TerminalOverlay from "./TerminalOverlay";
 
 const Navbar = () => {
   const [open, setOpen] = useState<boolean>(false);
+  const [isTerminalOpen, setIsTerminalOpen] = useState<boolean>(false);
   const mobileMenuRef = useRef<HTMLDivElement>(null);
 
   // GSAP animation for mobile menu
@@ -22,6 +24,7 @@ const Navbar = () => {
   }, [open]);
 
   return (
+    <>
     <header className="fixed top-0 left-0 w-full z-50 bg-[#050505]/80 backdrop-blur-xl border-b border-white/10 shadow-[0_0_20px_rgba(14,165,233,0.1)] transition-all duration-300">
       <div className="max-w-[1280px] mx-auto px-6 h-16 flex justify-between items-center">
         {/* Logo */}
@@ -55,27 +58,22 @@ const Navbar = () => {
 
         {/* Right Actions */}
         <div className="flex items-center gap-4">
-          <div className="hidden lg:flex items-center bg-white/5 rounded-full px-4 py-1.5 border border-white/10 group focus-within:border-primary/50 transition-all">
-            <span className="material-symbols-outlined text-sm text-slate-400 mr-2">search</span>
-            <input 
-              type="text" 
-              placeholder="Search technical docs..." 
-              className="bg-transparent border-none focus:outline-none text-sm text-on-surface placeholder:text-slate-500 w-40"
-            />
-          </div>
 
-          <div className="hidden md:flex items-center gap-2">
-            <button className="p-2 text-slate-400 hover:bg-white/5 transition-all duration-200 active:scale-95 rounded-full">
-              <span className="material-symbols-outlined">terminal</span>
-            </button>
-            <button className="p-2 text-slate-400 hover:bg-white/5 transition-all duration-200 active:scale-95 rounded-full">
-              <span className="material-symbols-outlined">account_circle</span>
+          <div className="hidden md:flex items-center gap-3">
+            <button 
+              onClick={() => setIsTerminalOpen(true)}
+              className="group flex items-center justify-center w-10 h-10 rounded-full bg-white/5 border border-white/10 hover:border-primary/50 hover:bg-primary/10 transition-all duration-300"
+              title="System Terminal"
+            >
+              <span className="material-symbols-outlined text-slate-400 group-hover:text-primary transition-colors text-[20px]">code_blocks</span>
             </button>
             <Link 
-              href="/console" 
-              className="ml-2 bg-primary-container text-on-primary-container px-4 py-2 font-label-caps rounded-lg hover:brightness-110 transition-all active:scale-95"
+              href="/roadmaps" 
+              className="ml-2 relative group overflow-hidden bg-white/5 border border-white/10 text-white px-5 py-2.5 font-label-caps rounded-lg transition-all active:scale-95 flex items-center gap-2 hover:border-primary/50 hover:shadow-[0_0_20px_rgba(137,206,255,0.2)]"
             >
-              Console
+              <div className="absolute inset-0 bg-primary/10 translate-y-full group-hover:translate-y-0 transition-transform duration-300"></div>
+              <span className="relative z-10 text-white">Explore</span>
+              <span className="material-symbols-outlined text-sm relative z-10 text-primary group-hover:translate-x-1 transition-transform duration-300">arrow_forward</span>
             </Link>
           </div>
 
@@ -111,6 +109,8 @@ const Navbar = () => {
         </nav>
       </div>
     </header>
+    <TerminalOverlay isOpen={isTerminalOpen} onClose={() => setIsTerminalOpen(false)} />
+    </>
   );
 };
 

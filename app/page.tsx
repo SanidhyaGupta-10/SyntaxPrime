@@ -1,21 +1,20 @@
 "use client";
 
-import React from "react";
 import Link from "next/link";
 import Image from "next/image";
 
 export default function Page() {
   return (
-    <div className="flex flex-col">
+    <div className="flex flex-col -mt-16">
       {/* Hero Section */}
-      <section className="relative min-h-[80vh] flex flex-col justify-center items-center text-center px-6 overflow-hidden hero-mesh">
+      <section className="relative min-h-[80vh] flex flex-col justify-center items-center text-center px-6 overflow-hidden hero-mesh pt-16">
         <div className="absolute inset-0 z-0">
           <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-primary/10 rounded-full blur-[120px]"></div>
           <div className="absolute bottom-1/4 right-1/4 w-96 h-96 bg-tertiary/10 rounded-full blur-[120px]"></div>
         </div>
         
         <div className="relative z-10 max-w-4xl mx-auto">
-          <div className="inline-flex items-center px-3 py-1 rounded-full border border-primary/20 bg-primary/5 text-primary mb-8 animate-pulse">
+          <div className="mt-5 inline-flex items-center px-3 py-1 rounded-full border border-primary/20 bg-primary/5 text-primary mb-8 animate-pulse">
             <span className="material-symbols-outlined text-sm mr-2" style={{ fontVariationSettings: "'FILL' 1" }}>terminal</span>
             <span className="font-label-caps uppercase">Now v2.4 Stable Release</span>
           </div>
@@ -67,31 +66,6 @@ export default function Page() {
         </div>
       </section>
 
-      {/* Navigation Cluster */}
-      <section className="py-20 border-y border-white/5 bg-[#080808]">
-        <div className="max-w-7xl mx-auto px-6">
-          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-4">
-            {[
-              { icon: "map", label: "Explore Roadmaps", href: "/roadmaps" },
-              { icon: "description", label: "Download Notes", href: "/notes" },
-              { icon: "trending_up", label: "Most Popular Skills", href: "/skills" },
-              { icon: "calculate", label: "MathsBuddy", href: "https://maths-buddy.vercel.app/" },
-              { icon: "work", label: "Portfolio", href: "https://sanidhy-portfolio.vercel.app/" },
-              { icon: "code", label: "Github", href: "https://github.com/SanidhyaGupta-10/" },
-            ].map((item) => (
-              <Link 
-                key={item.label} 
-                href={item.href}
-                target={item.href.startsWith("http") ? "_blank" : undefined}
-                className="group glass-panel p-6 rounded-xl hover:border-primary transition-all duration-300"
-              >
-                <span className="material-symbols-outlined text-primary mb-3 block">{item.icon}</span>
-                <span className="text-white font-label-caps group-hover:text-primary transition-colors">{item.label}</span>
-              </Link>
-            ))}
-          </div>
-        </div>
-      </section>
 
       {/* Features Bento Grid */}
       <section className="py-24 px-6 max-w-7xl mx-auto">
@@ -173,7 +147,7 @@ export default function Page() {
       </section>
 
       {/* CTA Section */}
-      <section className="py-24 px-6">
+      {/* <section className="py-24 px-6">
         <div className="max-w-7xl mx-auto glass-panel rounded-2xl p-12 md:p-20 text-center relative overflow-hidden">
           <div className="absolute top-0 right-0 w-64 h-64 bg-primary/10 rounded-full blur-[100px] -translate-y-1/2 translate-x-1/2"></div>
           <h2 className="font-display text-4xl md:text-5xl text-white mb-8 tracking-tighter">Ready to optimize your workflow?</h2>
@@ -184,7 +158,7 @@ export default function Page() {
             <p className="text-slate-500 font-inter">Join 15k+ developers today.</p>
           </div>
         </div>
-      </section>
+      </section> */}
     </div>
   );
 }

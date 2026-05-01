@@ -6,7 +6,7 @@ import { SiPandas, SiNumpy, SiScikitlearn, SiTensorflow, SiPytorch, SiMongodb, S
 
 export default function DataSciencePage() {
   return (
-    <div className="w-full min-h-screen mt-16 bg-black text-white px-6 py-16 flex flex-col gap-20">
+    <div className="min-h-screen w-full bg-black text-white px-6 py-24 sm:py-32 flex flex-col items-center gap-20 overflow-hidden relative">
       {/* HEADER */}
       <motion.div
         initial={{ opacity: 0, y: -40 }}
@@ -14,7 +14,7 @@ export default function DataSciencePage() {
         transition={{ duration: 0.8 }}
         className="text-center"
       >
-        <h1 className="text-5xl font-bold mb-3">Data Science Roadmap</h1>
+        <h1 className="text-5xl sm:text-7xl font-bold tracking-tighter bg-clip-text text-transparent bg-gradient-to-b from-white to-neutral-400 mb-6 flex items-center justify-center gap-4">Data Science Roadmap</h1>
         <p className="300 text-lg max-w-2xl mx-auto">
           A highly advanced, industry-ready roadmap that blends programming, analytics, ML engineering,
           and real-world data workflows.
@@ -29,7 +29,7 @@ export default function DataSciencePage() {
         className="bg-zinc-900 p-10 rounded-2xl shadow-lg border border-zinc-700"
       >
         <h2 className="text-3xl font-semibold mb-6">1. Core Foundations</h2>
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+        <div className="flex flex-col items-center gap-10 relative w-full max-w-3xl mx-auto before:absolute before:inset-0 before:left-1/2 before:-translate-x-px before:h-full before:w-1 before:bg-gradient-to-b before:from-transparent before:via-white/10 before:to-transparent">
           <div className="flex gap-4 items-start">
             <FaPython className="text-4xl text-yellow-300" />
             <div>
@@ -55,7 +55,7 @@ export default function DataSciencePage() {
         className="bg-zinc-900 p-10 rounded-2xl shadow-lg border border-zinc-700"
       >
         <h2 className="text-3xl font-semibold mb-6">2. Data Analytics Stack</h2>
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+        <div className="flex flex-col items-center gap-10 relative w-full max-w-3xl mx-auto before:absolute before:inset-0 before:left-1/2 before:-translate-x-px before:h-full before:w-1 before:bg-gradient-to-b before:from-transparent before:via-white/10 before:to-transparent">
           <div className="flex gap-4 items-start">
             <SiNumpy className="text-4xl" />
             <div>
@@ -88,7 +88,7 @@ export default function DataSciencePage() {
         className="bg-zinc-900 p-10 rounded-2xl shadow-lg border border-zinc-700"
       >
         <h2 className="text-3xl font-semibold mb-6">3. Machine Learning & Deep Learning</h2>
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+        <div className="flex flex-col items-center gap-10 relative w-full max-w-3xl mx-auto before:absolute before:inset-0 before:left-1/2 before:-translate-x-px before:h-full before:w-1 before:bg-gradient-to-b before:from-transparent before:via-white/10 before:to-transparent">
           <div className="flex gap-4 items-start">
             <SiScikitlearn className="text-4xl" />
             <div>
@@ -123,7 +123,7 @@ export default function DataSciencePage() {
         className="bg-zinc-900 p-10 rounded-2xl shadow-lg border border-zinc-700 mb-20"
       >
         <h2 className="text-3xl font-semibold mb-6">4. Databases & Big Data</h2>
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+        <div className="flex flex-col items-center gap-10 relative w-full max-w-3xl mx-auto before:absolute before:inset-0 before:left-1/2 before:-translate-x-px before:h-full before:w-1 before:bg-gradient-to-b before:from-transparent before:via-white/10 before:to-transparent">
           <div className="flex gap-4 items-start">
             <SiMysql className="text-4xl text-blue-300" />
             <div>
@@ -141,7 +141,7 @@ export default function DataSciencePage() {
           </div>
 
           <div className="flex gap-4 items-start">
-            <FaBrain className="text-4xl text-purple-300" />
+            <FaBrain className="text-4xl text-primary" />
             <div>
               <h3 className="text-[22px] font-bold">Big Data Concepts</h3>
               <p className="text-[18px] text-gray-300">Hadoop basics, Spark, distributed processing, cloud workflows.</p>

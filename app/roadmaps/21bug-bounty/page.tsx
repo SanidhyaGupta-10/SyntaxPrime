@@ -45,13 +45,13 @@ export default function BugBountyPage() {
   ];
 
   return (
-    <div className="min-h-screen w-full bg-black text-white px-6 py-10">
+    <div className="min-h-screen w-full bg-black text-white px-6 py-24 sm:py-32 flex flex-col items-center gap-20 overflow-hidden relative">
       {/* Page Title */}
       <motion.h1
         initial={{ opacity: 0, y: -20 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.6 }}
-        className="text-5xl font-bold text-center mb-6 pt-18 text-green-400"
+        className="text-5xl sm:text-7xl font-bold tracking-tighter bg-clip-text text-transparent bg-gradient-to-b from-white to-neutral-400 mb-6 flex items-center justify-center gap-4"
       >
         Bug Bounty Roadmap
       </motion.h1>
@@ -67,7 +67,7 @@ export default function BugBountyPage() {
             className="bg-neutral-900 p-6 rounded-xl shadow-lg border border-neutral-700 hover:shadow-green-500/20 hover:border-green-400 transition-all duration-300"
           >
             <div className="flex justify-center mb-4">{card.icon}</div>
-            <h2 className="text-xl font-semibold text-center mb-3">
+            <h2 className="text-2xl font-semibold tracking-tight text-white">
               {card.title}
             </h2>
             <p className="text-neutral-300 text-sm text-center">
