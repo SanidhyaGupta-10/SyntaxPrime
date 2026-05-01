@@ -67,15 +67,6 @@ const Navbar = () => {
             >
               <span className="material-symbols-outlined text-slate-400 group-hover:text-primary transition-colors text-[20px]">code_blocks</span>
             </button>
-            <a 
-              href="https://sanidhy-portfolio.vercel.app/"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="group flex items-center justify-center w-10 h-10 rounded-full bg-white/5 border border-white/10 hover:border-secondary/50 hover:bg-secondary/10 transition-all duration-300"
-              title="Developer Portfolio"
-            >
-              <span className="material-symbols-outlined text-slate-400 group-hover:text-secondary transition-colors text-[20px]">person</span>
-            </a>
             <Link 
               href="/roadmaps" 
               className="ml-2 relative group overflow-hidden bg-white/5 border border-white/10 text-white px-5 py-2.5 font-label-caps rounded-lg transition-all active:scale-95 flex items-center gap-2 hover:border-primary/50 hover:shadow-[0_0_20px_rgba(137,206,255,0.2)]"

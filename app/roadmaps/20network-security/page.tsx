@@ -47,7 +47,7 @@ const skills = [
   },
   {
     title: "Wireshark & Traffic Analysis",
-    icon: <SiWireshark className="text-4xl text-cyan-300" />,
+    icon: <SiWireshark className="text-4xl text-primary" />,
     description:
       "Capture, inspect, and analyze packets to detect attacks, anomalies, and compromised systems.",
   },
@@ -80,7 +80,7 @@ const Page = () => {
           >
             <div className="mb-4 flex justify-center">{item.icon}</div>
 
-            <h2 className="text-xl font-semibold text-gray-100 text-center">
+            <h2 className="font-display text-2xl tracking-tight text-gray-100 text-center">
               {item.title}
             </h2>
 

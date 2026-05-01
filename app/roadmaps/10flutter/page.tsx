@@ -20,7 +20,7 @@ function InfoCard(props: InfoCardProps) {
       hover:scale-[1.04] transition-all duration-300"
     >
       <Icon className="size-12" />
-      <h3 className="text-xl font-semibold">{title}</h3>
+      <h3 className="font-display text-2xl tracking-tight">{title}</h3>
       <p className="text-[18px] opacity-70 text-center leading-relaxed">{text}</p>
     </div>
   );
@@ -28,7 +28,7 @@ function InfoCard(props: InfoCardProps) {
 
 export default function FlutterPage() {
   return (
-    <div className="min-h-screen w-full bg-black mt-16 text-white px-6 py-16 flex flex-col items-center gap-20 overflow-hidden">
+    <div className="min-h-screen w-full bg-transparent mt-16 text-white px-6 py-16 flex flex-col items-center gap-20 overflow-hidden">
 
       {/* Header Section */}
       <section className="w-full max-w-5xl flex flex-col items-center text-center">

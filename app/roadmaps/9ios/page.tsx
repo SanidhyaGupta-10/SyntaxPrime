@@ -12,14 +12,14 @@ import { FaTools } from "react-icons/fa";
 
 export default function IOSPage() {
   return (
-    <div className="min-h-screen w-full mt-16 flex flex-col items-center justify-center bg-black text-white px-6 py-16">
+    <div className="min-h-screen w-full mt-16 flex flex-col items-center justify-center bg-transparent text-white px-6 py-16">
 
       {/* Title */}
       <motion.h1
         initial={{ opacity: 0, y: -40 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.6 }}
-        className="text-5xl font-bold mb-6 text-center"
+        className="font-display text-5xl tracking-tight mb-6 text-center"
       >
         iOS Development Roadmap
       </motion.h1>
@@ -96,7 +96,7 @@ export default function IOSPage() {
           className="p-6 rounded-2xl bg-gray-900 border border-gray-700 shadow-xl"
         >
           <h2 className="text-2xl font-semibold flex items-center gap-3 mb-4">
-            <SiRealm className="text-purple-400 text-3xl" /> Databases
+            <SiRealm className="text-white mb-4 text-3xl" /> Databases
           </h2>
           <ul className="space-y-3 text-gray-300">
             <li className="flex items-center gap-2"><SiRealm /> Realm</li>

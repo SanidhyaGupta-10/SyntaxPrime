@@ -6,7 +6,7 @@ import { SiPandas, SiNumpy, SiScikitlearn, SiTensorflow, SiPytorch, SiMongodb, S
 
 export default function DataSciencePage() {
   return (
-    <div className="w-full min-h-screen mt-16 bg-black text-white px-6 py-16 flex flex-col gap-20">
+    <div className="w-full min-h-screen mt-16 bg-transparent text-white px-6 py-16 flex flex-col gap-20">
       {/* HEADER */}
       <motion.div
         initial={{ opacity: 0, y: -40 }}
@@ -14,7 +14,7 @@ export default function DataSciencePage() {
         transition={{ duration: 0.8 }}
         className="text-center"
       >
-        <h1 className="text-5xl font-bold mb-3">Data Science Roadmap</h1>
+        <h1 className="font-display text-5xl tracking-tight mb-3">Data Science Roadmap</h1>
         <p className="300 text-lg max-w-2xl mx-auto">
           A highly advanced, industry-ready roadmap that blends programming, analytics, ML engineering,
           and real-world data workflows.
@@ -141,7 +141,7 @@ export default function DataSciencePage() {
           </div>
 
           <div className="flex gap-4 items-start">
-            <FaBrain className="text-4xl text-purple-300" />
+            <FaBrain className="text-4xl text-primary" />
             <div>
               <h3 className="text-[22px] font-bold">Big Data Concepts</h3>
               <p className="text-[18px] text-gray-300">Hadoop basics, Spark, distributed processing, cloud workflows.</p>

@@ -28,7 +28,7 @@ export default function PHPPage() {
   ];
 
   return (
-    <div className="min-h-screen mt-16 w-full bg-black text-white px-6 py-16 flex flex-col gap-24 items-center">
+    <div className="min-h-screen mt-16 w-full bg-transparent text-white px-6 py-16 flex flex-col gap-24 items-center">
 
       {/* Hero */}
       <section className="w-full max-w-5xl text-center">
@@ -36,9 +36,9 @@ export default function PHPPage() {
           initial={{ opacity: 0, y: 40 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 1 }}
-          className="rounded-2xl p-8 sm:p-10 border border-white/10 bg-white/5 backdrop-blur-xl shadow-xl"
+          className="glass-panel p-8 sm:p-10 rounded-2xl border border-white/5 bg-surface/30 relative overflow-hidden"
         >
-          <h1 className="text-4xl sm:text-5xl font-semibold flex justify-center items-center gap-2">
+          <h1 className="font-display text-5xl sm:text-6xl tracking-tight flex justify-center items-center gap-2">
             <Globe className="size-10 sm:size-12" /> PHP Hub
           </h1>
           <p className="mt-4 text-base sm:text-lg opacity-80 max-w-2xl mx-auto leading-relaxed">
@@ -59,10 +59,10 @@ export default function PHPPage() {
             <motion.div
               key={index}
               whileHover={{ scale: 1.05, y: -6 }}
-              className="p-6 sm:p-8 rounded-xl bg-white/10 border border-white/10 backdrop-blur-xl shadow-xl flex flex-col items-center gap-4"
+              className="p-6 sm:p-8 rounded-xl glass-panel bg-surface/30 border border-white/5 group hover:border-primary/50 shadow-xl flex flex-col items-center gap-4"
             >
               {card.icon}
-              <h3 className="text-lg sm:text-xl font-semibold text-center">{card.title}</h3>
+              <h3 className="text-lg sm:font-display text-2xl tracking-tight text-center">{card.title}</h3>
               <p className="text-sm opacity-70 text-center leading-relaxed">{card.text}</p>
             </motion.div>
           ))}

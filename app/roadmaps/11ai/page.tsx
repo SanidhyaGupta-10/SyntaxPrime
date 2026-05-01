@@ -14,7 +14,7 @@ function InfoCard(props: InfoCardProps) {
   return (
     <div className="p-8 rounded-2xl bg-gradient-to-br from-blue-500/10 via-purple-500/10 to-indigo-500/10 border border-white/10 shadow-xl flex flex-col items-center gap-4 backdrop-blur-lg hover:scale-[1.05] transition-all duration-300">
       <Icon className="size-12 text-blue-300" />
-      <h3 className="text-xl font-semibold text-blue-200">{title}</h3>
+      <h3 className="font-display text-2xl tracking-tight text-blue-200">{title}</h3>
       <p className="text-[18px] opacity-80 text-center leading-relaxed">{text}</p>
     </div>
   );

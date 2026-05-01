@@ -15,8 +15,8 @@ function RoadmapCard(props: RoadmapCardProps) {
   const { title, text } = props;
   return (
     <div className="bg-gray-900/70 border border-gray-700 rounded-2xl hover:border-2 hover:border-purple-400 p-6 flex flex-col items-center gap-4 shadow-lg transform transition-transform duration-300 hover:scale-105 hover:shadow-xl">
-      <Icon className="text-4xl text-purple-400" />
-      <h3 className="text-xl font-semibold text-white text-center">{title}</h3>
+      <Icon className="text-4xl text-white mb-4" />
+      <h3 className="font-display text-2xl tracking-tight text-white text-center">{title}</h3>
       <p className="text-gray-300 text-center text-[18px] leading-relaxed">{text}</p>
     </div>
   );
@@ -145,7 +145,7 @@ export default function DAppsPage() {
   }, []);
 
   return (
-    <div className="relative min-h-screen bg-black text-white px-6 py-16 overflow-hidden">
+    <div className="relative min-h-screen bg-transparent text-white px-6 py-16 overflow-hidden">
       {/* Animated Canvas Background */}
       <canvas
         ref={canvasRef}
@@ -154,7 +154,7 @@ export default function DAppsPage() {
 
       {/* Header */}
       <div className="text-center mb-16 relative z-10 pt-16">
-        <h1 className="text-4xl md:text-6xl font-bold mb-4 text-purple-400 hover:text-purple-600 transition-all">
+        <h1 className="text-4xl md:text-6xl font-bold mb-4 text-white mb-4 hover:text-purple-600 transition-all">
           🏗️ DApps Roadmap
         </h1>
         <p className="text-gray-300 max-w-2xl mx-auto text-xl">

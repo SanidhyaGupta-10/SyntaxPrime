@@ -188,10 +188,10 @@ export default function HackingPage() {
             ref={(el) => {
               cardsRef.current[index] = el;
             }}
-            className="bg-black/70 border border-green-500/20 rounded-xl p-6 shadow-[0_0_25px_rgba(0,255,0,0.15)]
+            className="bg-transparent/70 border border-green-500/20 rounded-xl p-6 shadow-[0_0_25px_rgba(0,255,0,0.15)]
                        hover:shadow-[0_0_40px_rgba(0,255,0,0.4)] transition-all duration-300"
           >
-            <div className="flex items-center gap-3 mb-4">{section.icon}<h2 className="text-xl font-semibold">{section.title}</h2></div>
+            <div className="flex items-center gap-3 mb-4">{section.icon}<h2 className="font-display text-2xl tracking-tight">{section.title}</h2></div>
             <ul className="space-y-2 text-green-300">
               {section.items.map((item, idx) => (
                 <li key={idx} className="text-sm opacity-90">• {item}</li>

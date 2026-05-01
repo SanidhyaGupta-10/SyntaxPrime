@@ -14,7 +14,7 @@ function InfoCard(props: InfoCardProps) {
   return (
     <div className="p-8 rounded-2xl bg-gradient-to-br from-blue-500/10 via-purple-500/10 to-indigo-500/10 border border-white/10 shadow-xl flex flex-col items-center gap-4 backdrop-blur-lg hover:scale-[1.05] transition-all duration-300">
       <Icon className="size-12 text-blue-300" />
-      <h3 className="text-xl font-semibold text-white">{title}</h3>
+      <h3 className="font-display text-2xl tracking-tight text-white">{title}</h3>
       <p className="text-[18px] opacity-80 text-center leading-relaxed text-white/80">{text}</p>
     </div>
   );
@@ -22,7 +22,7 @@ function InfoCard(props: InfoCardProps) {
 
 export default function AWSPage() {
   return (
-    <div className="min-h-screen w-full mt-16 bg-black text-white px-6 py-16 flex flex-col items-center gap-20 overflow-hidden">
+    <div className="min-h-screen w-full mt-16 bg-transparent text-white px-6 py-16 flex flex-col items-center gap-20 overflow-hidden">
 
       {/* Header */}
       <section className="w-full max-w-5xl flex flex-col items-center text-center">

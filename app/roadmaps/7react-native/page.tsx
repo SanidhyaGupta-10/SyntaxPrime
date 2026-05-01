@@ -17,7 +17,7 @@ function InfoCard(props: InfoCardProps) {
                     flex flex-col items-center gap-4 backdrop-blur-lg
                     hover:scale-[1.04] transition-all duration-300">
       <Icon className="size-12" />
-      <h3 className="text-xl font-semibold">{title}</h3>
+      <h3 className="font-display text-2xl tracking-tight">{title}</h3>
       <p className="text-[18px] opacity-70 text-center leading-relaxed">{text}</p>
     </div>
   );
@@ -25,7 +25,7 @@ function InfoCard(props: InfoCardProps) {
 
 export default function ReactNativePage() {
   return (
-    <div className="min-h-screen w-full bg-black mt-16 text-white px-6 py-16 
+    <div className="min-h-screen w-full bg-transparent mt-16 text-white px-6 py-16 
                     flex flex-col items-center gap-28 overflow-hidden">
 
       {/* Header Section */}

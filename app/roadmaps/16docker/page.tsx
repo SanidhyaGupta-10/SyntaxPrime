@@ -13,8 +13,8 @@ function InfoCard(props: InfoCardProps) {
   const { title, text } = props;
   return (
     <div className="p-8 rounded-2xl shadow-[0_0_120px_rgba(255,255,255,0)] bg-linear-to-br   from-cyan-500/10 via-blue-500/10 to-indigo-500/10 border border-white/10 flex flex-col items-center gap-4 backdrop-blur-lg hover:scale-[1.05] transition-all duration-300">
-      <Icon className="size-12 text-cyan-300" />
-      <h3 className="text-xl font-semibold text-white">{title}</h3>
+      <Icon className="size-12 text-primary" />
+      <h3 className="font-display text-2xl tracking-tight text-white">{title}</h3>
       <p className="text-sm opacity-80 text-center leading-relaxed text-white/80">{text}</p>
     </div>
   );
@@ -22,12 +22,12 @@ function InfoCard(props: InfoCardProps) {
 
 export default function DockerPage() {
   return (
-    <div className="min-h-screen mt-16 w-full bg-black text-white px-6 py-16 flex flex-col items-center gap-20 overflow-hidden">
+    <div className="min-h-screen mt-16 w-full bg-transparent text-white px-6 py-16 flex flex-col items-center gap-20 overflow-hidden">
 
       {/* Header */}
       <section className="w-full max-w-5xl flex flex-col items-center text-center">
         <div className="w-full rounded-2xl p-10 border border-white/10 backdrop-blur-xl bg-white/5 shadow-[0_0_120px_rgba(200,200,255,0.15)]">
-          <h1 className="text-5xl font-semibold tracking-tight flex items-center justify-center gap-3 text-cyan-300">
+          <h1 className="text-5xl font-semibold tracking-tight flex items-center justify-center gap-3 text-primary">
             <Container className="size-12" /> Docker Hub
           </h1>
           <p className="mt-4 text-lg opacity-80 leading-relaxed max-w-2xl mx-auto">

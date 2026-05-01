@@ -1,4 +1,4 @@
-﻿"use client";
+"use client";
 import React, { useEffect, useRef } from "react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
@@ -70,7 +70,7 @@ export default function Page() {
         </Canvas>
       </div>
 
-      <main className="min-h-[100vh] mt-16 w-full relative text-[#E5E7EB] p-6">
+      <main className="min-h-screen mt-16 w-full relative pb-24 pt-16 max-w-7xl mx-auto p-6">
         <div className="h-full w-[80vw] mx-auto relative">
 
           {/* ---------- SECTION 1 ---------- */}
@@ -79,7 +79,7 @@ export default function Page() {
             ref={(el) => { sectionsRef.current[0] = el; }}
           >
             <div className="heading flex items-center justify-center flex-col mb-10">
-              <h1 className="mt-16 flex items-center text-5xl font-bold">
+              <h1 className="mt-16 flex items-center font-display text-5xl tracking-tight">
                 ðŸŽ¨ What is Frontend?
               </h1>
               <p className="text-center text-[24px] w-[800px] mt-5 opacity-90">
@@ -102,7 +102,7 @@ export default function Page() {
             />
 
             <div>
-              <h1 className="text-3xl mb-4">ðŸ›  Languages Used in Frontend</h1>
+              <h1 className="font-display text-3xl mb-4 tracking-tight text-white">ðŸ›  Languages Used in Frontend</h1>
 
               <h2 className="text-xl py-1">1. HTML â€” Structure</h2>
               <p className="px-2 text-[18px]">Creates the layout and structure</p>
@@ -120,7 +120,7 @@ export default function Page() {
             className="section mb-20"
             ref={(el) => { sectionsRef.current[2] = el; }}
           >
-            <h1 className="text-4xl mb-3">âš¡ Popular Frontend Frameworks</h1>
+            <h1 className="font-display text-4xl mb-6 tracking-tight text-white">âš¡ Popular Frontend Frameworks</h1>
 
             <div className="ml-12 flex flex-col gap-4 text-[22px]">
               <Skill name="React.js" icon={ReactPNG} />
@@ -138,7 +138,7 @@ export default function Page() {
             className="section mb-10"
             ref={(el) => { sectionsRef.current[3] = el; }}
           >
-            <h1 className="text-4xl mb-5 ml-5">ðŸ“˜ Recommended Learning Path</h1>
+            <h1 className="font-display text-4xl mb-6 tracking-tight text-white ml-5">ðŸ“˜ Recommended Learning Path</h1>
 
             <div className="flex flex-col gap-10 items-center">
 
@@ -217,7 +217,7 @@ function Skill({ name, icon }: SkillProps) {
 
 function StepCard({ title, items }: StepCardProps) {
   return (
-    <div className="flex flex-col gap-4 bg-[#0A0D14] px-6 py-4 rounded-xl shadow-lg">
+    <div className="flex flex-col gap-4 glass-panel px-6 py-6 rounded-2xl border border-white/5 bg-surface/30">
       <h2 className="text-2xl">{title}</h2>
       {items.map((i) => (
         <h3 key={i.name} className="text-[22px] flex gap-3 items-center">
